@@ -10,174 +10,276 @@
 
 **Forked from:** [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex) by Yeachan Heo
 
-QMX is a workflow enhancement layer for [Qwen Code CLI](https://github.com/QwenLM/qwen-code).
+QMX is a workflow enhancement layer for AI coding CLI (**Qwen Code** or **OpenCode**).
 
-It keeps Qwen Code as the execution engine and makes it easier to:
-- start a stronger Qwen Code session by default
-- reuse good role/task invocations with `$name` keywords
-- invoke workflows with skills like `$plan`, `$ralph`, and `$team`
-- keep project guidance, plans, logs, and state in `.qmx/`
+It keeps your AI coding assistant as the execution engine and makes it easier to:
+- ✅ Start a stronger session by default
+- ✅ Reuse role/task invocations with `$name` keywords
+- ✅ Invoke workflows with skills like `$plan`, `$ralph`, and `$team`
+- ✅ Keep project guidance, plans, logs, and state in `.qmx/`
 
-## Recommended default flow
+---
 
-If you want the default QMX experience, start here:
+## 🚀 Quick Start
+
+### Option 1: Qwen Code CLI
 
 ```bash
+# Install Qwen Code CLI and oh-my-qwen
 npm install -g @anthropic/qwen-code oh-my-qwen
+
+# Setup
 qmx setup
-qmx --madmax --high
+
+# Launch with recommended settings
+qmx --high
 ```
 
-Then work normally inside Qwen Code:
+### Option 2: OpenCode CLI
+
+```bash
+# Install OpenCode CLI and oh-my-qwen
+npm install -g opencode oh-my-qwen
+
+# Setup
+qmx setup
+
+# Launch with recommended settings
+qmx --high
+```
+
+### Using Workflows
+
+Once inside your AI coding session:
 
 ```text
 $architect "analyze the authentication flow"
 $plan "ship this feature cleanly"
+$executor "implement the login feature"
+$ralph "fix all failing tests"
 ```
 
-That is the main path.
-Start QMX strongly, do the work in Qwen Code, and let the agent pull in `$team` or other workflows only when the task actually needs them.
+---
 
-## What QMX is for
+## 📋 Requirements
 
-Use QMX if you already like Qwen Code and want a better day-to-day runtime around it:
-- reusable role/task invocations such as `$architect` and `$executor`
-- reusable workflows such as `$plan`, `$ralph`, `$team`, and `$deep-interview`
-- project guidance through scoped `AGENTS.md`
-- durable state under `.qmx/` for plans, logs, memory, and mode tracking
+| Requirement | Version | Notes |
+|-------------|---------|-------|
+| **Node.js** | 20.x+ | Required runtime |
+| **npm** | 9.x+ | Package management |
+| **Qwen Code CLI** or **OpenCode CLI** | Latest | AI agent execution |
+| **tmux** | 3.0+ | Team mode (macOS/Linux) |
+| **psmux** | Latest | Team mode (Windows) |
 
-If you want plain Qwen Code with no extra workflow layer, you probably do not need QMX.
+### Install Dependencies
 
-## Quick start
+**macOS:**
+```bash
+brew install node@20 git tmux
+```
 
-### Requirements
+**Linux (Ubuntu/Debian):**
+```bash
+sudo apt install nodejs npm git tmux
+```
 
-- Node.js 20+
-- Qwen Code CLI installed: `npm install -g @anthropic/qwen-code`
-- Qwen auth configured
-- `tmux` on macOS/Linux if you later want the durable team runtime
-- `psmux` on native Windows if you later want Windows team mode
+**Windows:**
+```bash
+winget install OpenJS.NodeJS.LTS Git.Git psmux
+```
 
-### A good first session
+---
 
-Launch QMX the recommended way:
+## 🎯 What QMX is for
+
+Use QMX if you already like AI coding assistants and want better workflows:
+
+- ✅ **Role keywords** like `$architect`, `$executor`, `$planner`
+- ✅ **Workflow skills** like `$plan`, `$ralph`, `$team`, `$deep-interview`
+- ✅ **Project guidance** through scoped `AGENTS.md`
+- ✅ **Durable state** under `.qmx/` for plans, logs, memory
+
+If you want plain CLI with no extra workflow layer, you don't need QMX.
+
+---
+
+## 📚 Common Workflows
+
+### Role Keywords
+
+| Keyword | Use For |
+|---------|---------|
+| `$architect` | Analysis, boundaries, tradeoffs |
+| `$executor` | Focused implementation work |
+| `$planner` | Work plans and sequencing |
+| `$debugger` | Root-cause analysis |
+| `$verifier` | Completion evidence and validation |
+
+### Workflow Skills
+
+| Keyword | Use For |
+|---------|---------|
+| `$plan` | Planning before implementation |
+| `$ralph` | Persistent execution (don't stop until complete) |
+| `$team` | Multi-agent coordination for large tasks |
+| `$deep-interview` | Socratic clarification of requirements |
+| `$analyze` | Deep investigation |
+| `$code-review` | Systematic code review |
+| `$security-review` | Security audit |
+| `$tdd` | Test-driven development |
+
+---
+
+## 🛠️ Advanced Usage
+
+### Team Runtime
+
+For coordinated parallel work:
 
 ```bash
-qmx --madmax --high
-```
-
-Then try one role keyword and one workflow skill:
-
-```text
-$architect "analyze the authentication flow"
-$plan "map the safest implementation path"
-```
-
-If the task grows, the agent can escalate to heavier workflows such as `$ralph` for persistent execution or `$team` for coordinated parallel work.
-
-## A simple mental model
-
-QMX does **not** replace Qwen Code.
-
-It adds a better working layer around it:
-- **Qwen Code** does the actual agent work
-- **QMX role keywords** make useful roles reusable
-- **QMX skills** make common workflows reusable
-- **`.qmx/`** stores plans, logs, memory, and runtime state
-
-Most users should think of QMX as **better task routing + better workflow + better runtime**, not as a command surface to operate manually all day.
-
-## Start here if you are new
-
-1. Run `qmx setup`
-2. Launch with `qmx --madmax --high`
-3. Ask for analysis with `$architect "..."`
-4. Ask for planning with `$plan "..."`
-5. Let the agent decide when `$ralph`, `$team`, or another workflow is worth using
-
-## Common in-session surfaces
-
-| Surface | Use it for |
-|---------|------------|
-| `$architect "..."` | analysis, boundaries, tradeoffs |
-| `$executor "..."` | focused implementation work |
-| `/skills` | browsing installed skills |
-| `$plan "..."` | planning before implementation |
-| `$ralph "..."` | persistent sequential execution |
-| `$team "..."` | coordinated parallel execution when the task is big enough |
-
-Use `$deep-interview` when the request is still vague, the boundaries are unclear, or you want QMX to keep pressing on intent, non-goals, and decision boundaries before it hands work off to `$plan`, `$ralph`, `$team`, or `$autopilot`.
-
-## Advanced / operator surfaces
-
-These are useful, but they are not the main onboarding path.
-
-### Team runtime
-
-```bash
-qmx team 3:executor "fix the failing tests with verification"
+# From terminal (not in-session)
+qmx team 3:executor "fix the failing tests"
 qmx team status <team-name>
 qmx team resume <team-name>
 qmx team shutdown <team-name>
 ```
 
-### Setup, doctor, and HUD
+### Explore & Sparkshell
 
-- `qmx setup` installs prompts, skills, config, and AGENTS scaffolding
-- `qmx doctor` verifies the install when something seems wrong
-- `qmx hud --watch` is a monitoring/status surface, not the primary user workflow
-
-### Explore and sparkshell
-
-- `qmx explore --prompt "..."` is for read-only repository lookup
-- `qmx sparkshell <command>` is for shell-native inspection and bounded verification
-
-Examples:
 ```bash
-qmx explore --prompt "find where team state is written"
+# Read-only repository lookup
+qmx explore --prompt "find where auth is implemented"
+
+# Shell-native inspection
 qmx sparkshell git status
 qmx sparkshell --tmux-pane %12 --tail-lines 400
 ```
 
-## Platform notes for team mode
+### Setup & Diagnostics
 
-`qmx team` needs a tmux-compatible backend:
+```bash
+# Install skills and workflows
+qmx setup
 
-| Platform | Install |
-|----------|---------|
-| macOS | `brew install tmux` |
-| Ubuntu/Debian | `sudo apt install tmux` |
-| Fedora | `sudo dnf install tmux` |
-| Arch | `sudo pacman -S tmux` |
-| Windows | `winget install psmux` |
-| Windows (WSL2) | `sudo apt install tmux` |
+# Verify installation
+qmx doctor
 
-## Documentation
+# Show active modes
+qmx status
+
+# Cancel active modes
+qmx cancel
+```
+
+---
+
+## 📁 Project Structure
+
+```
+your-project/
+├── .qmx/                    # QMX runtime state
+│   ├── state/              # Mode state files
+│   ├── plans/              # PRDs and test specs
+│   ├── logs/               # Session logs
+│   └── notepad.md          # Session notes
+├── .qwen-code/ or .opencode/
+│   ├── agents/             # Native agent definitions
+│   ├── skills/             # Installed skills
+│   └── prompts/            # Custom prompts
+├── AGENTS.md               # Project orchestration brain
+└── .qmx-config.json        # QMX configuration
+```
+
+---
+
+## 🌍 Languages
+
+- [English](README.md)
+- [한국어](README.ko.md) 🇰🇷
+- [日本語](README.ja.md) 🇯🇵
+- [简体中文](README.zh.md) 🇨🇳
+- [繁體中文](README.zh-TW.md) 🇹
+- [Tiếng Việt](README.vi.md) 🇻🇳
+- [Español](README.es.md) 🇪🇸
+- [Português](README.pt.md) 🇵
+- [Русский](README.ru.md) 🇷
+- [Türkçe](README.tr.md) 🇹🇷
+- [Deutsch](README.de.md) 🇩
+- [Français](README.fr.md) 🇫
+- [Italiano](README.it.md) 🇮
+
+---
+
+## 📖 Documentation
 
 - [Getting Started](./docs/getting-started.html)
-- [Demo guide](./DEMO.md)
-- [Agent catalog](./docs/agents.html)
-- [Skills reference](./docs/skills.html)
+- [Demo Guide](./DEMO.md)
+- [Agent Catalog](./docs/agents.html)
+- [Skills Reference](./docs/skills.html)
 - [Integrations](./docs/integrations.html)
 - [Contributing](./CONTRIBUTING.md)
 - [Changelog](./CHANGELOG.md)
 
-## Languages
+---
 
-- [English](README.md)
-- [한국어](README.ko.md)
-- [日本語](README.ja.md)
-- [简体中文](README.zh.md)
-- [繁體中文](README.zh-TW.md)
-- [Tiếng Việt](README.vi.md)
-- [Español](README.es.md)
-- [Português](README.pt.md)
-- [Русский](README.ru.md)
-- [Türkçe](README.tr.md)
-- [Deutsch](README.de.md)
-- [Français](README.fr.md)
-- [Italiano](README.it.md)
+## 🤝 Contributing
 
-## License
+We welcome contributions! See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
 
-MIT
+### Quick Start for Contributors
+
+```bash
+# Fork and clone
+git clone https://github.com/HaydernCenterpoint/oh-my-qwen.git
+cd oh-my-qwen
+
+# Install dependencies
+npm install
+
+# Build
+npm run build
+
+# Run tests
+npm test
+
+# Link for local testing
+npm link
+qmx setup
+```
+
+---
+
+## 🙏 Acknowledgments
+
+This project is a fork of [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex) by Yeachan Heo, adapted for Qwen Code CLI and OpenCode CLI.
+
+Special thanks to:
+- [Yeachan Heo](https://github.com/Yeachan-Heo) - Original oh-my-codex creator
+- [Qwen Team](https://github.com/QwenLM) - Qwen Code CLI
+- [OpenCode Team](https://github.com/OpenCode1145/opencode) - OpenCode CLI
+- All contributors and the open-source community
+
+---
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) for details.
+
+---
+
+## 🔗 Links
+
+- **GitHub:** https://github.com/HaydernCenterpoint/oh-my-qwen
+- **npm:** https://www.npmjs.com/package/oh-my-qwen
+- **Discord:** https://discord.gg/PUwSMR9XNk
+- **Issues:** https://github.com/HaydernCenterpoint/oh-my-qwen/issues
+
+---
+
+<div align="center">
+
+**Made with ❤️ for AI coding communities**
+
+[![Star History Chart](https://api.star-history.com/svg?repos=HaydernCenterpoint/oh-my-qwen&type=Date)](https://star-history.com/#HaydernCenterpoint/oh-my-qwen&Date)
+
+</div>
