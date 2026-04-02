@@ -37,8 +37,14 @@ qmx --high
 
 ### Option 2: OpenCode CLI
 
+OpenCode is a popular open-source AI coding agent with 120K+ GitHub stars.
+
 ```bash
 # Install OpenCode CLI and oh-my-qwen
+curl -fsSL https://opencode.ai/install | bash
+npm install -g oh-my-qwen
+
+# Or with npm (if available)
 npm install -g opencode oh-my-qwen
 
 # Setup
@@ -47,6 +53,13 @@ qmx setup
 # Launch with recommended settings
 qmx --high
 ```
+
+**Features:**
+- ✅ Free models included
+- ✅ Connect any model (Claude, GPT, Gemini, etc.)
+- ✅ Multi-session support
+- ✅ LSP enabled
+- ✅ Available for terminal, desktop app, and IDE
 
 ### Using Workflows
 
