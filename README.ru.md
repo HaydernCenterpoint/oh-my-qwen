@@ -1,33 +1,33 @@
-# oh-my-codex (OMX)
+﻿# oh-my-qwen (QMX)
 
 <p align="center">
-  <img src="https://yeachan-heo.github.io/oh-my-codex-website/omx-character-nobg.png" alt="oh-my-codex character" width="280">
+  <img src="https://yeachan-heo.github.io/oh-my-qwen-website/QMX-character-nobg.png" alt="oh-my-qwen character" width="280">
   <br>
-  <em>Ваш codex не одинок.</em>
+  <em>Ð’Ð°Ñˆ codex Ð½Ðµ Ð¾Ð´Ð¸Ð½Ð¾Ðº.</em>
 </p>
 
-[![npm version](https://img.shields.io/npm/v/oh-my-codex)](https://www.npmjs.com/package/oh-my-codex)
+[![npm version](https://img.shields.io/npm/v/oh-my-qwen)](https://www.npmjs.com/package/oh-my-qwen)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org)
 
-> **[Website](https://yeachan-heo.github.io/oh-my-codex-website/)** | **[Documentation](https://yeachan-heo.github.io/oh-my-codex-website/docs.html)** | **[CLI Reference](https://yeachan-heo.github.io/oh-my-codex-website/docs.html#cli-reference)** | **[Workflows](https://yeachan-heo.github.io/oh-my-codex-website/docs.html#workflows)** | **[Руководство по интеграции OpenClaw](./docs/openclaw-integration.ru.md)** | **[GitHub](https://github.com/Yeachan-Heo/oh-my-codex)** | **[npm](https://www.npmjs.com/package/oh-my-codex)**
+> **[Website](https://yeachan-heo.github.io/oh-my-qwen-website/)** | **[Documentation](https://yeachan-heo.github.io/oh-my-qwen-website/docs.html)** | **[CLI Reference](https://yeachan-heo.github.io/oh-my-qwen-website/docs.html#cli-reference)** | **[Workflows](https://yeachan-heo.github.io/oh-my-qwen-website/docs.html#workflows)** | **[Ð ÑƒÐºÐ¾Ð²Ð¾Ð´ÑÑ‚Ð²Ð¾ Ð¿Ð¾ Ð¸Ð½Ñ‚ÐµÐ³Ñ€Ð°Ñ†Ð¸Ð¸ OpenClaw](./docs/openclaw-integration.ru.md)** | **[GitHub](https://github.com/Yeachan-Heo/oh-my-qwen)** | **[npm](https://www.npmjs.com/package/oh-my-qwen)**
 
-Слой мультиагентной оркестрации для [OpenAI Codex CLI](https://github.com/openai/codex).
+Ð¡Ð»Ð¾Ð¹ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸Ð°Ð³ÐµÐ½Ñ‚Ð½Ð¾Ð¹ Ð¾Ñ€ÐºÐµÑÑ‚Ñ€Ð°Ñ†Ð¸Ð¸ Ð´Ð»Ñ [OpenAI Qwen Code CLI](https://github.com/openai/codex).
 
-## Что нового в v0.9.0 — Spark Initiative
+## Ð§Ñ‚Ð¾ Ð½Ð¾Ð²Ð¾Ð³Ð¾ Ð² v0.9.0 â€” Spark Initiative
 
-Spark Initiative — это релиз, усиливающий нативный путь исследования и инспекции в OMX.
+Spark Initiative â€” ÑÑ‚Ð¾ Ñ€ÐµÐ»Ð¸Ð·, ÑƒÑÐ¸Ð»Ð¸Ð²Ð°ÑŽÑ‰Ð¸Ð¹ Ð½Ð°Ñ‚Ð¸Ð²Ð½Ñ‹Ð¹ Ð¿ÑƒÑ‚ÑŒ Ð¸ÑÑÐ»ÐµÐ´Ð¾Ð²Ð°Ð½Ð¸Ñ Ð¸ Ð¸Ð½ÑÐ¿ÐµÐºÑ†Ð¸Ð¸ Ð² QMX.
 
-- **Нативный harness для `omx explore`** — ускоряет и ужесточает read-only исследование репозитория через Rust-путь.
-- **`omx sparkshell`** — нативная операторская поверхность для инспекции с краткими сводками длинного вывода и явным захватом tmux-pane.
-- **Кроссплатформенные нативные release-артефакты** — путь hydration для `omx-explore-harness`, `omx-sparkshell` и `native-release-manifest.json` теперь входит в release pipeline.
-- **Усиленный CI/CD** — добавлены явная настройка Rust toolchain в job `build`, а также `cargo fmt --check` и `cargo clippy -- -D warnings`.
+- **ÐÐ°Ñ‚Ð¸Ð²Ð½Ñ‹Ð¹ harness Ð´Ð»Ñ `QMX explore`** â€” ÑƒÑÐºÐ¾Ñ€ÑÐµÑ‚ Ð¸ ÑƒÐ¶ÐµÑÑ‚Ð¾Ñ‡Ð°ÐµÑ‚ read-only Ð¸ÑÑÐ»ÐµÐ´Ð¾Ð²Ð°Ð½Ð¸Ðµ Ñ€ÐµÐ¿Ð¾Ð·Ð¸Ñ‚Ð¾Ñ€Ð¸Ñ Ñ‡ÐµÑ€ÐµÐ· Rust-Ð¿ÑƒÑ‚ÑŒ.
+- **`QMX sparkshell`** â€” Ð½Ð°Ñ‚Ð¸Ð²Ð½Ð°Ñ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€ÑÐºÐ°Ñ Ð¿Ð¾Ð²ÐµÑ€Ñ…Ð½Ð¾ÑÑ‚ÑŒ Ð´Ð»Ñ Ð¸Ð½ÑÐ¿ÐµÐºÑ†Ð¸Ð¸ Ñ ÐºÑ€Ð°Ñ‚ÐºÐ¸Ð¼Ð¸ ÑÐ²Ð¾Ð´ÐºÐ°Ð¼Ð¸ Ð´Ð»Ð¸Ð½Ð½Ð¾Ð³Ð¾ Ð²Ñ‹Ð²Ð¾Ð´Ð° Ð¸ ÑÐ²Ð½Ñ‹Ð¼ Ð·Ð°Ñ…Ð²Ð°Ñ‚Ð¾Ð¼ tmux-pane.
+- **ÐšÑ€Ð¾ÑÑÐ¿Ð»Ð°Ñ‚Ñ„Ð¾Ñ€Ð¼ÐµÐ½Ð½Ñ‹Ðµ Ð½Ð°Ñ‚Ð¸Ð²Ð½Ñ‹Ðµ release-Ð°Ñ€Ñ‚ÐµÑ„Ð°ÐºÑ‚Ñ‹** â€” Ð¿ÑƒÑ‚ÑŒ hydration Ð´Ð»Ñ `QMX-explore-harness`, `QMX-sparkshell` Ð¸ `native-release-manifest.json` Ñ‚ÐµÐ¿ÐµÑ€ÑŒ Ð²Ñ…Ð¾Ð´Ð¸Ñ‚ Ð² release pipeline.
+- **Ð£ÑÐ¸Ð»ÐµÐ½Ð½Ñ‹Ð¹ CI/CD** â€” Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ñ‹ ÑÐ²Ð½Ð°Ñ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ° Rust toolchain Ð² job `build`, Ð° Ñ‚Ð°ÐºÐ¶Ðµ `cargo fmt --check` Ð¸ `cargo clippy -- -D warnings`.
 
-См. также [release notes v0.9.0](./docs/release-notes-0.9.0.md) и [release body](./docs/release-body-0.9.0.md).
+Ð¡Ð¼. Ñ‚Ð°ÐºÐ¶Ðµ [release notes v0.9.0](./docs/release-notes-0.9.0.md) Ð¸ [release body](./docs/release-body-0.9.0.md).
 
-## Первая сессия
+## ÐŸÐµÑ€Ð²Ð°Ñ ÑÐµÑÑÐ¸Ñ
 
-Внутри Codex:
+Ð’Ð½ÑƒÑ‚Ñ€Ð¸ Codex:
 
 ```text
 /prompts:architect "analyze current auth boundaries"
@@ -36,57 +36,57 @@ $plan "ship OAuth callback safely"
 $team 3:executor "fix all TypeScript errors"
 ```
 
-Из терминала:
+Ð˜Ð· Ñ‚ÐµÑ€Ð¼Ð¸Ð½Ð°Ð»Ð°:
 
 ```bash
-omx team 4:executor "parallelize a multi-module refactor"
-omx team status <team-name>
-omx team shutdown <team-name>
+QMX team 4:executor "parallelize a multi-module refactor"
+QMX team status <team-name>
+QMX team shutdown <team-name>
 ```
 
-## Базовая модель
+## Ð‘Ð°Ð·Ð¾Ð²Ð°Ñ Ð¼Ð¾Ð´ÐµÐ»ÑŒ
 
-OMX устанавливает и связывает следующие слои:
+QMX ÑƒÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÐµÑ‚ Ð¸ ÑÐ²ÑÐ·Ñ‹Ð²Ð°ÐµÑ‚ ÑÐ»ÐµÐ´ÑƒÑŽÑ‰Ð¸Ðµ ÑÐ»Ð¾Ð¸:
 
 ```text
 User
-  -> Codex CLI
-    -> AGENTS.md (мозг оркестрации)
-    -> ~/.codex/prompts/*.md (каталог промптов агентов)
-    -> ~/.codex/skills/*/SKILL.md (каталог навыков)
-    -> ~/.codex/config.toml (функции, уведомления, MCP)
-    -> .omx/ (состояние выполнения, память, планы, журналы)
+  -> Qwen Code CLI
+    -> AGENTS.md (Ð¼Ð¾Ð·Ð³ Ð¾Ñ€ÐºÐµÑÑ‚Ñ€Ð°Ñ†Ð¸Ð¸)
+    -> ~/.codex/prompts/*.md (ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³ Ð¿Ñ€Ð¾Ð¼Ð¿Ñ‚Ð¾Ð² Ð°Ð³ÐµÐ½Ñ‚Ð¾Ð²)
+    -> ~/.codex/skills/*/SKILL.md (ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³ Ð½Ð°Ð²Ñ‹ÐºÐ¾Ð²)
+    -> ~/.codex/config.toml (Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸, ÑƒÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ñ, MCP)
+    -> .QMX/ (ÑÐ¾ÑÑ‚Ð¾ÑÐ½Ð¸Ðµ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ñ, Ð¿Ð°Ð¼ÑÑ‚ÑŒ, Ð¿Ð»Ð°Ð½Ñ‹, Ð¶ÑƒÑ€Ð½Ð°Ð»Ñ‹)
 ```
 
-## Основные команды
+## ÐžÑÐ½Ð¾Ð²Ð½Ñ‹Ðµ ÐºÐ¾Ð¼Ð°Ð½Ð´Ñ‹
 
 ```bash
-omx                # Запустить Codex (+ HUD в tmux при наличии)
-omx setup          # Установить промпты/навыки/конфиг по области + .omx проекта + AGENTS.md для выбранной области
-omx doctor         # Диагностика установки/среды выполнения
-omx doctor --team  # Диагностика Team/swarm
-omx team ...       # Запуск/статус/возобновление/завершение рабочих tmux
-omx status         # Показать активные режимы
-omx cancel         # Отменить активные режимы выполнения
-omx reasoning <mode> # low|medium|high|xhigh
-omx tmux-hook ...  # init|status|validate|test
-omx hooks ...      # init|status|validate|test (рабочий процесс расширений плагинов)
-omx hud ...        # --watch|--json|--preset
-omx help
+QMX                # Ð—Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚ÑŒ Codex (+ HUD Ð² tmux Ð¿Ñ€Ð¸ Ð½Ð°Ð»Ð¸Ñ‡Ð¸Ð¸)
+QMX setup          # Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð¿Ñ€Ð¾Ð¼Ð¿Ñ‚Ñ‹/Ð½Ð°Ð²Ñ‹ÐºÐ¸/ÐºÐ¾Ð½Ñ„Ð¸Ð³ Ð¿Ð¾ Ð¾Ð±Ð»Ð°ÑÑ‚Ð¸ + .QMX Ð¿Ñ€Ð¾ÐµÐºÑ‚Ð° + AGENTS.md Ð´Ð»Ñ Ð²Ñ‹Ð±Ñ€Ð°Ð½Ð½Ð¾Ð¹ Ð¾Ð±Ð»Ð°ÑÑ‚Ð¸
+QMX doctor         # Ð”Ð¸Ð°Ð³Ð½Ð¾ÑÑ‚Ð¸ÐºÐ° ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ¸/ÑÑ€ÐµÐ´Ñ‹ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ñ
+QMX doctor --team  # Ð”Ð¸Ð°Ð³Ð½Ð¾ÑÑ‚Ð¸ÐºÐ° Team/swarm
+QMX team ...       # Ð—Ð°Ð¿ÑƒÑÐº/ÑÑ‚Ð°Ñ‚ÑƒÑ/Ð²Ð¾Ð·Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ/Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¸Ðµ Ñ€Ð°Ð±Ð¾Ñ‡Ð¸Ñ… tmux
+QMX status         # ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð°ÐºÑ‚Ð¸Ð²Ð½Ñ‹Ðµ Ñ€ÐµÐ¶Ð¸Ð¼Ñ‹
+QMX cancel         # ÐžÑ‚Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð°ÐºÑ‚Ð¸Ð²Ð½Ñ‹Ðµ Ñ€ÐµÐ¶Ð¸Ð¼Ñ‹ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ñ
+QMX reasoning <mode> # low|medium|high|xhigh
+QMX tmux-hook ...  # init|status|validate|test
+QMX hooks ...      # init|status|validate|test (Ñ€Ð°Ð±Ð¾Ñ‡Ð¸Ð¹ Ð¿Ñ€Ð¾Ñ†ÐµÑÑ Ñ€Ð°ÑÑˆÐ¸Ñ€ÐµÐ½Ð¸Ð¹ Ð¿Ð»Ð°Ð³Ð¸Ð½Ð¾Ð²)
+QMX hud ...        # --watch|--json|--preset
+QMX help
 ```
 
-## Расширение Hooks (Дополнительная поверхность)
+## Ð Ð°ÑÑˆÐ¸Ñ€ÐµÐ½Ð¸Ðµ Hooks (Ð”Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð°Ñ Ð¿Ð¾Ð²ÐµÑ€Ñ…Ð½Ð¾ÑÑ‚ÑŒ)
 
-OMX теперь включает `omx hooks` для создания шаблонов плагинов и валидации.
+QMX Ñ‚ÐµÐ¿ÐµÑ€ÑŒ Ð²ÐºÐ»ÑŽÑ‡Ð°ÐµÑ‚ `QMX hooks` Ð´Ð»Ñ ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ñ ÑˆÐ°Ð±Ð»Ð¾Ð½Ð¾Ð² Ð¿Ð»Ð°Ð³Ð¸Ð½Ð¾Ð² Ð¸ Ð²Ð°Ð»Ð¸Ð´Ð°Ñ†Ð¸Ð¸.
 
-- `omx tmux-hook` по-прежнему поддерживается и не изменён.
-- `omx hooks` является дополнительным и не заменяет рабочие процессы tmux-hook.
-- Файлы плагинов располагаются в `.omx/hooks/*.mjs`.
-- Плагины по умолчанию отключены; включите с помощью `OMX_HOOK_PLUGINS=1`.
+- `QMX tmux-hook` Ð¿Ð¾-Ð¿Ñ€ÐµÐ¶Ð½ÐµÐ¼Ñƒ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ÑÑ Ð¸ Ð½Ðµ Ð¸Ð·Ð¼ÐµÐ½Ñ‘Ð½.
+- `QMX hooks` ÑÐ²Ð»ÑÐµÑ‚ÑÑ Ð´Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¼ Ð¸ Ð½Ðµ Ð·Ð°Ð¼ÐµÐ½ÑÐµÑ‚ Ñ€Ð°Ð±Ð¾Ñ‡Ð¸Ðµ Ð¿Ñ€Ð¾Ñ†ÐµÑÑÑ‹ tmux-hook.
+- Ð¤Ð°Ð¹Ð»Ñ‹ Ð¿Ð»Ð°Ð³Ð¸Ð½Ð¾Ð² Ñ€Ð°ÑÐ¿Ð¾Ð»Ð°Ð³Ð°ÑŽÑ‚ÑÑ Ð² `.QMX/hooks/*.mjs`.
+- ÐŸÐ»Ð°Ð³Ð¸Ð½Ñ‹ Ð¿Ð¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ Ð¾Ñ‚ÐºÐ»ÑŽÑ‡ÐµÐ½Ñ‹; Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚Ðµ Ñ Ð¿Ð¾Ð¼Ð¾Ñ‰ÑŒÑŽ `QMX_HOOK_PLUGINS=1`.
 
-Полный рабочий процесс расширений и модель событий описаны в `docs/hooks-extension.md`.
+ÐŸÐ¾Ð»Ð½Ñ‹Ð¹ Ñ€Ð°Ð±Ð¾Ñ‡Ð¸Ð¹ Ð¿Ñ€Ð¾Ñ†ÐµÑÑ Ñ€Ð°ÑÑˆÐ¸Ñ€ÐµÐ½Ð¸Ð¹ Ð¸ Ð¼Ð¾Ð´ÐµÐ»ÑŒ ÑÐ¾Ð±Ñ‹Ñ‚Ð¸Ð¹ Ð¾Ð¿Ð¸ÑÐ°Ð½Ñ‹ Ð² `docs/hooks-extension.md`.
 
-## Флаги запуска
+## Ð¤Ð»Ð°Ð³Ð¸ Ð·Ð°Ð¿ÑƒÑÐºÐ°
 
 ```bash
 --yolo
@@ -96,116 +96,116 @@ OMX теперь включает `omx hooks` для создания шабло
 --force
 --dry-run
 --verbose
---scope <user|project>  # только для setup
+--scope <user|project>  # Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð´Ð»Ñ setup
 ```
 
-`--madmax` соответствует Codex `--dangerously-bypass-approvals-and-sandbox`.
-Используйте только в доверенных/внешних sandbox-окружениях.
+`--madmax` ÑÐ¾Ð¾Ñ‚Ð²ÐµÑ‚ÑÑ‚Ð²ÑƒÐµÑ‚ Codex `--dangerously-bypass-approvals-and-sandbox`.
+Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð² Ð´Ð¾Ð²ÐµÑ€ÐµÐ½Ð½Ñ‹Ñ…/Ð²Ð½ÐµÑˆÐ½Ð¸Ñ… sandbox-Ð¾ÐºÑ€ÑƒÐ¶ÐµÐ½Ð¸ÑÑ….
 
-### Политика workingDirectory MCP (опциональное усиление)
+### ÐŸÐ¾Ð»Ð¸Ñ‚Ð¸ÐºÐ° workingDirectory MCP (Ð¾Ð¿Ñ†Ð¸Ð¾Ð½Ð°Ð»ÑŒÐ½Ð¾Ðµ ÑƒÑÐ¸Ð»ÐµÐ½Ð¸Ðµ)
 
-По умолчанию инструменты MCP state/memory/trace принимают `workingDirectory`, предоставленный вызывающей стороной.
-Чтобы ограничить это, задайте список разрешённых корней:
+ÐŸÐ¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ Ð¸Ð½ÑÑ‚Ñ€ÑƒÐ¼ÐµÐ½Ñ‚Ñ‹ MCP state/memory/trace Ð¿Ñ€Ð¸Ð½Ð¸Ð¼Ð°ÑŽÑ‚ `workingDirectory`, Ð¿Ñ€ÐµÐ´Ð¾ÑÑ‚Ð°Ð²Ð»ÐµÐ½Ð½Ñ‹Ð¹ Ð²Ñ‹Ð·Ñ‹Ð²Ð°ÑŽÑ‰ÐµÐ¹ ÑÑ‚Ð¾Ñ€Ð¾Ð½Ð¾Ð¹.
+Ð§Ñ‚Ð¾Ð±Ñ‹ Ð¾Ð³Ñ€Ð°Ð½Ð¸Ñ‡Ð¸Ñ‚ÑŒ ÑÑ‚Ð¾, Ð·Ð°Ð´Ð°Ð¹Ñ‚Ðµ ÑÐ¿Ð¸ÑÐ¾Ðº Ñ€Ð°Ð·Ñ€ÐµÑˆÑ‘Ð½Ð½Ñ‹Ñ… ÐºÐ¾Ñ€Ð½ÐµÐ¹:
 
 ```bash
-export OMX_MCP_WORKDIR_ROOTS="/path/to/project:/path/to/another-root"
+export QMX_MCP_WORKDIR_ROOTS="/path/to/project:/path/to/another-root"
 ```
 
-При установке значения `workingDirectory` за пределами этих корней будут отклонены.
+ÐŸÑ€Ð¸ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ `workingDirectory` Ð·Ð° Ð¿Ñ€ÐµÐ´ÐµÐ»Ð°Ð¼Ð¸ ÑÑ‚Ð¸Ñ… ÐºÐ¾Ñ€Ð½ÐµÐ¹ Ð±ÑƒÐ´ÑƒÑ‚ Ð¾Ñ‚ÐºÐ»Ð¾Ð½ÐµÐ½Ñ‹.
 
-## Codex-First управление промптами
+## Codex-First ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð¿Ñ€Ð¾Ð¼Ð¿Ñ‚Ð°Ð¼Ð¸
 
-По умолчанию OMX внедряет:
+ÐŸÐ¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ QMX Ð²Ð½ÐµÐ´Ñ€ÑÐµÑ‚:
 
 ```text
 -c model_instructions_file="<cwd>/AGENTS.md"
 ```
 
-Это объединяет `AGENTS.md` из `CODEX_HOME` с проектным `AGENTS.md` (если он есть), а затем добавляет runtime-overlay.
-Расширяет поведение Codex, но не заменяет/обходит основные системные политики Codex.
+Ð­Ñ‚Ð¾ Ð¾Ð±ÑŠÐµÐ´Ð¸Ð½ÑÐµÑ‚ `AGENTS.md` Ð¸Ð· `CODEX_HOME` Ñ Ð¿Ñ€Ð¾ÐµÐºÑ‚Ð½Ñ‹Ð¼ `AGENTS.md` (ÐµÑÐ»Ð¸ Ð¾Ð½ ÐµÑÑ‚ÑŒ), Ð° Ð·Ð°Ñ‚ÐµÐ¼ Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÑ‚ runtime-overlay.
+Ð Ð°ÑÑˆÐ¸Ñ€ÑÐµÑ‚ Ð¿Ð¾Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ Codex, Ð½Ð¾ Ð½Ðµ Ð·Ð°Ð¼ÐµÐ½ÑÐµÑ‚/Ð¾Ð±Ñ…Ð¾Ð´Ð¸Ñ‚ Ð¾ÑÐ½Ð¾Ð²Ð½Ñ‹Ðµ ÑÐ¸ÑÑ‚ÐµÐ¼Ð½Ñ‹Ðµ Ð¿Ð¾Ð»Ð¸Ñ‚Ð¸ÐºÐ¸ Codex.
 
-Управление:
+Ð£Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ:
 
 ```bash
-OMX_BYPASS_DEFAULT_SYSTEM_PROMPT=0 omx     # отключить внедрение AGENTS.md
-OMX_MODEL_INSTRUCTIONS_FILE=/path/to/instructions.md omx
+QMX_BYPASS_DEFAULT_SYSTEM_PROMPT=0 QMX     # Ð¾Ñ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð²Ð½ÐµÐ´Ñ€ÐµÐ½Ð¸Ðµ AGENTS.md
+QMX_MODEL_INSTRUCTIONS_FILE=/path/to/instructions.md QMX
 ```
 
-## Командный режим
+## ÐšÐ¾Ð¼Ð°Ð½Ð´Ð½Ñ‹Ð¹ Ñ€ÐµÐ¶Ð¸Ð¼
 
-Используйте командный режим для масштабной работы, которая выигрывает от параллельных исполнителей.
+Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ ÐºÐ¾Ð¼Ð°Ð½Ð´Ð½Ñ‹Ð¹ Ñ€ÐµÐ¶Ð¸Ð¼ Ð´Ð»Ñ Ð¼Ð°ÑÑˆÑ‚Ð°Ð±Ð½Ð¾Ð¹ Ñ€Ð°Ð±Ð¾Ñ‚Ñ‹, ÐºÐ¾Ñ‚Ð¾Ñ€Ð°Ñ Ð²Ñ‹Ð¸Ð³Ñ€Ñ‹Ð²Ð°ÐµÑ‚ Ð¾Ñ‚ Ð¿Ð°Ñ€Ð°Ð»Ð»ÐµÐ»ÑŒÐ½Ñ‹Ñ… Ð¸ÑÐ¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÐµÐ¹.
 
-Жизненный цикл:
+Ð–Ð¸Ð·Ð½ÐµÐ½Ð½Ñ‹Ð¹ Ñ†Ð¸ÐºÐ»:
 
 ```text
 start -> assign scoped lanes -> monitor -> verify terminal tasks -> shutdown
 ```
 
-Операционные команды:
+ÐžÐ¿ÐµÑ€Ð°Ñ†Ð¸Ð¾Ð½Ð½Ñ‹Ðµ ÐºÐ¾Ð¼Ð°Ð½Ð´Ñ‹:
 
 ```bash
-omx team <args>
-omx team status <team-name>
-omx team resume <team-name>
-omx team shutdown <team-name>
+QMX team <args>
+QMX team status <team-name>
+QMX team resume <team-name>
+QMX team shutdown <team-name>
 ```
 
-Важное правило: не завершайте работу, пока задачи находятся в состоянии `in_progress`, если только не прерываете выполнение.
+Ð’Ð°Ð¶Ð½Ð¾Ðµ Ð¿Ñ€Ð°Ð²Ð¸Ð»Ð¾: Ð½Ðµ Ð·Ð°Ð²ÐµÑ€ÑˆÐ°Ð¹Ñ‚Ðµ Ñ€Ð°Ð±Ð¾Ñ‚Ñƒ, Ð¿Ð¾ÐºÐ° Ð·Ð°Ð´Ð°Ñ‡Ð¸ Ð½Ð°Ñ…Ð¾Ð´ÑÑ‚ÑÑ Ð² ÑÐ¾ÑÑ‚Ð¾ÑÐ½Ð¸Ð¸ `in_progress`, ÐµÑÐ»Ð¸ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð½Ðµ Ð¿Ñ€ÐµÑ€Ñ‹Ð²Ð°ÐµÑ‚Ðµ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ðµ.
 
 ### Team shutdown policy
 
-Use `omx team shutdown <team-name>` after the team reaches a terminal state.
-Team cleanup now follows one standalone path; there is no separate `omx team ralph ...` shutdown policy anymore.
+Use `QMX team shutdown <team-name>` after the team reaches a terminal state.
+Team cleanup now follows one standalone path; there is no separate `QMX team ralph ...` shutdown policy anymore.
 
-Выбор Worker CLI для рабочих команды:
+Ð’Ñ‹Ð±Ð¾Ñ€ Worker CLI Ð´Ð»Ñ Ñ€Ð°Ð±Ð¾Ñ‡Ð¸Ñ… ÐºÐ¾Ð¼Ð°Ð½Ð´Ñ‹:
 
 ```bash
-OMX_TEAM_WORKER_CLI=auto    # по умолчанию; использует claude, если worker --model содержит "claude"
-OMX_TEAM_WORKER_CLI=codex   # принудительно Codex CLI
-OMX_TEAM_WORKER_CLI=claude  # принудительно Claude CLI
-OMX_TEAM_WORKER_CLI_MAP=codex,codex,claude,claude  # CLI для каждого рабочего (длина=1 или количество рабочих)
-OMX_TEAM_AUTO_INTERRUPT_RETRY=0  # опционально: отключить адаптивный откат queue->resend
+QMX_TEAM_WORKER_CLI=auto    # Ð¿Ð¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ; Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ claude, ÐµÑÐ»Ð¸ worker --model ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ñ‚ "claude"
+QMX_TEAM_WORKER_CLI=codex   # Ð¿Ñ€Ð¸Ð½ÑƒÐ´Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ Qwen Code CLI
+QMX_TEAM_WORKER_CLI=claude  # Ð¿Ñ€Ð¸Ð½ÑƒÐ´Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ Claude CLI
+QMX_TEAM_WORKER_CLI_MAP=codex,codex,claude,claude  # CLI Ð´Ð»Ñ ÐºÐ°Ð¶Ð´Ð¾Ð³Ð¾ Ñ€Ð°Ð±Ð¾Ñ‡ÐµÐ³Ð¾ (Ð´Ð»Ð¸Ð½Ð°=1 Ð¸Ð»Ð¸ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ñ€Ð°Ð±Ð¾Ñ‡Ð¸Ñ…)
+QMX_TEAM_AUTO_INTERRUPT_RETRY=0  # Ð¾Ð¿Ñ†Ð¸Ð¾Ð½Ð°Ð»ÑŒÐ½Ð¾: Ð¾Ñ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð°Ð´Ð°Ð¿Ñ‚Ð¸Ð²Ð½Ñ‹Ð¹ Ð¾Ñ‚ÐºÐ°Ñ‚ queue->resend
 ```
 
-Примечания:
-- Аргументы запуска рабочих по-прежнему передаются через `OMX_TEAM_WORKER_LAUNCH_ARGS`.
-- `OMX_TEAM_WORKER_CLI_MAP` переопределяет `OMX_TEAM_WORKER_CLI` для выбора на уровне рабочего.
-- Отправка триггеров по умолчанию использует адаптивные повторные попытки (queue/submit, затем безопасный откат clear-line+resend при необходимости).
-- В режиме Claude worker OMX запускает рабочих как обычный `claude` (без дополнительных аргументов) и игнорирует явные переопределения `--model` / `--config` / `--effort`, чтобы Claude использовал стандартный `settings.json`.
+ÐŸÑ€Ð¸Ð¼ÐµÑ‡Ð°Ð½Ð¸Ñ:
+- ÐÑ€Ð³ÑƒÐ¼ÐµÐ½Ñ‚Ñ‹ Ð·Ð°Ð¿ÑƒÑÐºÐ° Ñ€Ð°Ð±Ð¾Ñ‡Ð¸Ñ… Ð¿Ð¾-Ð¿Ñ€ÐµÐ¶Ð½ÐµÐ¼Ñƒ Ð¿ÐµÑ€ÐµÐ´Ð°ÑŽÑ‚ÑÑ Ñ‡ÐµÑ€ÐµÐ· `QMX_TEAM_WORKER_LAUNCH_ARGS`.
+- `QMX_TEAM_WORKER_CLI_MAP` Ð¿ÐµÑ€ÐµÐ¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÑÐµÑ‚ `QMX_TEAM_WORKER_CLI` Ð´Ð»Ñ Ð²Ñ‹Ð±Ð¾Ñ€Ð° Ð½Ð° ÑƒÑ€Ð¾Ð²Ð½Ðµ Ñ€Ð°Ð±Ð¾Ñ‡ÐµÐ³Ð¾.
+- ÐžÑ‚Ð¿Ñ€Ð°Ð²ÐºÐ° Ñ‚Ñ€Ð¸Ð³Ð³ÐµÑ€Ð¾Ð² Ð¿Ð¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ Ð°Ð´Ð°Ð¿Ñ‚Ð¸Ð²Ð½Ñ‹Ðµ Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð½Ñ‹Ðµ Ð¿Ð¾Ð¿Ñ‹Ñ‚ÐºÐ¸ (queue/submit, Ð·Ð°Ñ‚ÐµÐ¼ Ð±ÐµÐ·Ð¾Ð¿Ð°ÑÐ½Ñ‹Ð¹ Ð¾Ñ‚ÐºÐ°Ñ‚ clear-line+resend Ð¿Ñ€Ð¸ Ð½ÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ð¾ÑÑ‚Ð¸).
+- Ð’ Ñ€ÐµÐ¶Ð¸Ð¼Ðµ Claude worker QMX Ð·Ð°Ð¿ÑƒÑÐºÐ°ÐµÑ‚ Ñ€Ð°Ð±Ð¾Ñ‡Ð¸Ñ… ÐºÐ°Ðº Ð¾Ð±Ñ‹Ñ‡Ð½Ñ‹Ð¹ `claude` (Ð±ÐµÐ· Ð´Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ñ… Ð°Ñ€Ð³ÑƒÐ¼ÐµÐ½Ñ‚Ð¾Ð²) Ð¸ Ð¸Ð³Ð½Ð¾Ñ€Ð¸Ñ€ÑƒÐµÑ‚ ÑÐ²Ð½Ñ‹Ðµ Ð¿ÐµÑ€ÐµÐ¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ñ `--model` / `--config` / `--effort`, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Claude Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð» ÑÑ‚Ð°Ð½Ð´Ð°Ñ€Ñ‚Ð½Ñ‹Ð¹ `settings.json`.
 
-## Что записывает `omx setup`
+## Ð§Ñ‚Ð¾ Ð·Ð°Ð¿Ð¸ÑÑ‹Ð²Ð°ÐµÑ‚ `QMX setup`
 
-- `.omx/setup-scope.json` (сохранённая область установки)
-- Установки в зависимости от области:
-  - `user`: `~/.codex/prompts/`, `~/.codex/skills/`, `~/.codex/config.toml`, `~/.omx/agents/`, `~/.codex/AGENTS.md`
-  - `project`: `./.codex/prompts/`, `./.codex/skills/`, `./.codex/config.toml`, `./.omx/agents/`, `./AGENTS.md`
-- Поведение при запуске: если сохранённая область — `project`, `omx` автоматически использует `CODEX_HOME=./.codex` (если `CODEX_HOME` ещё не задан).
-- Инструкции запуска объединяют `~/.codex/AGENTS.md` (или `CODEX_HOME/AGENTS.md`, если путь переопределён) с проектным `./AGENTS.md`, а затем добавляют runtime-overlay.
-- Существующие файлы `AGENTS.md` никогда не перезаписываются молча: в интерактивном TTY setup спрашивает перед заменой, а в неинтерактивном режиме пропускает замену без `--force` (проверки безопасности активных сессий остаются в силе).
-- Обновления `config.toml` (для обеих областей):
+- `.QMX/setup-scope.json` (ÑÐ¾Ñ…Ñ€Ð°Ð½Ñ‘Ð½Ð½Ð°Ñ Ð¾Ð±Ð»Ð°ÑÑ‚ÑŒ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ¸)
+- Ð£ÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ¸ Ð² Ð·Ð°Ð²Ð¸ÑÐ¸Ð¼Ð¾ÑÑ‚Ð¸ Ð¾Ñ‚ Ð¾Ð±Ð»Ð°ÑÑ‚Ð¸:
+  - `user`: `~/.codex/prompts/`, `~/.codex/skills/`, `~/.codex/config.toml`, `~/.QMX/agents/`, `~/.codex/AGENTS.md`
+  - `project`: `./.codex/prompts/`, `./.codex/skills/`, `./.codex/config.toml`, `./.QMX/agents/`, `./AGENTS.md`
+- ÐŸÐ¾Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ Ð¿Ñ€Ð¸ Ð·Ð°Ð¿ÑƒÑÐºÐµ: ÐµÑÐ»Ð¸ ÑÐ¾Ñ…Ñ€Ð°Ð½Ñ‘Ð½Ð½Ð°Ñ Ð¾Ð±Ð»Ð°ÑÑ‚ÑŒ â€” `project`, `QMX` Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ `CODEX_HOME=./.codex` (ÐµÑÐ»Ð¸ `CODEX_HOME` ÐµÑ‰Ñ‘ Ð½Ðµ Ð·Ð°Ð´Ð°Ð½).
+- Ð˜Ð½ÑÑ‚Ñ€ÑƒÐºÑ†Ð¸Ð¸ Ð·Ð°Ð¿ÑƒÑÐºÐ° Ð¾Ð±ÑŠÐµÐ´Ð¸Ð½ÑÑŽÑ‚ `~/.codex/AGENTS.md` (Ð¸Ð»Ð¸ `CODEX_HOME/AGENTS.md`, ÐµÑÐ»Ð¸ Ð¿ÑƒÑ‚ÑŒ Ð¿ÐµÑ€ÐµÐ¾Ð¿Ñ€ÐµÐ´ÐµÐ»Ñ‘Ð½) Ñ Ð¿Ñ€Ð¾ÐµÐºÑ‚Ð½Ñ‹Ð¼ `./AGENTS.md`, Ð° Ð·Ð°Ñ‚ÐµÐ¼ Ð´Ð¾Ð±Ð°Ð²Ð»ÑÑŽÑ‚ runtime-overlay.
+- Ð¡ÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ðµ Ñ„Ð°Ð¹Ð»Ñ‹ `AGENTS.md` Ð½Ð¸ÐºÐ¾Ð³Ð´Ð° Ð½Ðµ Ð¿ÐµÑ€ÐµÐ·Ð°Ð¿Ð¸ÑÑ‹Ð²Ð°ÑŽÑ‚ÑÑ Ð¼Ð¾Ð»Ñ‡Ð°: Ð² Ð¸Ð½Ñ‚ÐµÑ€Ð°ÐºÑ‚Ð¸Ð²Ð½Ð¾Ð¼ TTY setup ÑÐ¿Ñ€Ð°ÑˆÐ¸Ð²Ð°ÐµÑ‚ Ð¿ÐµÑ€ÐµÐ´ Ð·Ð°Ð¼ÐµÐ½Ð¾Ð¹, Ð° Ð² Ð½ÐµÐ¸Ð½Ñ‚ÐµÑ€Ð°ÐºÑ‚Ð¸Ð²Ð½Ð¾Ð¼ Ñ€ÐµÐ¶Ð¸Ð¼Ðµ Ð¿Ñ€Ð¾Ð¿ÑƒÑÐºÐ°ÐµÑ‚ Ð·Ð°Ð¼ÐµÐ½Ñƒ Ð±ÐµÐ· `--force` (Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ¸ Ð±ÐµÐ·Ð¾Ð¿Ð°ÑÐ½Ð¾ÑÑ‚Ð¸ Ð°ÐºÑ‚Ð¸Ð²Ð½Ñ‹Ñ… ÑÐµÑÑÐ¸Ð¹ Ð¾ÑÑ‚Ð°ÑŽÑ‚ÑÑ Ð² ÑÐ¸Ð»Ðµ).
+- ÐžÐ±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ `config.toml` (Ð´Ð»Ñ Ð¾Ð±ÐµÐ¸Ñ… Ð¾Ð±Ð»Ð°ÑÑ‚ÐµÐ¹):
   - `notify = ["node", "..."]`
   - `model_reasoning_effort = "high"`
   - `developer_instructions = "..."`
   - `[features] multi_agent = true, child_agents_md = true`
-  - Записи MCP-серверов (`omx_state`, `omx_memory`, `omx_code_intel`, `omx_trace`)
+  - Ð—Ð°Ð¿Ð¸ÑÐ¸ MCP-ÑÐµÑ€Ð²ÐµÑ€Ð¾Ð² (`QMX_state`, `QMX_memory`, `QMX_code_intel`, `QMX_trace`)
   - `[tui] status_line`
-- `AGENTS.md` для выбранной области
-- Директории `.omx/` и конфигурация HUD
+- `AGENTS.md` Ð´Ð»Ñ Ð²Ñ‹Ð±Ñ€Ð°Ð½Ð½Ð¾Ð¹ Ð¾Ð±Ð»Ð°ÑÑ‚Ð¸
+- Ð”Ð¸Ñ€ÐµÐºÑ‚Ð¾Ñ€Ð¸Ð¸ `.QMX/` Ð¸ ÐºÐ¾Ð½Ñ„Ð¸Ð³ÑƒÑ€Ð°Ñ†Ð¸Ñ HUD
 
-## Агенты и навыки
+## ÐÐ³ÐµÐ½Ñ‚Ñ‹ Ð¸ Ð½Ð°Ð²Ñ‹ÐºÐ¸
 
-- Промпты: `prompts/*.md` (устанавливаются в `~/.codex/prompts/` для `user`, `./.codex/prompts/` для `project`)
-- Навыки: `skills/*/SKILL.md` (устанавливаются в `~/.codex/skills/` для `user`, `./.codex/skills/` для `project`)
+- ÐŸÑ€Ð¾Ð¼Ð¿Ñ‚Ñ‹: `prompts/*.md` (ÑƒÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‚ÑÑ Ð² `~/.codex/prompts/` Ð´Ð»Ñ `user`, `./.codex/prompts/` Ð´Ð»Ñ `project`)
+- ÐÐ°Ð²Ñ‹ÐºÐ¸: `skills/*/SKILL.md` (ÑƒÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑ‚ÑÑ Ð² `~/.codex/skills/` Ð´Ð»Ñ `user`, `./.codex/skills/` Ð´Ð»Ñ `project`)
 
-Примеры:
-- Агенты: `architect`, `planner`, `executor`, `debugger`, `verifier`, `security-reviewer`
-- Навыки: `autopilot`, `plan`, `team`, `ralph`, `ultrawork`, `cancel`
+ÐŸÑ€Ð¸Ð¼ÐµÑ€Ñ‹:
+- ÐÐ³ÐµÐ½Ñ‚Ñ‹: `architect`, `planner`, `executor`, `debugger`, `verifier`, `security-reviewer`
+- ÐÐ°Ð²Ñ‹ÐºÐ¸: `autopilot`, `plan`, `team`, `ralph`, `ultrawork`, `cancel`
 
-## Структура проекта
+## Ð¡Ñ‚Ñ€ÑƒÐºÑ‚ÑƒÑ€Ð° Ð¿Ñ€Ð¾ÐµÐºÑ‚Ð°
 
 ```text
-oh-my-codex/
-  bin/omx.js
+oh-my-qwen/
+  bin/QMX.js
   src/
     cli/
     team/
@@ -222,36 +222,37 @@ oh-my-codex/
   scripts/
 ```
 
-## Разработка
+## Ð Ð°Ð·Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ°
 
 ```bash
-git clone https://github.com/Yeachan-Heo/oh-my-codex.git
-cd oh-my-codex
+git clone https://github.com/Yeachan-Heo/oh-my-qwen.git
+cd oh-my-qwen
 npm install
 npm run build
 npm test
 ```
 
-## Документация
+## Ð”Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ð°Ñ†Ð¸Ñ
 
-- **[Полная документация](https://yeachan-heo.github.io/oh-my-codex-website/docs.html)** — Полное руководство
-- **[Справочник CLI](https://yeachan-heo.github.io/oh-my-codex-website/docs.html#cli-reference)** — Все команды `omx`, флаги и инструменты
-- **[Руководство по уведомлениям](https://yeachan-heo.github.io/oh-my-codex-website/docs.html#notifications)** — Настройка Discord, Telegram, Slack и webhook
-- **[Рекомендуемые рабочие процессы](https://yeachan-heo.github.io/oh-my-codex-website/docs.html#workflows)** — Проверенные в бою цепочки навыков для типичных задач
-- **[Примечания к выпускам](https://yeachan-heo.github.io/oh-my-codex-website/docs.html#release-notes)** — Что нового в каждой версии
+- **[ÐŸÐ¾Ð»Ð½Ð°Ñ Ð´Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ð°Ñ†Ð¸Ñ](https://yeachan-heo.github.io/oh-my-qwen-website/docs.html)** â€” ÐŸÐ¾Ð»Ð½Ð¾Ðµ Ñ€ÑƒÐºÐ¾Ð²Ð¾Ð´ÑÑ‚Ð²Ð¾
+- **[Ð¡Ð¿Ñ€Ð°Ð²Ð¾Ñ‡Ð½Ð¸Ðº CLI](https://yeachan-heo.github.io/oh-my-qwen-website/docs.html#cli-reference)** â€” Ð’ÑÐµ ÐºÐ¾Ð¼Ð°Ð½Ð´Ñ‹ `QMX`, Ñ„Ð»Ð°Ð³Ð¸ Ð¸ Ð¸Ð½ÑÑ‚Ñ€ÑƒÐ¼ÐµÐ½Ñ‚Ñ‹
+- **[Ð ÑƒÐºÐ¾Ð²Ð¾Ð´ÑÑ‚Ð²Ð¾ Ð¿Ð¾ ÑƒÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸ÑÐ¼](https://yeachan-heo.github.io/oh-my-qwen-website/docs.html#notifications)** â€” ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ° Discord, Telegram, Slack Ð¸ webhook
+- **[Ð ÐµÐºÐ¾Ð¼ÐµÐ½Ð´ÑƒÐµÐ¼Ñ‹Ðµ Ñ€Ð°Ð±Ð¾Ñ‡Ð¸Ðµ Ð¿Ñ€Ð¾Ñ†ÐµÑÑÑ‹](https://yeachan-heo.github.io/oh-my-qwen-website/docs.html#workflows)** â€” ÐŸÑ€Ð¾Ð²ÐµÑ€ÐµÐ½Ð½Ñ‹Ðµ Ð² Ð±Ð¾ÑŽ Ñ†ÐµÐ¿Ð¾Ñ‡ÐºÐ¸ Ð½Ð°Ð²Ñ‹ÐºÐ¾Ð² Ð´Ð»Ñ Ñ‚Ð¸Ð¿Ð¸Ñ‡Ð½Ñ‹Ñ… Ð·Ð°Ð´Ð°Ñ‡
+- **[ÐŸÑ€Ð¸Ð¼ÐµÑ‡Ð°Ð½Ð¸Ñ Ðº Ð²Ñ‹Ð¿ÑƒÑÐºÐ°Ð¼](https://yeachan-heo.github.io/oh-my-qwen-website/docs.html#release-notes)** â€” Ð§Ñ‚Ð¾ Ð½Ð¾Ð²Ð¾Ð³Ð¾ Ð² ÐºÐ°Ð¶Ð´Ð¾Ð¹ Ð²ÐµÑ€ÑÐ¸Ð¸
 
-## Примечания
+## ÐŸÑ€Ð¸Ð¼ÐµÑ‡Ð°Ð½Ð¸Ñ
 
-- Полный журнал изменений: `CHANGELOG.md`
-- Руководство по миграции (после v0.4.4 mainline): `docs/migration-mainline-post-v0.4.4.md`
-- Заметки о покрытии и паритете: `COVERAGE.md`
-- Рабочий процесс расширений hook: `docs/hooks-extension.md`
-- Детали установки и участия: `CONTRIBUTING.md`
+- ÐŸÐ¾Ð»Ð½Ñ‹Ð¹ Ð¶ÑƒÑ€Ð½Ð°Ð» Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ð¹: `CHANGELOG.md`
+- Ð ÑƒÐºÐ¾Ð²Ð¾Ð´ÑÑ‚Ð²Ð¾ Ð¿Ð¾ Ð¼Ð¸Ð³Ñ€Ð°Ñ†Ð¸Ð¸ (Ð¿Ð¾ÑÐ»Ðµ v0.4.4 mainline): `docs/migration-mainline-post-v0.4.4.md`
+- Ð—Ð°Ð¼ÐµÑ‚ÐºÐ¸ Ð¾ Ð¿Ð¾ÐºÑ€Ñ‹Ñ‚Ð¸Ð¸ Ð¸ Ð¿Ð°Ñ€Ð¸Ñ‚ÐµÑ‚Ðµ: `COVERAGE.md`
+- Ð Ð°Ð±Ð¾Ñ‡Ð¸Ð¹ Ð¿Ñ€Ð¾Ñ†ÐµÑÑ Ñ€Ð°ÑÑˆÐ¸Ñ€ÐµÐ½Ð¸Ð¹ hook: `docs/hooks-extension.md`
+- Ð”ÐµÑ‚Ð°Ð»Ð¸ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ¸ Ð¸ ÑƒÑ‡Ð°ÑÑ‚Ð¸Ñ: `CONTRIBUTING.md`
 
-## Благодарности
+## Ð‘Ð»Ð°Ð³Ð¾Ð´Ð°Ñ€Ð½Ð¾ÑÑ‚Ð¸
 
-Вдохновлено проектом [oh-my-claudecode](https://github.com/Yeachan-Heo/oh-my-claudecode), адаптировано для Codex CLI.
+Ð’Ð´Ð¾Ñ…Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ Ð¿Ñ€Ð¾ÐµÐºÑ‚Ð¾Ð¼ [oh-my-claudecode](https://github.com/Yeachan-Heo/oh-my-claudecode), Ð°Ð´Ð°Ð¿Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¾ Ð´Ð»Ñ Qwen Code CLI.
 
-## Лицензия
+## Ð›Ð¸Ñ†ÐµÐ½Ð·Ð¸Ñ
 
 MIT
+

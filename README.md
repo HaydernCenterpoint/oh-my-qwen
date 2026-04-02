@@ -1,38 +1,31 @@
-﻿# oh-my-qwen (OMQ)
-
-<p align="center">
-  <em>Multi-agent orchestration layer for Qwen Code CLI</em>
-</p>
+# oh-my-qwen (QMX)
 
 [![npm version](https://img.shields.io/npm/v/oh-my-qwen)](https://www.npmjs.com/package/oh-my-qwen)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org)
+[![Discord](https://img.shields.io/discord/1452487457085063218?color=5865F2&logo=discord&logoColor=white&label=Discord)](https://discord.gg/PUwSMR9XNk)
+
+**Website:** https://yeachan-heo.github.io/oh-my-codex-website/  
+**Docs:** [Getting Started](./docs/getting-started.html) · [Agents](./docs/agents.html) · [Skills](./docs/skills.html) · [Integrations](./docs/integrations.html) · [Demo](./DEMO.md)
 
 **Forked from:** [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex) by Yeachan Heo
 
-**Installation Guides:** 
-- [ðŸ‡¬ðŸ‡§ English](./INSTALL.md) 
-- [ðŸ‡»ðŸ‡³ Tiáº¿ng Viá»‡t](./INSTALL.vi.md) 
-- [ðŸ‡¨ðŸ‡³ ä¸­æ–‡](./INSTALL.zh.md)
-
-**Docs:** [Getting Started](./docs/getting-started.html) Â· [Skills](./docs/skills.html) Â· [OpenCode & Cline Guide](./INSTALL-OPENCODE-CLINE.md) Â· [Migration](./MIGRATION_TO_QWEN.md)
-
-OMQ is a workflow enhancement layer for [Qwen Code CLI](https://github.com/QwenLM/qwen-code).
+QMX is a workflow enhancement layer for [Qwen Code CLI](https://github.com/QwenLM/qwen-code).
 
 It keeps Qwen Code as the execution engine and makes it easier to:
-- âœ… Start a stronger Qwen Code session by default
-- âœ… Reuse role/task invocations with `$name` keywords
-- âœ… Invoke workflows with skills like `$plan`, `$ralph`, and `$team`
-- âœ… Keep project guidance, plans, logs, and state in `.QMX/`
+- start a stronger Qwen Code session by default
+- reuse good role/task invocations with `$name` keywords
+- invoke workflows with skills like `$plan`, `$ralph`, and `$team`
+- keep project guidance, plans, logs, and state in `.qmx/`
 
 ## Recommended default flow
 
-If you want the default OMQ experience, start here:
+If you want the default QMX experience, start here:
 
 ```bash
 npm install -g @anthropic/qwen-code oh-my-qwen
-omq setup
-omq --high
+qmx setup
+qmx --madmax --high
 ```
 
 Then work normally inside Qwen Code:
@@ -43,25 +36,25 @@ $plan "ship this feature cleanly"
 ```
 
 That is the main path.
-Start QMX strongly, do the work in Codex, and let the agent pull in `$team` or other workflows only when the task actually needs them.
+Start QMX strongly, do the work in Qwen Code, and let the agent pull in `$team` or other workflows only when the task actually needs them.
 
 ## What QMX is for
 
-Use QMX if you already like Codex and want a better day-to-day runtime around it:
+Use QMX if you already like Qwen Code and want a better day-to-day runtime around it:
 - reusable role/task invocations such as `$architect` and `$executor`
 - reusable workflows such as `$plan`, `$ralph`, `$team`, and `$deep-interview`
 - project guidance through scoped `AGENTS.md`
-- durable state under `.QMX/` for plans, logs, memory, and mode tracking
+- durable state under `.qmx/` for plans, logs, memory, and mode tracking
 
-If you want plain Codex with no extra workflow layer, you probably do not need QMX.
+If you want plain Qwen Code with no extra workflow layer, you probably do not need QMX.
 
 ## Quick start
 
 ### Requirements
 
 - Node.js 20+
-- Codex CLI installed: `npm install -g @openai/codex`
-- Codex auth configured
+- Qwen Code CLI installed: `npm install -g @anthropic/qwen-code`
+- Qwen auth configured
 - `tmux` on macOS/Linux if you later want the durable team runtime
 - `psmux` on native Windows if you later want Windows team mode
 
@@ -70,7 +63,7 @@ If you want plain Codex with no extra workflow layer, you probably do not need Q
 Launch QMX the recommended way:
 
 ```bash
-QMX --madmax --high
+qmx --madmax --high
 ```
 
 Then try one role keyword and one workflow skill:
@@ -84,20 +77,20 @@ If the task grows, the agent can escalate to heavier workflows such as `$ralph` 
 
 ## A simple mental model
 
-QMX does **not** replace Codex.
+QMX does **not** replace Qwen Code.
 
 It adds a better working layer around it:
-- **Codex** does the actual agent work
+- **Qwen Code** does the actual agent work
 - **QMX role keywords** make useful roles reusable
 - **QMX skills** make common workflows reusable
-- **`.QMX/`** stores plans, logs, memory, and runtime state
+- **`.qmx/`** stores plans, logs, memory, and runtime state
 
 Most users should think of QMX as **better task routing + better workflow + better runtime**, not as a command surface to operate manually all day.
 
 ## Start here if you are new
 
-1. Run `QMX setup`
-2. Launch with `QMX --madmax --high`
+1. Run `qmx setup`
+2. Launch with `qmx --madmax --high`
 3. Ask for analysis with `$architect "..."`
 4. Ask for planning with `$plan "..."`
 5. Let the agent decide when `$ralph`, `$team`, or another workflow is worth using
@@ -105,7 +98,7 @@ Most users should think of QMX as **better task routing + better workflow + bett
 ## Common in-session surfaces
 
 | Surface | Use it for |
-| --- | --- |
+|---------|------------|
 | `$architect "..."` | analysis, boundaries, tradeoffs |
 | `$executor "..."` | focused implementation work |
 | `/skills` | browsing installed skills |
@@ -115,68 +108,49 @@ Most users should think of QMX as **better task routing + better workflow + bett
 
 Use `$deep-interview` when the request is still vague, the boundaries are unclear, or you want QMX to keep pressing on intent, non-goals, and decision boundaries before it hands work off to `$plan`, `$ralph`, `$team`, or `$autopilot`.
 
-Typical cases:
-- vague greenfield ideas that still need sharper intent and scope
-- brownfield changes where QMX should inspect the repo first, then ask cited confirmation questions
-- requests where you want a one-question-at-a-time clarification loop instead of immediate planning or implementation
 ## Advanced / operator surfaces
 
 These are useful, but they are not the main onboarding path.
 
 ### Team runtime
 
-Use the team runtime when you specifically need durable tmux/worktree coordination, not as the default way to begin using QMX.
-
 ```bash
-QMX team 3:executor "fix the failing tests with verification"
-QMX team status <team-name>
-QMX team resume <team-name>
-QMX team shutdown <team-name>
+qmx team 3:executor "fix the failing tests with verification"
+qmx team status <team-name>
+qmx team resume <team-name>
+qmx team shutdown <team-name>
 ```
 
 ### Setup, doctor, and HUD
 
-These are operator/support surfaces:
-- `QMX setup` installs prompts, skills, config, and AGENTS scaffolding
-- `QMX doctor` verifies the install when something seems wrong
-- `QMX hud --watch` is a monitoring/status surface, not the primary user workflow
+- `qmx setup` installs prompts, skills, config, and AGENTS scaffolding
+- `qmx doctor` verifies the install when something seems wrong
+- `qmx hud --watch` is a monitoring/status surface, not the primary user workflow
 
 ### Explore and sparkshell
 
-- `QMX explore --prompt "..."` is for read-only repository lookup
-- `QMX sparkshell <command>` is for shell-native inspection and bounded verification
+- `qmx explore --prompt "..."` is for read-only repository lookup
+- `qmx sparkshell <command>` is for shell-native inspection and bounded verification
 
 Examples:
-
 ```bash
-QMX explore --prompt "find where team state is written"
-QMX sparkshell git status
-QMX sparkshell --tmux-pane %12 --tail-lines 400
+qmx explore --prompt "find where team state is written"
+qmx sparkshell git status
+qmx sparkshell --tmux-pane %12 --tail-lines 400
 ```
 
-### Platform notes for team mode
+## Platform notes for team mode
 
-`QMX team` needs a tmux-compatible backend:
+`qmx team` needs a tmux-compatible backend:
 
 | Platform | Install |
-| --- | --- |
+|----------|---------|
 | macOS | `brew install tmux` |
 | Ubuntu/Debian | `sudo apt install tmux` |
 | Fedora | `sudo dnf install tmux` |
 | Arch | `sudo pacman -S tmux` |
 | Windows | `winget install psmux` |
 | Windows (WSL2) | `sudo apt install tmux` |
-
-## Known issues
-
-### Intel Mac: high `syspolicyd` / `trustd` CPU during startup
-
-On some Intel Macs, QMX startup â€” especially with `--madmax --high` â€” can spike `syspolicyd` / `trustd` CPU usage while macOS Gatekeeper validates many concurrent process launches.
-
-If this happens, try:
-- `xattr -dr com.apple.quarantine $(which QMX)`
-- adding your terminal app to the Developer Tools allowlist in macOS Security settings
-- using lower concurrency (for example, avoid `--madmax --high`)
 
 ## Documentation
 
@@ -185,38 +159,25 @@ If this happens, try:
 - [Agent catalog](./docs/agents.html)
 - [Skills reference](./docs/skills.html)
 - [Integrations](./docs/integrations.html)
-- [OpenClaw / notification gateway guide](./docs/openclaw-integration.md)
 - [Contributing](./CONTRIBUTING.md)
 - [Changelog](./CHANGELOG.md)
 
 ## Languages
 
-- [English](./README.md)
-- [í•œêµ­ì–´](./README.ko.md)
-- [æ—¥æœ¬èªž](./README.ja.md)
-- [ç®€ä½“ä¸­æ–‡](./README.zh.md)
-- [ç¹é«”ä¸­æ–‡](./README.zh-TW.md)
-- [Tiáº¿ng Viá»‡t](./README.vi.md)
-- [EspaÃ±ol](./README.es.md)
-- [PortuguÃªs](./README.pt.md)
-- [Ð ÑƒÑÑÐºÐ¸Ð¹](./README.ru.md)
-- [TÃ¼rkÃ§e](./README.tr.md)
-- [Deutsch](./README.de.md)
-- [FranÃ§ais](./README.fr.md)
-- [Italiano](./README.it.md)
-
-## Contributors
-
-| Role | Name | GitHub |
-| --- | --- | --- |
-| Creator & Lead | Yeachan Heo | [@Yeachan-Heo](https://github.com/Yeachan-Heo) |
-| Maintainer | HaD0Yun | [@HaD0Yun](https://github.com/HaD0Yun) |
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=Yeachan-Heo/oh-my-codex&type=date&legend=top-left)](https://www.star-history.com/#Yeachan-Heo/oh-my-codex&type=date&legend=top-left)
+- [English](README.md)
+- [한국어](README.ko.md)
+- [日本語](README.ja.md)
+- [简体中文](README.zh.md)
+- [繁體中文](README.zh-TW.md)
+- [Tiếng Việt](README.vi.md)
+- [Español](README.es.md)
+- [Português](README.pt.md)
+- [Русский](README.ru.md)
+- [Türkçe](README.tr.md)
+- [Deutsch](README.de.md)
+- [Français](README.fr.md)
+- [Italiano](README.it.md)
 
 ## License
 
 MIT
-

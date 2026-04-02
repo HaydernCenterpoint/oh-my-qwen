@@ -1,34 +1,34 @@
-# oh-my-codex (OMX)
+﻿# oh-my-qwen (QMX)
 
 <p align="center">
-  <img src="https://yeachan-heo.github.io/oh-my-codex-website/omx-character-nobg.png" alt="oh-my-codex character" width="280">
+  <img src="https://yeachan-heo.github.io/oh-my-qwen-website/QMX-character-nobg.png" alt="oh-my-qwen character" width="280">
   <br>
-  <em>你的 Codex，從不孤行。</em>
+  <em>ä½ çš„ Codexï¼Œå¾žä¸å­¤è¡Œã€‚</em>
 </p>
 
-[![npm version](https://img.shields.io/npm/v/oh-my-codex)](https://www.npmjs.com/package/oh-my-codex)
+[![npm version](https://img.shields.io/npm/v/oh-my-qwen)](https://www.npmjs.com/package/oh-my-qwen)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org)
 [![Discord](https://img.shields.io/discord/1452487457085063218?color=5865F2&logo=discord&logoColor=white&label=Discord)](https://discord.gg/PUwSMR9XNk)
 
-> **[官方網站](https://yeachan-heo.github.io/oh-my-codex-website/)** | **[說明文件](https://yeachan-heo.github.io/oh-my-codex-website/docs.html)** | **[CLI 參考手冊](https://yeachan-heo.github.io/oh-my-codex-website/docs.html#cli-reference)** | **[工作流程](https://yeachan-heo.github.io/oh-my-codex-website/docs.html#workflows)** | **[OpenClaw 整合指南](./docs/openclaw-integration.zh-TW.md)** | **[GitHub](https://github.com/Yeachan-Heo/oh-my-codex)** | **[npm](https://www.npmjs.com/package/oh-my-codex)**
+> **[å®˜æ–¹ç¶²ç«™](https://yeachan-heo.github.io/oh-my-qwen-website/)** | **[èªªæ˜Žæ–‡ä»¶](https://yeachan-heo.github.io/oh-my-qwen-website/docs.html)** | **[CLI åƒè€ƒæ‰‹å†Š](https://yeachan-heo.github.io/oh-my-qwen-website/docs.html#cli-reference)** | **[å·¥ä½œæµç¨‹](https://yeachan-heo.github.io/oh-my-qwen-website/docs.html#workflows)** | **[OpenClaw æ•´åˆæŒ‡å—](./docs/openclaw-integration.zh-TW.md)** | **[GitHub](https://github.com/Yeachan-Heo/oh-my-qwen)** | **[npm](https://www.npmjs.com/package/oh-my-qwen)**
 
-[OpenAI Codex CLI](https://github.com/openai/codex) 的多智能體編排層。
+[OpenAI Qwen Code CLI](https://github.com/openai/codex) çš„å¤šæ™ºèƒ½é«”ç·¨æŽ’å±¤ã€‚
 
-## v0.9.0 新功能 — Spark Initiative
+## v0.9.0 æ–°åŠŸèƒ½ â€” Spark Initiative
 
-Spark Initiative 是一個強化 OMX 原生探索與檢查路徑的版本發布。
+Spark Initiative æ˜¯ä¸€å€‹å¼·åŒ– QMX åŽŸç”ŸæŽ¢ç´¢èˆ‡æª¢æŸ¥è·¯å¾‘çš„ç‰ˆæœ¬ç™¼å¸ƒã€‚
 
-- **`omx explore` 原生 harness** —— 以 Rust 原生 harness 更快且更嚴格地執行唯讀儲存庫探索。
-- **`omx sparkshell`** —— 面向操作員的原生檢查介面，支援長輸出摘要與 tmux pane 擷取。
-- **跨平台原生釋出資產** —— `omx-explore-harness`、`omx-sparkshell` 與 `native-release-manifest.json` 的 hydration 路徑已納入釋出流程。
-- **強化的 CI/CD** —— 在 `build` job 中加入明確的 Rust toolchain 設定，並新增 `cargo fmt --check` 與 `cargo clippy -- -D warnings`。
+- **`QMX explore` åŽŸç”Ÿ harness** â€”â€” ä»¥ Rust åŽŸç”Ÿ harness æ›´å¿«ä¸”æ›´åš´æ ¼åœ°åŸ·è¡Œå”¯è®€å„²å­˜åº«æŽ¢ç´¢ã€‚
+- **`QMX sparkshell`** â€”â€” é¢å‘æ“ä½œå“¡çš„åŽŸç”Ÿæª¢æŸ¥ä»‹é¢ï¼Œæ”¯æ´é•·è¼¸å‡ºæ‘˜è¦èˆ‡ tmux pane æ“·å–ã€‚
+- **è·¨å¹³å°åŽŸç”Ÿé‡‹å‡ºè³‡ç”¢** â€”â€” `QMX-explore-harness`ã€`QMX-sparkshell` èˆ‡ `native-release-manifest.json` çš„ hydration è·¯å¾‘å·²ç´å…¥é‡‹å‡ºæµç¨‹ã€‚
+- **å¼·åŒ–çš„ CI/CD** â€”â€” åœ¨ `build` job ä¸­åŠ å…¥æ˜Žç¢ºçš„ Rust toolchain è¨­å®šï¼Œä¸¦æ–°å¢ž `cargo fmt --check` èˆ‡ `cargo clippy -- -D warnings`ã€‚
 
-詳細內容請參閱 [v0.9.0 版本說明](./docs/release-notes-0.9.0.md) 與 [釋出正文](./docs/release-body-0.9.0.md)。
+è©³ç´°å…§å®¹è«‹åƒé–± [v0.9.0 ç‰ˆæœ¬èªªæ˜Ž](./docs/release-notes-0.9.0.md) èˆ‡ [é‡‹å‡ºæ­£æ–‡](./docs/release-body-0.9.0.md)ã€‚
 
-## 首次會話
+## é¦–æ¬¡æœƒè©±
 
-在 Codex 內部：
+åœ¨ Codex å…§éƒ¨ï¼š
 
 ```text
 /prompts:architect "analyze current auth boundaries"
@@ -37,76 +37,76 @@ $plan "ship OAuth callback safely"
 $team 3:executor "fix all TypeScript errors"
 ```
 
-從終端機：
+å¾žçµ‚ç«¯æ©Ÿï¼š
 
 ```bash
-omx team 4:executor "parallelize a multi-module refactor"
-omx team status <team-name>
-omx team shutdown <team-name>
+QMX team 4:executor "parallelize a multi-module refactor"
+QMX team status <team-name>
+QMX team shutdown <team-name>
 ```
 
-## 核心模型
+## æ ¸å¿ƒæ¨¡åž‹
 
-OMX 安裝並串接以下各層：
+QMX å®‰è£ä¸¦ä¸²æŽ¥ä»¥ä¸‹å„å±¤ï¼š
 
 ```text
-使用者
-  -> Codex CLI
-    -> AGENTS.md（編排大腦）
-    -> ~/.codex/prompts/*.md（代理提示詞目錄）
-    -> ~/.codex/skills/*/SKILL.md（技能目錄）
-    -> ~/.codex/config.toml（功能、通知、MCP）
-    -> .omx/（執行期狀態、記憶、計畫、日誌）
+ä½¿ç”¨è€…
+  -> Qwen Code CLI
+    -> AGENTS.mdï¼ˆç·¨æŽ’å¤§è…¦ï¼‰
+    -> ~/.codex/prompts/*.mdï¼ˆä»£ç†æç¤ºè©žç›®éŒ„ï¼‰
+    -> ~/.codex/skills/*/SKILL.mdï¼ˆæŠ€èƒ½ç›®éŒ„ï¼‰
+    -> ~/.codex/config.tomlï¼ˆåŠŸèƒ½ã€é€šçŸ¥ã€MCPï¼‰
+    -> .QMX/ï¼ˆåŸ·è¡ŒæœŸç‹€æ…‹ã€è¨˜æ†¶ã€è¨ˆç•«ã€æ—¥èªŒï¼‰
 ```
 
-## 主要指令
+## ä¸»è¦æŒ‡ä»¤
 
 ```bash
-omx                  # 啟動 Codex（可用時在 tmux 中附帶 HUD）
-omx setup            # 依範圍安裝提示詞/技能/設定 + 專案 .omx + 範圍專屬 AGENTS.md
-omx doctor           # 安裝/執行期診斷
-omx doctor --team    # 團隊/群集診斷
-omx ask ...          # 詢問本地供應商顧問（claude|gemini），結果寫入 .omx/artifacts/*
-omx team ...         # 啟動/狀態/恢復/關閉團隊工作進程（預設為互動式 tmux）
-omx status           # 顯示目前活動模式
-omx cancel           # 取消活動中的執行模式
-omx reasoning <mode> # low|medium|high|xhigh
-omx tmux-hook ...    # init|status|validate|test
-omx hooks ...        # init|status|validate|test（插件擴充工作流程）
-omx hud ...          # --watch|--json|--preset
-omx help
+QMX                  # å•Ÿå‹• Codexï¼ˆå¯ç”¨æ™‚åœ¨ tmux ä¸­é™„å¸¶ HUDï¼‰
+QMX setup            # ä¾ç¯„åœå®‰è£æç¤ºè©ž/æŠ€èƒ½/è¨­å®š + å°ˆæ¡ˆ .QMX + ç¯„åœå°ˆå±¬ AGENTS.md
+QMX doctor           # å®‰è£/åŸ·è¡ŒæœŸè¨ºæ–·
+QMX doctor --team    # åœ˜éšŠ/ç¾¤é›†è¨ºæ–·
+QMX ask ...          # è©¢å•æœ¬åœ°ä¾›æ‡‰å•†é¡§å•ï¼ˆclaude|geminiï¼‰ï¼Œçµæžœå¯«å…¥ .QMX/artifacts/*
+QMX team ...         # å•Ÿå‹•/ç‹€æ…‹/æ¢å¾©/é—œé–‰åœ˜éšŠå·¥ä½œé€²ç¨‹ï¼ˆé è¨­ç‚ºäº’å‹•å¼ tmuxï¼‰
+QMX status           # é¡¯ç¤ºç›®å‰æ´»å‹•æ¨¡å¼
+QMX cancel           # å–æ¶ˆæ´»å‹•ä¸­çš„åŸ·è¡Œæ¨¡å¼
+QMX reasoning <mode> # low|medium|high|xhigh
+QMX tmux-hook ...    # init|status|validate|test
+QMX hooks ...        # init|status|validate|testï¼ˆæ’ä»¶æ“´å……å·¥ä½œæµç¨‹ï¼‰
+QMX hud ...          # --watch|--json|--preset
+QMX help
 ```
 
-Ask 指令範例：
+Ask æŒ‡ä»¤ç¯„ä¾‹ï¼š
 
 ```bash
-omx ask claude "review this diff"
-omx ask gemini "brainstorm alternatives"
-omx ask claude --agent-prompt executor "implement feature X with tests"
-omx ask gemini --agent-prompt=planner --prompt "draft a rollout plan"
-# 底層供應商 CLI 說明中的旗標：
+QMX ask claude "review this diff"
+QMX ask gemini "brainstorm alternatives"
+QMX ask claude --agent-prompt executor "implement feature X with tests"
+QMX ask gemini --agent-prompt=planner --prompt "draft a rollout plan"
+# åº•å±¤ä¾›æ‡‰å•† CLI èªªæ˜Žä¸­çš„æ——æ¨™ï¼š
 # claude -p|--print "<prompt>"
 # gemini -p|--prompt "<prompt>"
 ```
 
-非 tmux 團隊啟動（進階）：
+éž tmux åœ˜éšŠå•Ÿå‹•ï¼ˆé€²éšŽï¼‰ï¼š
 
 ```bash
-OMX_TEAM_WORKER_LAUNCH_MODE=prompt omx team 2:executor "task"
+QMX_TEAM_WORKER_LAUNCH_MODE=prompt QMX team 2:executor "task"
 ```
 
-## Hooks 擴充（附加介面）
+## Hooks æ“´å……ï¼ˆé™„åŠ ä»‹é¢ï¼‰
 
-OMX 現已包含 `omx hooks`，用於插件鷹架建立與驗證。
+QMX ç¾å·²åŒ…å« `QMX hooks`ï¼Œç”¨æ–¼æ’ä»¶é·¹æž¶å»ºç«‹èˆ‡é©—è­‰ã€‚
 
-- `omx tmux-hook` 持續受支援，行為不變。
-- `omx hooks` 屬於附加功能，不會取代 tmux-hook 工作流程。
-- 插件檔案位於 `.omx/hooks/*.mjs`。
-- 插件預設關閉；使用 `OMX_HOOK_PLUGINS=1` 啟用。
+- `QMX tmux-hook` æŒçºŒå—æ”¯æ´ï¼Œè¡Œç‚ºä¸è®Šã€‚
+- `QMX hooks` å±¬æ–¼é™„åŠ åŠŸèƒ½ï¼Œä¸æœƒå–ä»£ tmux-hook å·¥ä½œæµç¨‹ã€‚
+- æ’ä»¶æª”æ¡ˆä½æ–¼ `.QMX/hooks/*.mjs`ã€‚
+- æ’ä»¶é è¨­é—œé–‰ï¼›ä½¿ç”¨ `QMX_HOOK_PLUGINS=1` å•Ÿç”¨ã€‚
 
-完整的擴充工作流程與事件模型，請參閱 `docs/hooks-extension.md`。
+å®Œæ•´çš„æ“´å……å·¥ä½œæµç¨‹èˆ‡äº‹ä»¶æ¨¡åž‹ï¼Œè«‹åƒé–± `docs/hooks-extension.md`ã€‚
 
-## 啟動旗標
+## å•Ÿå‹•æ——æ¨™
 
 ```bash
 --yolo
@@ -116,134 +116,134 @@ OMX 現已包含 `omx hooks`，用於插件鷹架建立與驗證。
 --force
 --dry-run
 --verbose
---scope <user|project>  # 僅用於 setup
+--scope <user|project>  # åƒ…ç”¨æ–¼ setup
 ```
 
-`--madmax` 對應 Codex 的 `--dangerously-bypass-approvals-and-sandbox`。
-僅在信任環境或外部沙箱環境中使用。
+`--madmax` å°æ‡‰ Codex çš„ `--dangerously-bypass-approvals-and-sandbox`ã€‚
+åƒ…åœ¨ä¿¡ä»»ç’°å¢ƒæˆ–å¤–éƒ¨æ²™ç®±ç’°å¢ƒä¸­ä½¿ç”¨ã€‚
 
-### MCP workingDirectory 策略（選用強化）
+### MCP workingDirectory ç­–ç•¥ï¼ˆé¸ç”¨å¼·åŒ–ï¼‰
 
-預設情況下，MCP 狀態/記憶/追蹤工具接受呼叫方提供的 `workingDirectory`。
-若要限制此行為，請設定允許的根目錄清單：
+é è¨­æƒ…æ³ä¸‹ï¼ŒMCP ç‹€æ…‹/è¨˜æ†¶/è¿½è¹¤å·¥å…·æŽ¥å—å‘¼å«æ–¹æä¾›çš„ `workingDirectory`ã€‚
+è‹¥è¦é™åˆ¶æ­¤è¡Œç‚ºï¼Œè«‹è¨­å®šå…è¨±çš„æ ¹ç›®éŒ„æ¸…å–®ï¼š
 
 ```bash
-export OMX_MCP_WORKDIR_ROOTS="/path/to/project:/path/to/another-root"
+export QMX_MCP_WORKDIR_ROOTS="/path/to/project:/path/to/another-root"
 ```
 
-設定後，超出這些根目錄的 `workingDirectory` 值將被拒絕。
+è¨­å®šå¾Œï¼Œè¶…å‡ºé€™äº›æ ¹ç›®éŒ„çš„ `workingDirectory` å€¼å°‡è¢«æ‹’çµ•ã€‚
 
-## Codex 優先的提示詞控制
+## Codex å„ªå…ˆçš„æç¤ºè©žæŽ§åˆ¶
 
-預設情況下，OMX 注入：
+é è¨­æƒ…æ³ä¸‹ï¼ŒQMX æ³¨å…¥ï¼š
 
 ```text
 -c model_instructions_file="<cwd>/AGENTS.md"
 ```
 
-這會將 `CODEX_HOME` 中的 `AGENTS.md` 與專案的 `AGENTS.md`（若存在）合併，然後再附加執行期 overlay。
-此舉擴充了 Codex 的行為，但不會取代或繞過 Codex 核心系統策略。
+é€™æœƒå°‡ `CODEX_HOME` ä¸­çš„ `AGENTS.md` èˆ‡å°ˆæ¡ˆçš„ `AGENTS.md`ï¼ˆè‹¥å­˜åœ¨ï¼‰åˆä½µï¼Œç„¶å¾Œå†é™„åŠ åŸ·è¡ŒæœŸ overlayã€‚
+æ­¤èˆ‰æ“´å……äº† Codex çš„è¡Œç‚ºï¼Œä½†ä¸æœƒå–ä»£æˆ–ç¹žéŽ Codex æ ¸å¿ƒç³»çµ±ç­–ç•¥ã€‚
 
-控制方式：
+æŽ§åˆ¶æ–¹å¼ï¼š
 
 ```bash
-OMX_BYPASS_DEFAULT_SYSTEM_PROMPT=0 omx     # 停用 AGENTS.md 注入
-OMX_MODEL_INSTRUCTIONS_FILE=/path/to/instructions.md omx
+QMX_BYPASS_DEFAULT_SYSTEM_PROMPT=0 QMX     # åœç”¨ AGENTS.md æ³¨å…¥
+QMX_MODEL_INSTRUCTIONS_FILE=/path/to/instructions.md QMX
 ```
 
-## 團隊模式
+## åœ˜éšŠæ¨¡å¼
 
-對於能從平行工作進程獲益的大規模工作，請使用團隊模式。
+å°æ–¼èƒ½å¾žå¹³è¡Œå·¥ä½œé€²ç¨‹ç²ç›Šçš„å¤§è¦æ¨¡å·¥ä½œï¼Œè«‹ä½¿ç”¨åœ˜éšŠæ¨¡å¼ã€‚
 
-生命週期：
+ç”Ÿå‘½é€±æœŸï¼š
 
 ```text
-啟動 -> 分配有界通道 -> 監控 -> 驗證終端任務 -> 關閉
+å•Ÿå‹• -> åˆ†é…æœ‰ç•Œé€šé“ -> ç›£æŽ§ -> é©—è­‰çµ‚ç«¯ä»»å‹™ -> é—œé–‰
 ```
 
-作業指令：
+ä½œæ¥­æŒ‡ä»¤ï¼š
 
 ```bash
-omx team <args>
-omx team status <team-name>
-omx team resume <team-name>
-omx team shutdown <team-name>
+QMX team <args>
+QMX team status <team-name>
+QMX team resume <team-name>
+QMX team shutdown <team-name>
 ```
 
-重要規則：除非要中止，否則請勿在任務仍處於 `in_progress` 狀態時關閉。
+é‡è¦è¦å‰‡ï¼šé™¤éžè¦ä¸­æ­¢ï¼Œå¦å‰‡è«‹å‹¿åœ¨ä»»å‹™ä»è™•æ–¼ `in_progress` ç‹€æ…‹æ™‚é—œé–‰ã€‚
 
-### Ralph 清理策略
+### Ralph æ¸…ç†ç­–ç•¥
 
-當團隊以 ralph 模式執行（`omx team ralph ...`）時，關閉清理
-會套用與一般路徑不同的專屬策略：
+ç•¶åœ˜éšŠä»¥ ralph æ¨¡å¼åŸ·è¡Œï¼ˆ`QMX team ralph ...`ï¼‰æ™‚ï¼Œé—œé–‰æ¸…ç†
+æœƒå¥—ç”¨èˆ‡ä¸€èˆ¬è·¯å¾‘ä¸åŒçš„å°ˆå±¬ç­–ç•¥ï¼š
 
-| 行為 | 一般團隊 | Ralph 團隊 |
+| è¡Œç‚º | ä¸€èˆ¬åœ˜éšŠ | Ralph åœ˜éšŠ |
 |---|---|---|
-| 失敗時強制關閉 | 拋出 `shutdown_gate_blocked` | 略過閘門，記錄 `ralph_cleanup_policy` 事件 |
-| 自動刪除分支 | 復原時刪除 worktree 分支 | 保留分支（`skipBranchDeletion`） |
-| 完成日誌 | 標準 `shutdown_gate` 事件 | 附帶任務分解的 `ralph_cleanup_summary` 事件 |
+| å¤±æ•—æ™‚å¼·åˆ¶é—œé–‰ | æ‹‹å‡º `shutdown_gate_blocked` | ç•¥éŽé–˜é–€ï¼Œè¨˜éŒ„ `ralph_cleanup_policy` äº‹ä»¶ |
+| è‡ªå‹•åˆªé™¤åˆ†æ”¯ | å¾©åŽŸæ™‚åˆªé™¤ worktree åˆ†æ”¯ | ä¿ç•™åˆ†æ”¯ï¼ˆ`skipBranchDeletion`ï¼‰ |
+| å®Œæˆæ—¥èªŒ | æ¨™æº– `shutdown_gate` äº‹ä»¶ | é™„å¸¶ä»»å‹™åˆ†è§£çš„ `ralph_cleanup_summary` äº‹ä»¶ |
 
-Ralph 策略會從團隊模式狀態（`linked_ralph`）自動偵測，
-也可透過 `omx team shutdown <name> --ralph` 明確傳遞。
+Ralph ç­–ç•¥æœƒå¾žåœ˜éšŠæ¨¡å¼ç‹€æ…‹ï¼ˆ`linked_ralph`ï¼‰è‡ªå‹•åµæ¸¬ï¼Œ
+ä¹Ÿå¯é€éŽ `QMX team shutdown <name> --ralph` æ˜Žç¢ºå‚³éžã€‚
 
-團隊工作進程的 Worker CLI 選擇：
+åœ˜éšŠå·¥ä½œé€²ç¨‹çš„ Worker CLI é¸æ“‡ï¼š
 
 ```bash
-OMX_TEAM_WORKER_CLI=auto    # 預設；當 worker --model 包含 "claude" 時使用 claude
-OMX_TEAM_WORKER_CLI=codex   # 強制使用 Codex CLI 工作進程
-OMX_TEAM_WORKER_CLI=claude  # 強制使用 Claude CLI 工作進程
-OMX_TEAM_WORKER_CLI_MAP=codex,codex,claude,claude  # 每個工作進程的 CLI 混合（長度為 1 或等於工作進程數量）
-OMX_TEAM_AUTO_INTERRUPT_RETRY=0  # 選用：停用自適應 queue->resend 回退機制
+QMX_TEAM_WORKER_CLI=auto    # é è¨­ï¼›ç•¶ worker --model åŒ…å« "claude" æ™‚ä½¿ç”¨ claude
+QMX_TEAM_WORKER_CLI=codex   # å¼·åˆ¶ä½¿ç”¨ Qwen Code CLI å·¥ä½œé€²ç¨‹
+QMX_TEAM_WORKER_CLI=claude  # å¼·åˆ¶ä½¿ç”¨ Claude CLI å·¥ä½œé€²ç¨‹
+QMX_TEAM_WORKER_CLI_MAP=codex,codex,claude,claude  # æ¯å€‹å·¥ä½œé€²ç¨‹çš„ CLI æ··åˆï¼ˆé•·åº¦ç‚º 1 æˆ–ç­‰æ–¼å·¥ä½œé€²ç¨‹æ•¸é‡ï¼‰
+QMX_TEAM_AUTO_INTERRUPT_RETRY=0  # é¸ç”¨ï¼šåœç”¨è‡ªé©æ‡‰ queue->resend å›žé€€æ©Ÿåˆ¶
 ```
 
-注意事項：
-- 工作進程啟動參數仍透過 `OMX_TEAM_WORKER_LAUNCH_ARGS` 共享。
-- `OMX_TEAM_WORKER_CLI_MAP` 會覆寫 `OMX_TEAM_WORKER_CLI`，以實現每個工作進程的個別選擇。
-- 觸發提交預設使用自適應重試（queue/submit，必要時採用安全的清除行 + 重傳回退）。
-- 在 Claude 工作進程模式下，OMX 以純 `claude` 啟動工作進程（無額外啟動參數），並忽略明確的 `--model` / `--config` / `--effort` 覆寫，讓 Claude 使用預設的 `settings.json`。
+æ³¨æ„äº‹é …ï¼š
+- å·¥ä½œé€²ç¨‹å•Ÿå‹•åƒæ•¸ä»é€éŽ `QMX_TEAM_WORKER_LAUNCH_ARGS` å…±äº«ã€‚
+- `QMX_TEAM_WORKER_CLI_MAP` æœƒè¦†å¯« `QMX_TEAM_WORKER_CLI`ï¼Œä»¥å¯¦ç¾æ¯å€‹å·¥ä½œé€²ç¨‹çš„å€‹åˆ¥é¸æ“‡ã€‚
+- è§¸ç™¼æäº¤é è¨­ä½¿ç”¨è‡ªé©æ‡‰é‡è©¦ï¼ˆqueue/submitï¼Œå¿…è¦æ™‚æŽ¡ç”¨å®‰å…¨çš„æ¸…é™¤è¡Œ + é‡å‚³å›žé€€ï¼‰ã€‚
+- åœ¨ Claude å·¥ä½œé€²ç¨‹æ¨¡å¼ä¸‹ï¼ŒQMX ä»¥ç´” `claude` å•Ÿå‹•å·¥ä½œé€²ç¨‹ï¼ˆç„¡é¡å¤–å•Ÿå‹•åƒæ•¸ï¼‰ï¼Œä¸¦å¿½ç•¥æ˜Žç¢ºçš„ `--model` / `--config` / `--effort` è¦†å¯«ï¼Œè®“ Claude ä½¿ç”¨é è¨­çš„ `settings.json`ã€‚
 
-## `omx setup` 寫入的內容
+## `QMX setup` å¯«å…¥çš„å…§å®¹
 
-- `.omx/setup-scope.json`（持久化的設定範圍）
-- 依範圍的安裝內容：
-  - `user`：`~/.codex/prompts/`、`~/.codex/skills/`、`~/.codex/config.toml`、`~/.omx/agents/`、`~/.codex/AGENTS.md`
-  - `project`：`./.codex/prompts/`、`./.codex/skills/`、`./.codex/config.toml`、`./.omx/agents/`、`./AGENTS.md`
-- 啟動行為：若持久化範圍為 `project`，`omx` 啟動時自動使用 `CODEX_HOME=./.codex`（除非已設定 `CODEX_HOME`）。
-- 啟動指令會合併 `~/.codex/AGENTS.md`（或覆寫後的 `CODEX_HOME/AGENTS.md`）與專案 `./AGENTS.md`，然後再附加執行期 overlay。
-- 現有的 `AGENTS.md` 檔案絕不會被靜默覆寫：互動式 TTY 執行時 setup 會先詢問；非互動執行時若沒有 `--force` 就會跳過替換（仍適用活動會話安全檢查）。
-- `config.toml` 更新（兩種範圍均適用）：
+- `.QMX/setup-scope.json`ï¼ˆæŒä¹…åŒ–çš„è¨­å®šç¯„åœï¼‰
+- ä¾ç¯„åœçš„å®‰è£å…§å®¹ï¼š
+  - `user`ï¼š`~/.codex/prompts/`ã€`~/.codex/skills/`ã€`~/.codex/config.toml`ã€`~/.QMX/agents/`ã€`~/.codex/AGENTS.md`
+  - `project`ï¼š`./.codex/prompts/`ã€`./.codex/skills/`ã€`./.codex/config.toml`ã€`./.QMX/agents/`ã€`./AGENTS.md`
+- å•Ÿå‹•è¡Œç‚ºï¼šè‹¥æŒä¹…åŒ–ç¯„åœç‚º `project`ï¼Œ`QMX` å•Ÿå‹•æ™‚è‡ªå‹•ä½¿ç”¨ `CODEX_HOME=./.codex`ï¼ˆé™¤éžå·²è¨­å®š `CODEX_HOME`ï¼‰ã€‚
+- å•Ÿå‹•æŒ‡ä»¤æœƒåˆä½µ `~/.codex/AGENTS.md`ï¼ˆæˆ–è¦†å¯«å¾Œçš„ `CODEX_HOME/AGENTS.md`ï¼‰èˆ‡å°ˆæ¡ˆ `./AGENTS.md`ï¼Œç„¶å¾Œå†é™„åŠ åŸ·è¡ŒæœŸ overlayã€‚
+- ç¾æœ‰çš„ `AGENTS.md` æª”æ¡ˆçµ•ä¸æœƒè¢«éœé»˜è¦†å¯«ï¼šäº’å‹•å¼ TTY åŸ·è¡Œæ™‚ setup æœƒå…ˆè©¢å•ï¼›éžäº’å‹•åŸ·è¡Œæ™‚è‹¥æ²’æœ‰ `--force` å°±æœƒè·³éŽæ›¿æ›ï¼ˆä»é©ç”¨æ´»å‹•æœƒè©±å®‰å…¨æª¢æŸ¥ï¼‰ã€‚
+- `config.toml` æ›´æ–°ï¼ˆå…©ç¨®ç¯„åœå‡é©ç”¨ï¼‰ï¼š
   - `notify = ["node", "..."]`
   - `model_reasoning_effort = "high"`
   - `developer_instructions = "..."`
   - `[features] multi_agent = true, child_agents_md = true`
-  - MCP 伺服器項目（`omx_state`、`omx_memory`、`omx_code_intel`、`omx_trace`）
+  - MCP ä¼ºæœå™¨é …ç›®ï¼ˆ`QMX_state`ã€`QMX_memory`ã€`QMX_code_intel`ã€`QMX_trace`ï¼‰
   - `[tui] status_line`
-- 範圍專屬 `AGENTS.md`
-- `.omx/` 執行期目錄與 HUD 設定
+- ç¯„åœå°ˆå±¬ `AGENTS.md`
+- `.QMX/` åŸ·è¡ŒæœŸç›®éŒ„èˆ‡ HUD è¨­å®š
 
-## 代理與技能
+## ä»£ç†èˆ‡æŠ€èƒ½
 
-- 提示詞：`prompts/*.md`（`user` 安裝至 `~/.codex/prompts/`，`project` 安裝至 `./.codex/prompts/`）
-- 技能：`skills/*/SKILL.md`（`user` 安裝至 `~/.codex/skills/`，`project` 安裝至 `./.codex/skills/`）
+- æç¤ºè©žï¼š`prompts/*.md`ï¼ˆ`user` å®‰è£è‡³ `~/.codex/prompts/`ï¼Œ`project` å®‰è£è‡³ `./.codex/prompts/`ï¼‰
+- æŠ€èƒ½ï¼š`skills/*/SKILL.md`ï¼ˆ`user` å®‰è£è‡³ `~/.codex/skills/`ï¼Œ`project` å®‰è£è‡³ `./.codex/skills/`ï¼‰
 
-範例：
-- 代理：`architect`、`planner`、`executor`、`debugger`、`verifier`、`security-reviewer`
-- 技能：`autopilot`、`plan`、`team`、`ralph`、`ultrawork`、`cancel`
+ç¯„ä¾‹ï¼š
+- ä»£ç†ï¼š`architect`ã€`planner`ã€`executor`ã€`debugger`ã€`verifier`ã€`security-reviewer`
+- æŠ€èƒ½ï¼š`autopilot`ã€`plan`ã€`team`ã€`ralph`ã€`ultrawork`ã€`cancel`
 
-### 視覺品管迴圈（`$visual-verdict`）
+### è¦–è¦ºå“ç®¡è¿´åœˆï¼ˆ`$visual-verdict`ï¼‰
 
-當任務需要視覺保真度驗證（參考圖片 + 生成截圖）時，請使用 `$visual-verdict`。
+ç•¶ä»»å‹™éœ€è¦è¦–è¦ºä¿çœŸåº¦é©—è­‰ï¼ˆåƒè€ƒåœ–ç‰‡ + ç”Ÿæˆæˆªåœ–ï¼‰æ™‚ï¼Œè«‹ä½¿ç”¨ `$visual-verdict`ã€‚
 
-- 回傳結構化 JSON：`score`、`verdict`、`category_match`、`differences[]`、`suggestions[]`、`reasoning`
-- 建議通過門檻：**90 分以上**
-- 對於視覺任務，在每次下一輪編輯前先執行 `$visual-verdict`
-- 使用像素差異 / pixelmatch 疊加圖作為**輔助除錯工具**（而非主要通過/失敗判斷依據）
+- å›žå‚³çµæ§‹åŒ– JSONï¼š`score`ã€`verdict`ã€`category_match`ã€`differences[]`ã€`suggestions[]`ã€`reasoning`
+- å»ºè­°é€šéŽé–€æª»ï¼š**90 åˆ†ä»¥ä¸Š**
+- å°æ–¼è¦–è¦ºä»»å‹™ï¼Œåœ¨æ¯æ¬¡ä¸‹ä¸€è¼ªç·¨è¼¯å‰å…ˆåŸ·è¡Œ `$visual-verdict`
+- ä½¿ç”¨åƒç´ å·®ç•° / pixelmatch ç–ŠåŠ åœ–ä½œç‚º**è¼”åŠ©é™¤éŒ¯å·¥å…·**ï¼ˆè€Œéžä¸»è¦é€šéŽ/å¤±æ•—åˆ¤æ–·ä¾æ“šï¼‰
 
-## 專案結構
+## å°ˆæ¡ˆçµæ§‹
 
 ```text
-oh-my-codex/
-  bin/omx.js
+oh-my-qwen/
+  bin/QMX.js
   src/
     cli/
     team/
@@ -260,37 +260,38 @@ oh-my-codex/
   scripts/
 ```
 
-## 開發
+## é–‹ç™¼
 
 ```bash
-git clone https://github.com/Yeachan-Heo/oh-my-codex.git
-cd oh-my-codex
+git clone https://github.com/Yeachan-Heo/oh-my-qwen.git
+cd oh-my-qwen
 npm install
 npm run lint
 npm run build
 npm test
 ```
 
-## 說明文件
+## èªªæ˜Žæ–‡ä»¶
 
-- **[完整說明文件](https://yeachan-heo.github.io/oh-my-codex-website/docs.html)** — 完整指南
-- **[CLI 參考手冊](https://yeachan-heo.github.io/oh-my-codex-website/docs.html#cli-reference)** — 所有 `omx` 指令、旗標與工具
-- **[通知設定指南](https://yeachan-heo.github.io/oh-my-codex-website/docs.html#notifications)** — Discord、Telegram、Slack 及 Webhook 設定
-- **[推薦工作流程](https://yeachan-heo.github.io/oh-my-codex-website/docs.html#workflows)** — 實戰驗證的技能鏈，適用常見任務
-- **[版本發行說明](https://yeachan-heo.github.io/oh-my-codex-website/docs.html#release-notes)** — 每個版本的新功能
+- **[å®Œæ•´èªªæ˜Žæ–‡ä»¶](https://yeachan-heo.github.io/oh-my-qwen-website/docs.html)** â€” å®Œæ•´æŒ‡å—
+- **[CLI åƒè€ƒæ‰‹å†Š](https://yeachan-heo.github.io/oh-my-qwen-website/docs.html#cli-reference)** â€” æ‰€æœ‰ `QMX` æŒ‡ä»¤ã€æ——æ¨™èˆ‡å·¥å…·
+- **[é€šçŸ¥è¨­å®šæŒ‡å—](https://yeachan-heo.github.io/oh-my-qwen-website/docs.html#notifications)** â€” Discordã€Telegramã€Slack åŠ Webhook è¨­å®š
+- **[æŽ¨è–¦å·¥ä½œæµç¨‹](https://yeachan-heo.github.io/oh-my-qwen-website/docs.html#workflows)** â€” å¯¦æˆ°é©—è­‰çš„æŠ€èƒ½éˆï¼Œé©ç”¨å¸¸è¦‹ä»»å‹™
+- **[ç‰ˆæœ¬ç™¼è¡Œèªªæ˜Ž](https://yeachan-heo.github.io/oh-my-qwen-website/docs.html#release-notes)** â€” æ¯å€‹ç‰ˆæœ¬çš„æ–°åŠŸèƒ½
 
-## 附註
+## é™„è¨»
 
-- 完整變更日誌：`CHANGELOG.md`
-- 遷移指南（v0.4.4 後的主線版本）：`docs/migration-mainline-post-v0.4.4.md`
-- 覆蓋率與同等性說明：`COVERAGE.md`
-- Hook 擴充工作流程：`docs/hooks-extension.md`
-- 設定與貢獻詳情：`CONTRIBUTING.md`
+- å®Œæ•´è®Šæ›´æ—¥èªŒï¼š`CHANGELOG.md`
+- é·ç§»æŒ‡å—ï¼ˆv0.4.4 å¾Œçš„ä¸»ç·šç‰ˆæœ¬ï¼‰ï¼š`docs/migration-mainline-post-v0.4.4.md`
+- è¦†è“‹çŽ‡èˆ‡åŒç­‰æ€§èªªæ˜Žï¼š`COVERAGE.md`
+- Hook æ“´å……å·¥ä½œæµç¨‹ï¼š`docs/hooks-extension.md`
+- è¨­å®šèˆ‡è²¢ç»è©³æƒ…ï¼š`CONTRIBUTING.md`
 
-## 致謝
+## è‡´è¬
 
-靈感來自 [oh-my-claudecode](https://github.com/Yeachan-Heo/oh-my-claudecode)，為 Codex CLI 量身改編。
+éˆæ„Ÿä¾†è‡ª [oh-my-claudecode](https://github.com/Yeachan-Heo/oh-my-claudecode)ï¼Œç‚º Qwen Code CLI é‡èº«æ”¹ç·¨ã€‚
 
-## 授權條款
+## æŽˆæ¬Šæ¢æ¬¾
 
 MIT
+
