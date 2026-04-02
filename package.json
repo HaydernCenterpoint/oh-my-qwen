@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "oh-my-qwen",
   "version": "1.0.0",
   "description": "Multi-agent orchestration layer for Qwen Code CLI",
@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "node -e \"const fs=require('fs'); fs.rmSync('dist',{recursive:true,force:true});\" && tsc && node -e \"require('fs').chmodSync('dist/cli/omq.js', 0o755)\"",
-    "build:explore": "cargo build -p omx-explore-harness",
+    "build:explore": "cargo build -p QMX-explore-harness",
     "build:full": "npm run build && npm run build:explore:release && npm run build:sparkshell",
     "build:explore:release": "node dist/scripts/build-explore-harness.js",
     "check:no-unused": "tsc -p tsconfig.no-unused.json",
@@ -21,14 +21,14 @@
     "doctor": "node dist/cli/omq.js doctor",
     "ask:claude": "./src/scripts/ask-claude.sh",
     "ask:gemini": "./src/scripts/ask-gemini.sh",
-    "test:explore": "cargo test -p omx-explore-harness && node --test dist/cli/__tests__/explore.test.js dist/hooks/__tests__/explore-routing.test.js dist/hooks/__tests__/explore-sparkshell-guidance-contract.test.js",
+    "test:explore": "cargo test -p QMX-explore-harness && node --test dist/cli/__tests__/explore.test.js dist/hooks/__tests__/explore-routing.test.js dist/hooks/__tests__/explore-sparkshell-guidance-contract.test.js",
     "test:team:cross-rebase-smoke": "npm run build && node --test dist/team/__tests__/cross-rebase-smoke.test.js",
     "test:node": "node --test $(find dist -name '*.test.js')",
     "test": "npm run build && npm run test:node && node dist/scripts/generate-catalog-docs.js --check",
     "coverage:team-critical": "npm run build && c8 --all --src dist/team --src dist/state --include 'dist/team/**/*.js' --include 'dist/state/**/*.js' --exclude '**/__tests__/**' --reporter=text-summary --reporter=lcov --reporter=json-summary --report-dir coverage/team --check-coverage --lines=78 --functions=90 --branches=70 --statements=78 node --test $(find dist/team/__tests__ dist/state/__tests__ -name '*.test.js')",
     "coverage:ts:full": "npm run build && c8 --all --src dist --exclude '**/__tests__/**' --exclude 'dist/bin/**' --exclude 'dist/**/*.d.ts' --reporter=text-summary --reporter=lcov --reporter=json-summary --report-dir coverage/ts-full node --test $(find dist -name '*.test.js')",
     "test:compat:node": "npm run build && node --test dist/compat/__tests__/*.test.js",
-    "test:compat:rust": "cargo build && OMX_COMPAT_TARGET=./target/debug/omx npm run test:compat:node",
+    "test:compat:rust": "cargo build && QMX_COMPAT_TARGET=./target/debug/QMX npm run test:compat:node",
     "build:sparkshell": "node dist/scripts/build-sparkshell.js",
     "smoke:packed-install": "node dist/scripts/smoke-packed-install.js",
     "test:sparkshell": "node dist/scripts/test-sparkshell.js",
@@ -83,3 +83,4 @@
     "hono": ">=4.11.10"
   }
 }
+

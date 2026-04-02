@@ -1,10 +1,10 @@
-# Installation Guide
+﻿# Installation Guide
 
 Complete installation guide for oh-my-qwen (OMQ) - Multi-agent orchestration layer for Qwen Code CLI.
 
 ---
 
-## 📋 Table of Contents
+## ðŸ“‹ Table of Contents
 
 - [Requirements](#requirements)
 - [Quick Install](#quick-install)
@@ -16,7 +16,7 @@ Complete installation guide for oh-my-qwen (OMQ) - Multi-agent orchestration lay
 
 ---
 
-## 🚀 Requirements
+## ðŸš€ Requirements
 
 Before installing oh-my-qwen, ensure you have:
 
@@ -47,7 +47,7 @@ git --version
 
 ---
 
-## ⚡ Quick Install
+## âš¡ Quick Install
 
 For experienced users who want to get started immediately:
 
@@ -69,7 +69,7 @@ $plan "create implementation plan"
 
 ---
 
-## 📦 Step-by-Step Installation
+## ðŸ“¦ Step-by-Step Installation
 
 ### Step 1: Install Node.js
 
@@ -153,15 +153,15 @@ omq setup
 omq doctor
 
 # Expected output:
-# ✅ oh-my-qwen is installed
-# ✅ Qwen Code CLI is installed
-# ✅ Skills are installed
-# ✅ Configuration is valid
+# âœ… oh-my-qwen is installed
+# âœ… Qwen Code CLI is installed
+# âœ… Skills are installed
+# âœ… Configuration is valid
 ```
 
 ---
 
-## ⚙️ Configuration
+## âš™ï¸ Configuration
 
 ### Basic Configuration
 
@@ -181,14 +181,14 @@ theme = "dark"
 
 ### oh-my-qwen Configuration
 
-Create `.omx-config.json` in your project root:
+Create `.QMX-config.json` in your project root:
 
 ```json
 {
   "env": {
-    "OMX_DEFAULT_FRONTIER_MODEL": "qwen-max",
-    "OMX_DEFAULT_STANDARD_MODEL": "qwen-plus",
-    "OMX_DEFAULT_SPARK_MODEL": "qwen-turbo"
+    "QMX_DEFAULT_FRONTIER_MODEL": "qwen-max",
+    "QMX_DEFAULT_STANDARD_MODEL": "qwen-plus",
+    "QMX_DEFAULT_SPARK_MODEL": "qwen-turbo"
   },
   "models": {
     "default": "qwen-max",
@@ -209,15 +209,15 @@ export QWEN_API_KEY="your-api-key"
 export QWEN_CODE_HOME="$HOME/.qwen-code"
 
 # Enable verbose logging (optional)
-export OMX_VERBOSE="1"
+export QMX_VERBOSE="1"
 
 # Enable mouse scrolling in tmux (optional)
-export OMX_MOUSE="1"
+export QMX_MOUSE="1"
 ```
 
 ---
 
-## ✅ Verify Installation
+## âœ… Verify Installation
 
 ### Run Doctor Command
 
@@ -249,12 +249,12 @@ ls -la .qwen-code/skills/
 
 ```bash
 # Check MCP configuration
-omx doctor --team
+QMX doctor --team
 ```
 
 ---
 
-## 🔧 Troubleshooting
+## ðŸ”§ Troubleshooting
 
 ### Issue: "command not found: omq"
 
@@ -340,7 +340,7 @@ winget install psmux
 
 ---
 
-## 🖥️ Platform-Specific Guides
+## ðŸ–¥ï¸ Platform-Specific Guides
 
 ### macOS
 
@@ -429,7 +429,7 @@ omq --high
 
 ---
 
-## 🎯 Post-Installation Setup
+## ðŸŽ¯ Post-Installation Setup
 
 ### 1. Create Your First Project
 
@@ -454,7 +454,7 @@ This project uses oh-my-qwen for workflow orchestration.
 - `$ralph` - Persistent execution
 
 ## State Directory
-- `.omx/` - Runtime state, plans, logs
+- `.QMX/` - Runtime state, plans, logs
 EOF
 ```
 
@@ -486,7 +486,7 @@ Install plugins:
 
 ---
 
-## 📚 Additional Resources
+## ðŸ“š Additional Resources
 
 ### Documentation
 
@@ -509,7 +509,7 @@ Install plugins:
 
 ---
 
-## 🆘 Getting Help
+## ðŸ†˜ Getting Help
 
 ### Common Commands
 
@@ -548,14 +548,15 @@ omq cancel
 
 ---
 
-## 🎉 Next Steps
+## ðŸŽ‰ Next Steps
 
 After successful installation:
 
-1. ✅ Read [Getting Started Guide](./docs/getting-started.html)
-2. ✅ Try your first workflow: `$plan "..."`
-3. ✅ Explore available skills: `/skills`
-4. ✅ Join the community on Discord
-5. ✅ Star the repository on GitHub ⭐
+1. âœ… Read [Getting Started Guide](./docs/getting-started.html)
+2. âœ… Try your first workflow: `$plan "..."`
+3. âœ… Explore available skills: `/skills`
+4. âœ… Join the community on Discord
+5. âœ… Star the repository on GitHub â­
 
-**Happy coding with oh-my-qwen! 🚀**
+**Happy coding with oh-my-qwen! ðŸš€**
+

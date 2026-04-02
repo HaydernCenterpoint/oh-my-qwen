@@ -1,90 +1,90 @@
-# Hướng Dẫn Cài Đặt
+﻿# HÆ°á»›ng Dáº«n CÃ i Äáº·t
 
-Hướng dẫn cài đặt đầy đủ cho oh-my-qwen (OMQ) - Lớp điều phối multi-agent cho Qwen Code CLI.
-
----
-
-## 📋 Mục Lục
-
-- [Yêu Cầu Hệ Thống](#yêu-cầu-hệ-thống)
-- [Cài Đặt Nhanh](#cài-đặt-nhanh)
-- [Cài Đặt Từng Bước](#cài-đặt-từng-bước)
-- [Cấu Hình](#cấu-hình)
-- [Kiểm Tra Cài Đặt](#kiểm-tra-cài-đặt)
-- [Xử Lý Sự Cố](#xử-lý-sự-cố)
-- [Hướng Dẫn Theo Nền Tảng](#hướng-dẫn-theo-nền-tảng)
+HÆ°á»›ng dáº«n cÃ i Ä‘áº·t Ä‘áº§y Ä‘á»§ cho oh-my-qwen (OMQ) - Lá»›p Ä‘iá»u phá»‘i multi-agent cho Qwen Code CLI.
 
 ---
 
-## 🚀 Yêu Cầu Hệ Thống
+## ðŸ“‹ Má»¥c Lá»¥c
 
-Trước khi cài đặt oh-my-qwen, đảm bảo bạn có:
+- [YÃªu Cáº§u Há»‡ Thá»‘ng](#yÃªu-cáº§u-há»‡-thá»‘ng)
+- [CÃ i Äáº·t Nhanh](#cÃ i-Ä‘áº·t-nhanh)
+- [CÃ i Äáº·t Tá»«ng BÆ°á»›c](#cÃ i-Ä‘áº·t-tá»«ng-bÆ°á»›c)
+- [Cáº¥u HÃ¬nh](#cáº¥u-hÃ¬nh)
+- [Kiá»ƒm Tra CÃ i Äáº·t](#kiá»ƒm-tra-cÃ i-Ä‘áº·t)
+- [Xá»­ LÃ½ Sá»± Cá»‘](#xá»­-lÃ½-sá»±-cá»‘)
+- [HÆ°á»›ng Dáº«n Theo Ná»n Táº£ng](#hÆ°á»›ng-dáº«n-theo-ná»n-táº£ng)
 
-| Yêu Cầu | Phiên Bản | Dùng Cho |
+---
+
+## ðŸš€ YÃªu Cáº§u Há»‡ Thá»‘ng
+
+TrÆ°á»›c khi cÃ i Ä‘áº·t oh-my-qwen, Ä‘áº£m báº£o báº¡n cÃ³:
+
+| YÃªu Cáº§u | PhiÃªn Báº£n | DÃ¹ng Cho |
 |---------|-----------|----------|
-| **Node.js** | 20.x trở lên | Runtime chính |
-| **npm** | 9.x trở lên | Quản lý package |
-| **Qwen Code CLI** | Mới nhất | Thực thi AI agent |
-| **Git** | Bất kỳ phiên bản gần đây | Quản lý version |
+| **Node.js** | 20.x trá»Ÿ lÃªn | Runtime chÃ­nh |
+| **npm** | 9.x trá»Ÿ lÃªn | Quáº£n lÃ½ package |
+| **Qwen Code CLI** | Má»›i nháº¥t | Thá»±c thi AI agent |
+| **Git** | Báº¥t ká»³ phiÃªn báº£n gáº§n Ä‘Ã¢y | Quáº£n lÃ½ version |
 | **tmux** | 3.0+ (macOS/Linux) | Team mode |
-| **psmux** | Mới nhất (Windows) | Team mode trên Windows |
+| **psmux** | Má»›i nháº¥t (Windows) | Team mode trÃªn Windows |
 
-### Kiểm Tra Hệ Thống
+### Kiá»ƒm Tra Há»‡ Thá»‘ng
 
 ```bash
-# Kiểm tra phiên bản Node.js
-node --version  # Nên là v20.x hoặc cao hơn
+# Kiá»ƒm tra phiÃªn báº£n Node.js
+node --version  # NÃªn lÃ  v20.x hoáº·c cao hÆ¡n
 
-# Kiểm tra phiên bản npm
-npm --version   # Nên là 9.x hoặc cao hơn
+# Kiá»ƒm tra phiÃªn báº£n npm
+npm --version   # NÃªn lÃ  9.x hoáº·c cao hÆ¡n
 
-# Kiểm tra Qwen Code đã cài chưa
+# Kiá»ƒm tra Qwen Code Ä‘Ã£ cÃ i chÆ°a
 qwen-code --version
 
-# Kiểm tra Git
+# Kiá»ƒm tra Git
 git --version
 ```
 
 ---
 
-## ⚡ Cài Đặt Nhanh
+## âš¡ CÃ i Äáº·t Nhanh
 
-Dành cho người dùng có kinh nghiệm muốn bắt đầu ngay:
+DÃ nh cho ngÆ°á»i dÃ¹ng cÃ³ kinh nghiá»‡m muá»‘n báº¯t Ä‘áº§u ngay:
 
 ```bash
-# 1. Cài đặt Qwen Code CLI và oh-my-qwen
+# 1. CÃ i Ä‘áº·t Qwen Code CLI vÃ  oh-my-qwen
 npm install -g @anthropic/qwen-code oh-my-qwen
 
-# 2. Cài đặt skills và workflows
+# 2. CÃ i Ä‘áº·t skills vÃ  workflows
 omq setup
 
-# 3. Khởi động với cài đặt khuyến nghị
+# 3. Khá»Ÿi Ä‘á»™ng vá»›i cÃ i Ä‘áº·t khuyáº¿n nghá»‹
 omq --high
 
-# 4. Bắt đầu sử dụng workflow keywords
-# Trong phiên Qwen Code:
+# 4. Báº¯t Ä‘áº§u sá»­ dá»¥ng workflow keywords
+# Trong phiÃªn Qwen Code:
 $architect "analyze this codebase"
 $plan "create implementation plan"
 ```
 
 ---
 
-## 📦 Cài Đặt Từng Bước
+## ðŸ“¦ CÃ i Äáº·t Tá»«ng BÆ°á»›c
 
-### Bước 1: Cài đặt Node.js
+### BÆ°á»›c 1: CÃ i Ä‘áº·t Node.js
 
 #### macOS
 ```bash
-# Sử dụng Homebrew
+# Sá»­ dá»¥ng Homebrew
 brew install node@20
 
-# Hoặc tải từ https://nodejs.org
+# Hoáº·c táº£i tá»« https://nodejs.org
 ```
 
 #### Windows
 ```bash
-# Tải installer từ https://nodejs.org
-# Chạy installer và làm theo hướng dẫn
+# Táº£i installer tá»« https://nodejs.org
+# Cháº¡y installer vÃ  lÃ m theo hÆ°á»›ng dáº«n
 ```
 
 #### Linux (Ubuntu/Debian)
@@ -99,96 +99,96 @@ curl -fsSL https://rpm.nodesource.com/setup_20.x | sudo bash -
 sudo dnf install -y nodejs
 ```
 
-### Bước 2: Cài đặt Qwen Code CLI
+### BÆ°á»›c 2: CÃ i Ä‘áº·t Qwen Code CLI
 
 ```bash
-# Cài đặt global
+# CÃ i Ä‘áº·t global
 npm install -g @anthropic/qwen-code
 
-# Kiểm tra cài đặt
+# Kiá»ƒm tra cÃ i Ä‘áº·t
 qwen-code --version
 ```
 
-### Bước 3: Cấu hình API Key Qwen Code
+### BÆ°á»›c 3: Cáº¥u hÃ¬nh API Key Qwen Code
 
 ```bash
-# Chạy Qwen Code setup
+# Cháº¡y Qwen Code setup
 qwen-code login
 
-# Hoặc đặt biến môi trường
+# Hoáº·c Ä‘áº·t biáº¿n mÃ´i trÆ°á»ng
 export QWEN_API_KEY="your-api-key-here"
 
-# Để cài đặt vĩnh viễn, thêm vào ~/.bashrc hoặc ~/.zshrc
+# Äá»ƒ cÃ i Ä‘áº·t vÄ©nh viá»…n, thÃªm vÃ o ~/.bashrc hoáº·c ~/.zshrc
 echo 'export QWEN_API_KEY="your-api-key-here"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-### Bước 4: Cài đặt oh-my-qwen
+### BÆ°á»›c 4: CÃ i Ä‘áº·t oh-my-qwen
 
 ```bash
-# Cài đặt global
+# CÃ i Ä‘áº·t global
 npm install -g oh-my-qwen
 
-# Kiểm tra cài đặt
+# Kiá»ƒm tra cÃ i Ä‘áº·t
 omq --version
 ```
 
-### Bước 5: Cài đặt Skills và Workflows
+### BÆ°á»›c 5: CÃ i Ä‘áº·t Skills vÃ  Workflows
 
 ```bash
-# Khởi tạo oh-my-qwen trong project của bạn
+# Khá»Ÿi táº¡o oh-my-qwen trong project cá»§a báº¡n
 omq setup
 
-# Sẽ thực hiện:
-# - Tạo thư mục .qwen-code/ với config
-# - Cài đặt skills và prompts
+# Sáº½ thá»±c hiá»‡n:
+# - Táº¡o thÆ° má»¥c .qwen-code/ vá»›i config
+# - CÃ i Ä‘áº·t skills vÃ  prompts
 # - Setup AGENTS.md
-# - Cấu hình MCP servers
+# - Cáº¥u hÃ¬nh MCP servers
 ```
 
-### Bước 6: Kiểm tra cài đặt
+### BÆ°á»›c 6: Kiá»ƒm tra cÃ i Ä‘áº·t
 
 ```bash
-# Chạy lệnh doctor
+# Cháº¡y lá»‡nh doctor
 omq doctor
 
-# Kết quả mong đợi:
-# ✅ oh-my-qwen đã cài đặt
-# ✅ Qwen Code CLI đã cài đặt
-# ✅ Skills đã cài đặt
-# ✅ Cấu hình hợp lệ
+# Káº¿t quáº£ mong Ä‘á»£i:
+# âœ… oh-my-qwen Ä‘Ã£ cÃ i Ä‘áº·t
+# âœ… Qwen Code CLI Ä‘Ã£ cÃ i Ä‘áº·t
+# âœ… Skills Ä‘Ã£ cÃ i Ä‘áº·t
+# âœ… Cáº¥u hÃ¬nh há»£p lá»‡
 ```
 
 ---
 
-## ⚙️ Cấu Hình
+## âš™ï¸ Cáº¥u HÃ¬nh
 
-### Cấu Hình Cơ Bản
+### Cáº¥u HÃ¬nh CÆ¡ Báº£n
 
-Tạo hoặc chỉnh sửa `~/.qwen-code/config.toml`:
+Táº¡o hoáº·c chá»‰nh sá»­a `~/.qwen-code/config.toml`:
 
 ```toml
-# Cấu hình model
+# Cáº¥u hÃ¬nh model
 model = "qwen-max"
 
 # Reasoning effort (low, medium, high, xhigh)
 model_reasoning_effort = "high"
 
-# Cấu hình TUI
+# Cáº¥u hÃ¬nh TUI
 [tui]
 theme = "dark"
 ```
 
-### Cấu hình oh-my-qwen
+### Cáº¥u hÃ¬nh oh-my-qwen
 
-Tạo `.omx-config.json` trong thư mục gốc project:
+Táº¡o `.QMX-config.json` trong thÆ° má»¥c gá»‘c project:
 
 ```json
 {
   "env": {
-    "OMX_DEFAULT_FRONTIER_MODEL": "qwen-max",
-    "OMX_DEFAULT_STANDARD_MODEL": "qwen-plus",
-    "OMX_DEFAULT_SPARK_MODEL": "qwen-turbo"
+    "QMX_DEFAULT_FRONTIER_MODEL": "qwen-max",
+    "QMX_DEFAULT_STANDARD_MODEL": "qwen-plus",
+    "QMX_DEFAULT_SPARK_MODEL": "qwen-turbo"
   },
   "models": {
     "default": "qwen-max",
@@ -197,126 +197,126 @@ Tạo `.omx-config.json` trong thư mục gốc project:
 }
 ```
 
-### Biến Môi Trường
+### Biáº¿n MÃ´i TrÆ°á»ng
 
-Thêm vào `~/.bashrc`, `~/.zshrc`, hoặc `~/.profile`:
+ThÃªm vÃ o `~/.bashrc`, `~/.zshrc`, hoáº·c `~/.profile`:
 
 ```bash
 # Qwen Code API Key
 export QWEN_API_KEY="your-api-key"
 
-# Thư mục home của oh-my-qwen (tùy chọn)
+# ThÆ° má»¥c home cá»§a oh-my-qwen (tÃ¹y chá»n)
 export QWEN_CODE_HOME="$HOME/.qwen-code"
 
-# Bật logging chi tiết (tùy chọn)
-export OMX_VERBOSE="1"
+# Báº­t logging chi tiáº¿t (tÃ¹y chá»n)
+export QMX_VERBOSE="1"
 
-# Bật cuộn chuột trong tmux (tùy chọn)
-export OMX_MOUSE="1"
+# Báº­t cuá»™n chuá»™t trong tmux (tÃ¹y chá»n)
+export QMX_MOUSE="1"
 ```
 
 ---
 
-## ✅ Kiểm Tra Cài Đặt
+## âœ… Kiá»ƒm Tra CÃ i Äáº·t
 
-### Chạy Lệnh Doctor
+### Cháº¡y Lá»‡nh Doctor
 
 ```bash
 omq doctor
 ```
 
-### Kiểm Tra Chức Năng Cơ Bản
+### Kiá»ƒm Tra Chá»©c NÄƒng CÆ¡ Báº£n
 
 ```bash
-# Khởi động oh-my-qwen
+# Khá»Ÿi Ä‘á»™ng oh-my-qwen
 omq --high
 
-# Trong phiên, thử:
+# Trong phiÃªn, thá»­:
 $architect "analyze the current directory"
 ```
 
-### Kiểm Tra Cài Đặt Skills
+### Kiá»ƒm Tra CÃ i Äáº·t Skills
 
 ```bash
-# Liệt kê skills đã cài
+# Liá»‡t kÃª skills Ä‘Ã£ cÃ i
 ls -la ~/.qwen-code/skills/
 
-# Hoặc skills cấp project
+# Hoáº·c skills cáº¥p project
 ls -la .qwen-code/skills/
 ```
 
-### Xác Minh MCP Servers
+### XÃ¡c Minh MCP Servers
 
 ```bash
-# Kiểm tra cấu hình MCP
-omx doctor --team
+# Kiá»ƒm tra cáº¥u hÃ¬nh MCP
+QMX doctor --team
 ```
 
 ---
 
-## 🔧 Xử Lý Sự Cố
+## ðŸ”§ Xá»­ LÃ½ Sá»± Cá»‘
 
-### Vấn đề: "command not found: omq"
+### Váº¥n Ä‘á»: "command not found: omq"
 
-**Giải pháp:**
+**Giáº£i phÃ¡p:**
 ```bash
-# Thêm npm global bin vào PATH
+# ThÃªm npm global bin vÃ o PATH
 export PATH="$HOME/.npm-global/bin:$PATH"
 
-# Hoặc cho vị trí npm mặc định
+# Hoáº·c cho vá»‹ trÃ­ npm máº·c Ä‘á»‹nh
 export PATH="$HOME/.npm/bin:$PATH"
 
-# Thêm vào ~/.bashrc hoặc ~/.zshrc để vĩnh viễn
+# ThÃªm vÃ o ~/.bashrc hoáº·c ~/.zshrc Ä‘á»ƒ vÄ©nh viá»…n
 echo 'export PATH="$HOME/.npm-global/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-### Vấn đề: "npm ERR! code EACCES"
+### Váº¥n Ä‘á»: "npm ERR! code EACCES"
 
-**Giải pháp (macOS/Linux):**
+**Giáº£i phÃ¡p (macOS/Linux):**
 ```bash
-# Sửa quyền npm
+# Sá»­a quyá»n npm
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
 echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-**Giải pháp (Windows):**
+**Giáº£i phÃ¡p (Windows):**
 ```bash
-# Chạy Command Prompt hoặc PowerShell với quyền Administrator
+# Cháº¡y Command Prompt hoáº·c PowerShell vá»›i quyá»n Administrator
 npm install -g oh-my-qwen
 ```
 
-### Vấn đề: "Qwen Code CLI not found"
+### Váº¥n Ä‘á»: "Qwen Code CLI not found"
 
-**Giải pháp:**
+**Giáº£i phÃ¡p:**
 ```bash
-# Cài đặt lại Qwen Code CLI
+# CÃ i Ä‘áº·t láº¡i Qwen Code CLI
 npm uninstall -g @anthropic/qwen-code
 npm install -g @anthropic/qwen-code
 
-# Kiểm tra
+# Kiá»ƒm tra
 qwen-code --version
 ```
 
-### Vấn đề: "Node.js version too old"
+### Váº¥n Ä‘á»: "Node.js version too old"
 
-**Giải pháp:**
+**Giáº£i phÃ¡p:**
 ```bash
-# Cài đặt nvm (Node Version Manager)
+# CÃ i Ä‘áº·t nvm (Node Version Manager)
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
-# Cài đặt Node.js 20
+# CÃ i Ä‘áº·t Node.js 20
 nvm install 20
 nvm use 20
 nvm alias default 20
 
-# Kiểm tra
-node --version  # Nên hiện v20.x.x
+# Kiá»ƒm tra
+node --version  # NÃªn hiá»‡n v20.x.x
 ```
 
-### Vấn đề: tmux not found (cho team mode)
+### Váº¥n Ä‘á»: tmux not found (cho team mode)
 
 **macOS:**
 ```bash
@@ -340,15 +340,15 @@ winget install psmux
 
 ---
 
-## 🖥️ Hướng Dẫn Theo Nền Tảng
+## ðŸ–¥ï¸ HÆ°á»›ng Dáº«n Theo Ná»n Táº£ng
 
 ### macOS
 
 ```bash
-# Cài đặt prerequisites
+# CÃ i Ä‘áº·t prerequisites
 brew install node@20 git tmux
 
-# Cài đặt Qwen Code và oh-my-qwen
+# CÃ i Ä‘áº·t Qwen Code vÃ  oh-my-qwen
 npm install -g @anthropic/qwen-code oh-my-qwen
 
 # Setup
@@ -361,13 +361,13 @@ omq --high
 ### Windows
 
 ```bash
-# Cài đặt Node.js từ https://nodejs.org
-# Cài đặt Git từ https://git-scm.com
+# CÃ i Ä‘áº·t Node.js tá»« https://nodejs.org
+# CÃ i Ä‘áº·t Git tá»« https://git-scm.com
 
-# Cài đặt psmux cho team mode
+# CÃ i Ä‘áº·t psmux cho team mode
 winget install psmux
 
-# Cài đặt Qwen Code và oh-my-qwen (với quyền Administrator)
+# CÃ i Ä‘áº·t Qwen Code vÃ  oh-my-qwen (vá»›i quyá»n Administrator)
 npm install -g @anthropic/qwen-code oh-my-qwen
 
 # Setup
@@ -384,7 +384,7 @@ omq --high
 curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt-get install -y nodejs git tmux
 
-# Cài đặt global
+# CÃ i Ä‘áº·t global
 npm install -g @anthropic/qwen-code oh-my-qwen
 
 # Setup
@@ -397,11 +397,11 @@ omq --high
 ### Linux (Ubuntu/Debian)
 
 ```bash
-# Cài đặt prerequisites
+# CÃ i Ä‘áº·t prerequisites
 sudo apt update
 sudo apt install -y nodejs npm git tmux
 
-# Cài đặt Qwen Code và oh-my-qwen
+# CÃ i Ä‘áº·t Qwen Code vÃ  oh-my-qwen
 npm install -g @anthropic/qwen-code oh-my-qwen
 
 # Setup
@@ -414,10 +414,10 @@ omq --high
 ### Linux (Fedora/RHEL)
 
 ```bash
-# Cài đặt prerequisites
+# CÃ i Ä‘áº·t prerequisites
 sudo dnf install -y nodejs git tmux
 
-# Cài đặt Qwen Code và oh-my-qwen
+# CÃ i Ä‘áº·t Qwen Code vÃ  oh-my-qwen
 npm install -g @anthropic/qwen-code oh-my-qwen
 
 # Setup
@@ -429,133 +429,134 @@ omq --high
 
 ---
 
-## 🎯 Cài Đặt Sau Khi Hoàn Tất
+## ðŸŽ¯ CÃ i Äáº·t Sau Khi HoÃ n Táº¥t
 
-### 1. Tạo Project Đầu Tiên
+### 1. Táº¡o Project Äáº§u TiÃªn
 
 ```bash
-# Tạo thư mục project mới
+# Táº¡o thÆ° má»¥c project má»›i
 mkdir my-qwen-project
 cd my-qwen-project
 
-# Khởi tạo oh-my-qwen
+# Khá»Ÿi táº¡o oh-my-qwen
 omq setup
 
-# Tạo AGENTS.md
+# Táº¡o AGENTS.md
 cat > AGENTS.md << 'EOF'
 # Project Agents
 
-Dự án này sử dụng oh-my-qwen cho điều phối workflow.
+Dá»± Ã¡n nÃ y sá»­ dá»¥ng oh-my-qwen cho Ä‘iá»u phá»‘i workflow.
 
-## Skills Có Sẵn
-- `$architect` - Phân tích kiến trúc
-- `$executor` - Thực thi code
-- `$plan` - Lập kế hoạch
-- `$ralph` - Thực thi liên tục
+## Skills CÃ³ Sáºµn
+- `$architect` - PhÃ¢n tÃ­ch kiáº¿n trÃºc
+- `$executor` - Thá»±c thi code
+- `$plan` - Láº­p káº¿ hoáº¡ch
+- `$ralph` - Thá»±c thi liÃªn tá»¥c
 
-## Thư mục State
-- `.omx/` - Runtime state, plans, logs
+## ThÆ° má»¥c State
+- `.QMX/` - Runtime state, plans, logs
 EOF
 ```
 
 ### 2. Test Workflows
 
 ```bash
-# Khởi động oh-my-qwen
+# Khá»Ÿi Ä‘á»™ng oh-my-qwen
 omq --high
 
-# Thử workflows trong phiên:
+# Thá»­ workflows trong phiÃªn:
 $architect "analyze this project structure"
 $plan "create a REST API with user authentication"
 ```
 
-### 3. Cấu Hình Editor
+### 3. Cáº¥u HÃ¬nh Editor
 
 #### VS Code
 
-Cài extensions:
-- Qwen Code (nếu có)
+CÃ i extensions:
+- Qwen Code (náº¿u cÃ³)
 - Markdown All in One
 - GitLens
 
 #### JetBrains IDEs
 
-Cài plugins:
+CÃ i plugins:
 - Qwen Code Assistant
 - Markdown support
 
 ---
 
-## 📚 Tài Nguyên Bổ Sung
+## ðŸ“š TÃ i NguyÃªn Bá»• Sung
 
-### Tài Liệu
+### TÃ i Liá»‡u
 
-- [Bắt Đầu](./docs/getting-started.html)
+- [Báº¯t Äáº§u](./docs/getting-started.html)
 - [Skills Reference](./docs/skills.html)
 - [Agent Catalog](./docs/agents.html)
-- [Tích Hợp OpenCode & Cline](./INSTALL-OPENCODE-CLINE.md)
+- [TÃ­ch Há»£p OpenCode & Cline](./INSTALL-OPENCODE-CLINE.md)
 
-### Cộng Đồng
+### Cá»™ng Äá»“ng
 
 - [GitHub Issues](https://github.com/your-username/oh-my-qwen/issues)
 - [Discord Community](https://discord.gg/your-invite)
 - [Discussions](https://github.com/your-username/oh-my-qwen/discussions)
 
-### Hướng Dẫn
+### HÆ°á»›ng Dáº«n
 
 - [Quick Start Guide](./DEMO.md)
-- [Migration từ oh-my-codex](./MIGRATION_TO_QWEN.md)
+- [Migration tá»« oh-my-codex](./MIGRATION_TO_QWEN.md)
 - [Team Mode Guide](./docs/team-mode.html)
 
 ---
 
-## 🆘 Trợ Giúp
+## ðŸ†˜ Trá»£ GiÃºp
 
-### Lệnh Thường Dùng
+### Lá»‡nh ThÆ°á»ng DÃ¹ng
 
 ```bash
-# Hiện trợ giúp
+# Hiá»‡n trá»£ giÃºp
 omq --help
 
-# Hiện phiên bản
+# Hiá»‡n phiÃªn báº£n
 omq version
 
-# Kiểm tra cài đặt
+# Kiá»ƒm tra cÃ i Ä‘áº·t
 omq doctor
 
-# Cài đặt skills
+# CÃ i Ä‘áº·t skills
 omq setup
 
-# Khởi động với high reasoning
+# Khá»Ÿi Ä‘á»™ng vá»›i high reasoning
 omq --high
 
-# Khởi động với madmax mode
+# Khá»Ÿi Ä‘á»™ng vá»›i madmax mode
 omq --madmax
 
-# Hiện active modes
+# Hiá»‡n active modes
 omq status
 
-# Hủy active modes
+# Há»§y active modes
 omq cancel
 ```
 
-### Kênh Hỗ Trợ
+### KÃªnh Há»— Trá»£
 
-1. **GitHub Issues**: Báo lỗi và yêu cầu tính năng
-2. **Discussions**: Đặt câu hỏi và chia sẻ ý tưởng
-3. **Discord**: Chat real-time với cộng đồng
-4. **Documentation**: Đọc docs trước
+1. **GitHub Issues**: BÃ¡o lá»—i vÃ  yÃªu cáº§u tÃ­nh nÄƒng
+2. **Discussions**: Äáº·t cÃ¢u há»i vÃ  chia sáº» Ã½ tÆ°á»Ÿng
+3. **Discord**: Chat real-time vá»›i cá»™ng Ä‘á»“ng
+4. **Documentation**: Äá»c docs trÆ°á»›c
 
 ---
 
-## 🎉 Bước Tiếp Theo
+## ðŸŽ‰ BÆ°á»›c Tiáº¿p Theo
 
-Sau khi cài đặt thành công:
+Sau khi cÃ i Ä‘áº·t thÃ nh cÃ´ng:
 
-1. ✅ Đọc [Hướng Dẫn Bắt Đầu](./docs/getting-started.html)
-2. ✅ Thử workflow đầu tiên: `$plan "..."`
-3. ✅ Khám phá skills: `/skills`
-4. ✅ Tham gia cộng đồng Discord
-5. ✅ Star repository trên GitHub ⭐
+1. âœ… Äá»c [HÆ°á»›ng Dáº«n Báº¯t Äáº§u](./docs/getting-started.html)
+2. âœ… Thá»­ workflow Ä‘áº§u tiÃªn: `$plan "..."`
+3. âœ… KhÃ¡m phÃ¡ skills: `/skills`
+4. âœ… Tham gia cá»™ng Ä‘á»“ng Discord
+5. âœ… Star repository trÃªn GitHub â­
 
-**Chúc coding vui vẻ với oh-my-qwen! 🚀**
+**ChÃºc coding vui váº» vá»›i oh-my-qwen! ðŸš€**
+

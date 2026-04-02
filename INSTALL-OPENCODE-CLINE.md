@@ -1,86 +1,86 @@
-# Hướng dẫn cài đặt Oh-My-Qwen Skills cho OpenCode và Cline
+﻿# HÆ°á»›ng dáº«n cÃ i Ä‘áº·t Oh-My-Qwen Skills cho OpenCode vÃ  Cline
 
-Vì **OpenCode** và **Cline** là AI coding agents dạng chat (không phải CLI như Codex), cách cài đặt skills sẽ khác với oh-my-codex gốc.
+VÃ¬ **OpenCode** vÃ  **Cline** lÃ  AI coding agents dáº¡ng chat (khÃ´ng pháº£i CLI nhÆ° Codex), cÃ¡ch cÃ i Ä‘áº·t skills sáº½ khÃ¡c vá»›i oh-my-codex gá»‘c.
 
 ---
 
-## 📋 Tổng quan
+## ðŸ“‹ Tá»•ng quan
 
-| Công cụ | Loại | Cách cài skills |
+| CÃ´ng cá»¥ | Loáº¡i | CÃ¡ch cÃ i skills |
 |---------|------|-----------------|
 | **Cline** | VS Code Extension | Custom Instructions / Custom Modes |
 | **OpenCode** | Terminal/Chat Agent | System Prompt / Custom Commands |
-| **Oh-My-Qwen (OMQ)** | CLI Layer | `omq setup` (chỉ cho Qwen Code CLI) |
+| **Oh-My-Qwen (OMQ)** | CLI Layer | `omq setup` (chá»‰ cho Qwen Code CLI) |
 
 ---
 
-## 🤖 Cline (VS Code Extension)
+## ðŸ¤– Cline (VS Code Extension)
 
-### Cách 1: Custom Instructions (ĐƠN GIẢN NHẤT)
+### CÃ¡ch 1: Custom Instructions (ÄÆ N GIáº¢N NHáº¤T)
 
-1. **Mở Cline trong VS Code**
-   - Cài đặt extension: [Cline](https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev)
-   - Mở Cline từ sidebar
+1. **Má»Ÿ Cline trong VS Code**
+   - CÃ i Ä‘áº·t extension: [Cline](https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev)
+   - Má»Ÿ Cline tá»« sidebar
 
-2. **Tạo file custom instructions**
+2. **Táº¡o file custom instructions**
    ```bash
-   # Tạo file trong project của bạn
+   # Táº¡o file trong project cá»§a báº¡n
    .cline/instructions/omq-skills.md
    ```
 
-3. **Nội dung file `.cline/instructions/omq-skills.md`**:
+3. **Ná»™i dung file `.cline/instructions/omq-skills.md`**:
    ```markdown
    # Oh-My-Qwen Skills Integration
 
    ## Available Workflows
 
    ### Role Keywords
-   - `$architect` - Phân tích kiến trúc, tradeoffs, boundaries
-   - `$executor` - Implementation tập trung
-   - `$planner` - Tạo work plans và sequencing
+   - `$architect` - PhÃ¢n tÃ­ch kiáº¿n trÃºc, tradeoffs, boundaries
+   - `$executor` - Implementation táº­p trung
+   - `$planner` - Táº¡o work plans vÃ  sequencing
    - `$debugger` - Root-cause analysis
-   - `$verifier` - Completion evidence và validation
+   - `$verifier` - Completion evidence vÃ  validation
 
    ### Workflow Skills
-   - `$plan` - Lập kế hoạch trước khi implement
-   - `$ralph` - Persistent execution mode (không dừng cho đến khi hoàn thành)
-   - `$team` - Multi-agent coordination cho task lớn
-   - `$deep-interview` - Socratic interview để làm rõ requirements
-   - `$analyze` - Deep analysis và investigation
-   - `$code-review` - Code review có hệ thống
+   - `$plan` - Láº­p káº¿ hoáº¡ch trÆ°á»›c khi implement
+   - `$ralph` - Persistent execution mode (khÃ´ng dá»«ng cho Ä‘áº¿n khi hoÃ n thÃ nh)
+   - `$team` - Multi-agent coordination cho task lá»›n
+   - `$deep-interview` - Socratic interview Ä‘á»ƒ lÃ m rÃµ requirements
+   - `$analyze` - Deep analysis vÃ  investigation
+   - `$code-review` - Code review cÃ³ há»‡ thá»‘ng
    - `$security-review` - Security audit
    - `$tdd` - Test-driven development workflow
 
    ## Usage Pattern
 
-   Khi tôi sử dụng các keywords trên, hãy:
-   1. Nhận diện workflow được yêu cầu
-   2. Thực hiện đúng quy trình của workflow đó
-   3. Lưu trữ state vào `.omx/` directory khi cần
-   4. Báo cáo progress rõ ràng
+   Khi tÃ´i sá»­ dá»¥ng cÃ¡c keywords trÃªn, hÃ£y:
+   1. Nháº­n diá»‡n workflow Ä‘Æ°á»£c yÃªu cáº§u
+   2. Thá»±c hiá»‡n Ä‘Ãºng quy trÃ¬nh cá»§a workflow Ä‘Ã³
+   3. LÆ°u trá»¯ state vÃ o `.QMX/` directory khi cáº§n
+   4. BÃ¡o cÃ¡o progress rÃµ rÃ ng
 
    ## Project Structure
-   - `.omx/state/` - Runtime state
-   - `.omx/plans/` - Plans và specs
-   - `.omx/logs/` - Session logs
+   - `.QMX/state/` - Runtime state
+   - `.QMX/plans/` - Plans vÃ  specs
+   - `.QMX/logs/` - Session logs
    - `AGENTS.md` - Orchestration brain
    ```
 
-4. **Cấu hình Cline để load custom instructions**
-   - Mở Cline settings (gear icon)
-   - Tìm "Custom Instructions"
+4. **Cáº¥u hÃ¬nh Cline Ä‘á»ƒ load custom instructions**
+   - Má»Ÿ Cline settings (gear icon)
+   - TÃ¬m "Custom Instructions"
    - Add path: `.cline/instructions/omq-skills.md`
 
 ---
 
-### Cách 2: Custom Modes (Nâng cao)
+### CÃ¡ch 2: Custom Modes (NÃ¢ng cao)
 
-1. **Tạo file cấu hình mode**
+1. **Táº¡o file cáº¥u hÃ¬nh mode**
    ```bash
    .cline/modes/architect-mode.md
    ```
 
-2. **Nội dung `.cline/modes/architect-mode.md`**:
+2. **Ná»™i dung `.cline/modes/architect-mode.md`**:
    ```markdown
    # Architect Mode
 
@@ -103,7 +103,7 @@ Vì **OpenCode** và **Cline** là AI coding agents dạng chat (không phải C
    - End with recommended approach
    ```
 
-3. **Kích hoạt mode trong chat**:
+3. **KÃ­ch hoáº¡t mode trong chat**:
    ```
    /mode architect
    Analyze the authentication flow in this project
@@ -111,30 +111,30 @@ Vì **OpenCode** và **Cline** là AI coding agents dạng chat (không phải C
 
 ---
 
-### Cách 3: MCP Servers (Tích hợp đầy đủ nhất)
+### CÃ¡ch 3: MCP Servers (TÃ­ch há»£p Ä‘áº§y Ä‘á»§ nháº¥t)
 
-Oh-My-Qwen có MCP servers mà Cline có thể sử dụng:
+Oh-My-Qwen cÃ³ MCP servers mÃ  Cline cÃ³ thá»ƒ sá»­ dá»¥ng:
 
-1. **Cấu hình MCP trong Cline**
-   - Mở Cline settings
-   - Tìm "MCP Servers"
-   - Add các servers từ oh-my-qwen:
+1. **Cáº¥u hÃ¬nh MCP trong Cline**
+   - Má»Ÿ Cline settings
+   - TÃ¬m "MCP Servers"
+   - Add cÃ¡c servers tá»« oh-my-qwen:
 
-2. **File cấu hình `cline_mcp_config.json`**:
+2. **File cáº¥u hÃ¬nh `cline_mcp_config.json`**:
    ```json
    {
      "mcpServers": {
-       "omx_state": {
+       "QMX_state": {
          "command": "node",
          "args": ["path/to/oh-my-qwen/dist/mcp/state-server.js"],
          "disabled": false
        },
-       "omx_memory": {
+       "QMX_memory": {
          "command": "node",
          "args": ["path/to/oh-my-qwen/dist/mcp/memory-server.js"],
          "disabled": false
        },
-       "omx_code_intel": {
+       "QMX_code_intel": {
          "command": "node",
          "args": ["path/to/oh-my-qwen/dist/mcp/code-intel-server.js"],
          "disabled": false
@@ -143,7 +143,7 @@ Oh-My-Qwen có MCP servers mà Cline có thể sử dụng:
    }
    ```
 
-3. **Build oh-my-qwen trước**:
+3. **Build oh-my-qwen trÆ°á»›c**:
    ```bash
    cd oh-my-qwen
    npm install
@@ -152,19 +152,19 @@ Oh-My-Qwen có MCP servers mà Cline có thể sử dụng:
 
 ---
 
-## 🔓 OpenCode
+## ðŸ”“ OpenCode
 
-### Cách 1: System Prompt Customization
+### CÃ¡ch 1: System Prompt Customization
 
-1. **Tìm file cấu hình OpenCode**
+1. **TÃ¬m file cáº¥u hÃ¬nh OpenCode**
    ```bash
-   # Thường ở một trong các vị trí sau:
+   # ThÆ°á»ng á»Ÿ má»™t trong cÃ¡c vá»‹ trÃ­ sau:
    ~/.opencode/config.yaml
    ~/.config/opencode/config.yaml
    ./opencode.yaml
    ```
 
-2. **Thêm custom system prompt**:
+2. **ThÃªm custom system prompt**:
    ```yaml
    system_prompt: |
      You are an AI coding assistant with Oh-My-Qwen skills integration.
@@ -183,9 +183,9 @@ Oh-My-Qwen có MCP servers mà Cline có thể sử dụng:
      - $code-review: Systematic code review
      
      ## State Management
-     - Store plans in .omx/plans/
-     - Store state in .omx/state/
-     - Store logs in .omx/logs/
+     - Store plans in .QMX/plans/
+     - Store state in .QMX/state/
+     - Store logs in .QMX/logs/
      
      ## Verification
      Always verify before claiming completion:
@@ -196,14 +196,14 @@ Oh-My-Qwen có MCP servers mà Cline có thể sử dụng:
 
 ---
 
-### Cách 2: Custom Commands
+### CÃ¡ch 2: Custom Commands
 
-1. **Tạo file commands**
+1. **Táº¡o file commands**
    ```bash
    ~/.opencode/commands/omq-skills.yaml
    ```
 
-2. **Nội dung**:
+2. **Ná»™i dung**:
    ```yaml
    commands:
      architect:
@@ -250,7 +250,7 @@ Oh-My-Qwen có MCP servers mà Cline có thể sử dụng:
          Task: {{input}}
    ```
 
-3. **Sử dụng trong chat**:
+3. **Sá»­ dá»¥ng trong chat**:
    ```
    /architect Analyze the authentication flow
    /plan Build a REST API with user management
@@ -259,14 +259,14 @@ Oh-My-Qwen có MCP servers mà Cline có thể sử dụng:
 
 ---
 
-### Cách 3: Agent Profiles
+### CÃ¡ch 3: Agent Profiles
 
-1. **Tạo agent profiles**
+1. **Táº¡o agent profiles**
    ```bash
    ~/.opencode/agents/architect.yaml
    ```
 
-2. **Nội dung**:
+2. **Ná»™i dung**:
    ```yaml
    name: Architect
    description: Software architecture analysis
@@ -288,25 +288,25 @@ Oh-My-Qwen có MCP servers mà Cline có thể sử dụng:
 
 ---
 
-## 📦 Cài đặt nhanh cho cả hai
+## ðŸ“¦ CÃ i Ä‘áº·t nhanh cho cáº£ hai
 
-### Script tự động hóa
+### Script tá»± Ä‘á»™ng hÃ³a
 
-Tạo file `setup-omq-skills.sh`:
+Táº¡o file `setup-omq-skills.sh`:
 
 ```bash
 #!/bin/bash
 
 # Oh-My-Qwen Skills Setup for OpenCode and Cline
 
-echo "🚀 Setting up Oh-My-Qwen Skills..."
+echo "ðŸš€ Setting up Oh-My-Qwen Skills..."
 
 # Create directories
 mkdir -p .cline/instructions
 mkdir -p .cline/modes
-mkdir -p .omx/state
-mkdir -p .omx/plans
-mkdir -p .omx/logs
+mkdir -p .QMX/state
+mkdir -p .QMX/plans
+mkdir -p .QMX/logs
 
 # Copy skills
 cp -r path/to/oh-my-qwen/skills/* .cline/instructions/
@@ -325,10 +325,10 @@ This project uses Oh-My-Qwen skills for workflow orchestration.
 - `$team` - Multi-agent coordination
 
 ## State Directory
-- `.omx/` - Runtime state, plans, logs
+- `.QMX/` - Runtime state, plans, logs
 EOF
 
-echo "✅ Setup complete!"
+echo "âœ… Setup complete!"
 echo ""
 echo "Next steps:"
 echo "1. For Cline: Add .cline/instructions/omq-skills.md to Custom Instructions"
@@ -338,9 +338,9 @@ echo "3. Start using $name keywords in your chats!"
 
 ---
 
-## 🎯 Sử dụng trong thực tế
+## ðŸŽ¯ Sá»­ dá»¥ng trong thá»±c táº¿
 
-### Ví dụ với Cline
+### VÃ­ dá»¥ vá»›i Cline
 
 ```
 User: $architect Analyze our current authentication system
@@ -362,7 +362,7 @@ Tradeoffs:
 Recommended: Option A for scalability
 ```
 
-### Ví dụ với OpenCode
+### VÃ­ dá»¥ vá»›i OpenCode
 
 ```
 User: /plan Build a REST API with user management
@@ -390,34 +390,35 @@ Total estimated time: 8 hours
 
 ---
 
-## ⚠️ Lưu ý quan trọng
+## âš ï¸ LÆ°u Ã½ quan trá»ng
 
-1. **Không phải tất cả features đều hoạt động**
-   - Team mode với tmux sẽ không hoạt động (chỉ dành cho CLI)
-   - HUD và status bars không áp dụng
-   - MCP servers cần build oh-my-qwen trước
+1. **KhÃ´ng pháº£i táº¥t cáº£ features Ä‘á»u hoáº¡t Ä‘á»™ng**
+   - Team mode vá»›i tmux sáº½ khÃ´ng hoáº¡t Ä‘á»™ng (chá»‰ dÃ nh cho CLI)
+   - HUD vÃ  status bars khÃ´ng Ã¡p dá»¥ng
+   - MCP servers cáº§n build oh-my-qwen trÆ°á»›c
 
-2. **Custom Instructions là cách tốt nhất**
-   - Đơn giản nhất
-   - Hoạt động ngay
-   - Không cần build hay cài đặt phức tạp
+2. **Custom Instructions lÃ  cÃ¡ch tá»‘t nháº¥t**
+   - ÄÆ¡n giáº£n nháº¥t
+   - Hoáº¡t Ä‘á»™ng ngay
+   - KhÃ´ng cáº§n build hay cÃ i Ä‘áº·t phá»©c táº¡p
 
-3. **Sử dụng AGENTS.md**
-   - Tạo file `AGENTS.md` trong project root
-   - Định nghĩa workflows và conventions
-   - Cline và OpenCode sẽ đọc file này
+3. **Sá»­ dá»¥ng AGENTS.md**
+   - Táº¡o file `AGENTS.md` trong project root
+   - Äá»‹nh nghÄ©a workflows vÃ  conventions
+   - Cline vÃ  OpenCode sáº½ Ä‘á»c file nÃ y
 
 4. **State management**
-   - Tạo thư mục `.omx/` để lưu state
-   - Lưu plans vào `.omx/plans/`
-   - Lưu logs vào `.omx/logs/`
+   - Táº¡o thÆ° má»¥c `.QMX/` Ä‘á»ƒ lÆ°u state
+   - LÆ°u plans vÃ o `.QMX/plans/`
+   - LÆ°u logs vÃ o `.QMX/logs/`
 
 ---
 
-## 🔗 Tham khảo thêm
+## ðŸ”— Tham kháº£o thÃªm
 
 - [Cline Custom Instructions](https://docs.cline.bot/custom-instructions)
 - [Cline MCP Integration](https://docs.cline.bot/mcp)
 - [OpenCode Documentation](https://opencode.ai)
 - [Oh-My-Qwen Skills](./skills/)
 - [Oh-My-Qwen Agents](./prompts/)
+

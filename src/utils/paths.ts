@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Path utilities for oh-my-qwen
  * Resolves Qwen Code CLI config, skills, prompts, and state directories
  */
@@ -168,29 +168,29 @@ async function hashSkillDirectory(
   return hashes;
 }
 
-/** oh-my-codex state directory (.omx/state/) */
-export function omxStateDir(projectRoot?: string): string {
-  return join(projectRoot || process.cwd(), ".omx", "state");
+/** oh-my-codex state directory (.QMX/state/) */
+export function QMXStateDir(projectRoot?: string): string {
+  return join(projectRoot || process.cwd(), ".QMX", "state");
 }
 
-/** oh-my-codex project memory file (.omx/project-memory.json) */
-export function omxProjectMemoryPath(projectRoot?: string): string {
-  return join(projectRoot || process.cwd(), ".omx", "project-memory.json");
+/** oh-my-codex project memory file (.QMX/project-memory.json) */
+export function QMXProjectMemoryPath(projectRoot?: string): string {
+  return join(projectRoot || process.cwd(), ".QMX", "project-memory.json");
 }
 
-/** oh-my-codex notepad file (.omx/notepad.md) */
-export function omxNotepadPath(projectRoot?: string): string {
-  return join(projectRoot || process.cwd(), ".omx", "notepad.md");
+/** oh-my-codex notepad file (.QMX/notepad.md) */
+export function QMXNotepadPath(projectRoot?: string): string {
+  return join(projectRoot || process.cwd(), ".QMX", "notepad.md");
 }
 
-/** oh-my-codex plans directory (.omx/plans/) */
-export function omxPlansDir(projectRoot?: string): string {
-  return join(projectRoot || process.cwd(), ".omx", "plans");
+/** oh-my-codex plans directory (.QMX/plans/) */
+export function QMXPlansDir(projectRoot?: string): string {
+  return join(projectRoot || process.cwd(), ".QMX", "plans");
 }
 
-/** oh-my-codex logs directory (.omx/logs/) */
-export function omxLogsDir(projectRoot?: string): string {
-  return join(projectRoot || process.cwd(), ".omx", "logs");
+/** oh-my-codex logs directory (.QMX/logs/) */
+export function QMXLogsDir(projectRoot?: string): string {
+  return join(projectRoot || process.cwd(), ".QMX", "logs");
 }
 
 /** Get the package root directory (where agents/, skills/, prompts/ live) */
@@ -211,3 +211,4 @@ export function packageRoot(): string {
   }
   return process.cwd();
 }
+

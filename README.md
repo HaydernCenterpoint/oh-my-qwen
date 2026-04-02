@@ -1,4 +1,4 @@
-# oh-my-qwen (OMQ)
+﻿# oh-my-qwen (OMQ)
 
 <p align="center">
   <em>Multi-agent orchestration layer for Qwen Code CLI</em>
@@ -11,19 +11,19 @@
 **Forked from:** [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex) by Yeachan Heo
 
 **Installation Guides:** 
-- [🇬🇧 English](./INSTALL.md) 
-- [🇻🇳 Tiếng Việt](./INSTALL.vi.md) 
-- [🇨🇳 中文](./INSTALL.zh.md)
+- [ðŸ‡¬ðŸ‡§ English](./INSTALL.md) 
+- [ðŸ‡»ðŸ‡³ Tiáº¿ng Viá»‡t](./INSTALL.vi.md) 
+- [ðŸ‡¨ðŸ‡³ ä¸­æ–‡](./INSTALL.zh.md)
 
-**Docs:** [Getting Started](./docs/getting-started.html) · [Skills](./docs/skills.html) · [OpenCode & Cline Guide](./INSTALL-OPENCODE-CLINE.md) · [Migration](./MIGRATION_TO_QWEN.md)
+**Docs:** [Getting Started](./docs/getting-started.html) Â· [Skills](./docs/skills.html) Â· [OpenCode & Cline Guide](./INSTALL-OPENCODE-CLINE.md) Â· [Migration](./MIGRATION_TO_QWEN.md)
 
 OMQ is a workflow enhancement layer for [Qwen Code CLI](https://github.com/QwenLM/qwen-code).
 
 It keeps Qwen Code as the execution engine and makes it easier to:
-- ✅ Start a stronger Qwen Code session by default
-- ✅ Reuse role/task invocations with `$name` keywords
-- ✅ Invoke workflows with skills like `$plan`, `$ralph`, and `$team`
-- ✅ Keep project guidance, plans, logs, and state in `.omx/`
+- âœ… Start a stronger Qwen Code session by default
+- âœ… Reuse role/task invocations with `$name` keywords
+- âœ… Invoke workflows with skills like `$plan`, `$ralph`, and `$team`
+- âœ… Keep project guidance, plans, logs, and state in `.QMX/`
 
 ## Recommended default flow
 
@@ -43,17 +43,17 @@ $plan "ship this feature cleanly"
 ```
 
 That is the main path.
-Start OMX strongly, do the work in Codex, and let the agent pull in `$team` or other workflows only when the task actually needs them.
+Start QMX strongly, do the work in Codex, and let the agent pull in `$team` or other workflows only when the task actually needs them.
 
-## What OMX is for
+## What QMX is for
 
-Use OMX if you already like Codex and want a better day-to-day runtime around it:
+Use QMX if you already like Codex and want a better day-to-day runtime around it:
 - reusable role/task invocations such as `$architect` and `$executor`
 - reusable workflows such as `$plan`, `$ralph`, `$team`, and `$deep-interview`
 - project guidance through scoped `AGENTS.md`
-- durable state under `.omx/` for plans, logs, memory, and mode tracking
+- durable state under `.QMX/` for plans, logs, memory, and mode tracking
 
-If you want plain Codex with no extra workflow layer, you probably do not need OMX.
+If you want plain Codex with no extra workflow layer, you probably do not need QMX.
 
 ## Quick start
 
@@ -67,10 +67,10 @@ If you want plain Codex with no extra workflow layer, you probably do not need O
 
 ### A good first session
 
-Launch OMX the recommended way:
+Launch QMX the recommended way:
 
 ```bash
-omx --madmax --high
+QMX --madmax --high
 ```
 
 Then try one role keyword and one workflow skill:
@@ -84,20 +84,20 @@ If the task grows, the agent can escalate to heavier workflows such as `$ralph` 
 
 ## A simple mental model
 
-OMX does **not** replace Codex.
+QMX does **not** replace Codex.
 
 It adds a better working layer around it:
 - **Codex** does the actual agent work
-- **OMX role keywords** make useful roles reusable
-- **OMX skills** make common workflows reusable
-- **`.omx/`** stores plans, logs, memory, and runtime state
+- **QMX role keywords** make useful roles reusable
+- **QMX skills** make common workflows reusable
+- **`.QMX/`** stores plans, logs, memory, and runtime state
 
-Most users should think of OMX as **better task routing + better workflow + better runtime**, not as a command surface to operate manually all day.
+Most users should think of QMX as **better task routing + better workflow + better runtime**, not as a command surface to operate manually all day.
 
 ## Start here if you are new
 
-1. Run `omx setup`
-2. Launch with `omx --madmax --high`
+1. Run `QMX setup`
+2. Launch with `QMX --madmax --high`
 3. Ask for analysis with `$architect "..."`
 4. Ask for planning with `$plan "..."`
 5. Let the agent decide when `$ralph`, `$team`, or another workflow is worth using
@@ -113,11 +113,11 @@ Most users should think of OMX as **better task routing + better workflow + bett
 | `$ralph "..."` | persistent sequential execution |
 | `$team "..."` | coordinated parallel execution when the task is big enough |
 
-Use `$deep-interview` when the request is still vague, the boundaries are unclear, or you want OMX to keep pressing on intent, non-goals, and decision boundaries before it hands work off to `$plan`, `$ralph`, `$team`, or `$autopilot`.
+Use `$deep-interview` when the request is still vague, the boundaries are unclear, or you want QMX to keep pressing on intent, non-goals, and decision boundaries before it hands work off to `$plan`, `$ralph`, `$team`, or `$autopilot`.
 
 Typical cases:
 - vague greenfield ideas that still need sharper intent and scope
-- brownfield changes where OMX should inspect the repo first, then ask cited confirmation questions
+- brownfield changes where QMX should inspect the repo first, then ask cited confirmation questions
 - requests where you want a one-question-at-a-time clarification loop instead of immediate planning or implementation
 ## Advanced / operator surfaces
 
@@ -125,38 +125,38 @@ These are useful, but they are not the main onboarding path.
 
 ### Team runtime
 
-Use the team runtime when you specifically need durable tmux/worktree coordination, not as the default way to begin using OMX.
+Use the team runtime when you specifically need durable tmux/worktree coordination, not as the default way to begin using QMX.
 
 ```bash
-omx team 3:executor "fix the failing tests with verification"
-omx team status <team-name>
-omx team resume <team-name>
-omx team shutdown <team-name>
+QMX team 3:executor "fix the failing tests with verification"
+QMX team status <team-name>
+QMX team resume <team-name>
+QMX team shutdown <team-name>
 ```
 
 ### Setup, doctor, and HUD
 
 These are operator/support surfaces:
-- `omx setup` installs prompts, skills, config, and AGENTS scaffolding
-- `omx doctor` verifies the install when something seems wrong
-- `omx hud --watch` is a monitoring/status surface, not the primary user workflow
+- `QMX setup` installs prompts, skills, config, and AGENTS scaffolding
+- `QMX doctor` verifies the install when something seems wrong
+- `QMX hud --watch` is a monitoring/status surface, not the primary user workflow
 
 ### Explore and sparkshell
 
-- `omx explore --prompt "..."` is for read-only repository lookup
-- `omx sparkshell <command>` is for shell-native inspection and bounded verification
+- `QMX explore --prompt "..."` is for read-only repository lookup
+- `QMX sparkshell <command>` is for shell-native inspection and bounded verification
 
 Examples:
 
 ```bash
-omx explore --prompt "find where team state is written"
-omx sparkshell git status
-omx sparkshell --tmux-pane %12 --tail-lines 400
+QMX explore --prompt "find where team state is written"
+QMX sparkshell git status
+QMX sparkshell --tmux-pane %12 --tail-lines 400
 ```
 
 ### Platform notes for team mode
 
-`omx team` needs a tmux-compatible backend:
+`QMX team` needs a tmux-compatible backend:
 
 | Platform | Install |
 | --- | --- |
@@ -171,10 +171,10 @@ omx sparkshell --tmux-pane %12 --tail-lines 400
 
 ### Intel Mac: high `syspolicyd` / `trustd` CPU during startup
 
-On some Intel Macs, OMX startup — especially with `--madmax --high` — can spike `syspolicyd` / `trustd` CPU usage while macOS Gatekeeper validates many concurrent process launches.
+On some Intel Macs, QMX startup â€” especially with `--madmax --high` â€” can spike `syspolicyd` / `trustd` CPU usage while macOS Gatekeeper validates many concurrent process launches.
 
 If this happens, try:
-- `xattr -dr com.apple.quarantine $(which omx)`
+- `xattr -dr com.apple.quarantine $(which QMX)`
 - adding your terminal app to the Developer Tools allowlist in macOS Security settings
 - using lower concurrency (for example, avoid `--madmax --high`)
 
@@ -192,17 +192,17 @@ If this happens, try:
 ## Languages
 
 - [English](./README.md)
-- [한국어](./README.ko.md)
-- [日本語](./README.ja.md)
-- [简体中文](./README.zh.md)
-- [繁體中文](./README.zh-TW.md)
-- [Tiếng Việt](./README.vi.md)
-- [Español](./README.es.md)
-- [Português](./README.pt.md)
-- [Русский](./README.ru.md)
-- [Türkçe](./README.tr.md)
+- [í•œêµ­ì–´](./README.ko.md)
+- [æ—¥æœ¬èªž](./README.ja.md)
+- [ç®€ä½“ä¸­æ–‡](./README.zh.md)
+- [ç¹é«”ä¸­æ–‡](./README.zh-TW.md)
+- [Tiáº¿ng Viá»‡t](./README.vi.md)
+- [EspaÃ±ol](./README.es.md)
+- [PortuguÃªs](./README.pt.md)
+- [Ð ÑƒÑÑÐºÐ¸Ð¹](./README.ru.md)
+- [TÃ¼rkÃ§e](./README.tr.md)
 - [Deutsch](./README.de.md)
-- [Français](./README.fr.md)
+- [FranÃ§ais](./README.fr.md)
 - [Italiano](./README.it.md)
 
 ## Contributors
@@ -219,3 +219,4 @@ If this happens, try:
 ## License
 
 MIT
+

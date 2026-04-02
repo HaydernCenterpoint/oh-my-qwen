@@ -1,90 +1,90 @@
-# 安装指南
+﻿# å®‰è£…æŒ‡å—
 
-oh-my-qwen (OMQ) 完整安装指南 - Qwen Code CLI 的多智能体编排层。
-
----
-
-## 📋 目录
-
-- [系统要求](#系统要求)
-- [快速安装](#快速安装)
-- [分步安装](#分步安装)
-- [配置](#配置)
-- [验证安装](#验证安装)
-- [故障排除](#故障排除)
-- [平台特定指南](#平台特定指南)
+oh-my-qwen (OMQ) å®Œæ•´å®‰è£…æŒ‡å— - Qwen Code CLI çš„å¤šæ™ºèƒ½ä½“ç¼–æŽ’å±‚ã€‚
 
 ---
 
-## 🚀 系统要求
+## ðŸ“‹ ç›®å½•
 
-安装 oh-my-qwen 之前，请确保您拥有：
+- [ç³»ç»Ÿè¦æ±‚](#ç³»ç»Ÿè¦æ±‚)
+- [å¿«é€Ÿå®‰è£…](#å¿«é€Ÿå®‰è£…)
+- [åˆ†æ­¥å®‰è£…](#åˆ†æ­¥å®‰è£…)
+- [é…ç½®](#é…ç½®)
+- [éªŒè¯å®‰è£…](#éªŒè¯å®‰è£…)
+- [æ•…éšœæŽ’é™¤](#æ•…éšœæŽ’é™¤)
+- [å¹³å°ç‰¹å®šæŒ‡å—](#å¹³å°ç‰¹å®šæŒ‡å—)
 
-| 要求 | 版本 | 用途 |
+---
+
+## ðŸš€ ç³»ç»Ÿè¦æ±‚
+
+å®‰è£… oh-my-qwen ä¹‹å‰ï¼Œè¯·ç¡®ä¿æ‚¨æ‹¥æœ‰ï¼š
+
+| è¦æ±‚ | ç‰ˆæœ¬ | ç”¨é€” |
 |------|------|------|
-| **Node.js** | 20.x 或更高 | 核心运行时 |
-| **npm** | 9.x 或更高 | 包管理 |
-| **Qwen Code CLI** | 最新版 | AI 代理执行 |
-| **Git** | 任何近期版本 | 版本控制 |
-| **tmux** | 3.0+ (macOS/Linux) | 团队模式 |
-| **psmux** | 最新版 (Windows) | Windows 团队模式 |
+| **Node.js** | 20.x æˆ–æ›´é«˜ | æ ¸å¿ƒè¿è¡Œæ—¶ |
+| **npm** | 9.x æˆ–æ›´é«˜ | åŒ…ç®¡ç† |
+| **Qwen Code CLI** | æœ€æ–°ç‰ˆ | AI ä»£ç†æ‰§è¡Œ |
+| **Git** | ä»»ä½•è¿‘æœŸç‰ˆæœ¬ | ç‰ˆæœ¬æŽ§åˆ¶ |
+| **tmux** | 3.0+ (macOS/Linux) | å›¢é˜Ÿæ¨¡å¼ |
+| **psmux** | æœ€æ–°ç‰ˆ (Windows) | Windows å›¢é˜Ÿæ¨¡å¼ |
 
-### 检查系统
+### æ£€æŸ¥ç³»ç»Ÿ
 
 ```bash
-# 检查 Node.js 版本
-node --version  # 应该是 v20.x 或更高
+# æ£€æŸ¥ Node.js ç‰ˆæœ¬
+node --version  # åº”è¯¥æ˜¯ v20.x æˆ–æ›´é«˜
 
-# 检查 npm 版本
-npm --version   # 应该是 9.x 或更高
+# æ£€æŸ¥ npm ç‰ˆæœ¬
+npm --version   # åº”è¯¥æ˜¯ 9.x æˆ–æ›´é«˜
 
-# 检查 Qwen Code 是否已安装
+# æ£€æŸ¥ Qwen Code æ˜¯å¦å·²å®‰è£…
 qwen-code --version
 
-# 检查 Git
+# æ£€æŸ¥ Git
 git --version
 ```
 
 ---
 
-## ⚡ 快速安装
+## âš¡ å¿«é€Ÿå®‰è£…
 
-适用于想要立即开始使用的有经验用户：
+é€‚ç”¨äºŽæƒ³è¦ç«‹å³å¼€å§‹ä½¿ç”¨çš„æœ‰ç»éªŒç”¨æˆ·ï¼š
 
 ```bash
-# 1. 全局安装 Qwen Code CLI 和 oh-my-qwen
+# 1. å…¨å±€å®‰è£… Qwen Code CLI å’Œ oh-my-qwen
 npm install -g @anthropic/qwen-code oh-my-qwen
 
-# 2. 设置 skills 和 workflows
+# 2. è®¾ç½® skills å’Œ workflows
 omq setup
 
-# 3. 使用推荐设置启动
+# 3. ä½¿ç”¨æŽ¨èè®¾ç½®å¯åŠ¨
 omq --high
 
-# 4. 开始使用 workflow 关键字
-# 在 Qwen Code 会话中：
+# 4. å¼€å§‹ä½¿ç”¨ workflow å…³é”®å­—
+# åœ¨ Qwen Code ä¼šè¯ä¸­ï¼š
 $architect "analyze this codebase"
 $plan "create implementation plan"
 ```
 
 ---
 
-## 📦 分步安装
+## ðŸ“¦ åˆ†æ­¥å®‰è£…
 
-### 步骤 1: 安装 Node.js
+### æ­¥éª¤ 1: å®‰è£… Node.js
 
 #### macOS
 ```bash
-# 使用 Homebrew
+# ä½¿ç”¨ Homebrew
 brew install node@20
 
-# 或从 https://nodejs.org 下载
+# æˆ–ä»Ž https://nodejs.org ä¸‹è½½
 ```
 
 #### Windows
 ```bash
-# 从 https://nodejs.org 下载安装程序
-# 运行安装程序并按照提示操作
+# ä»Ž https://nodejs.org ä¸‹è½½å®‰è£…ç¨‹åº
+# è¿è¡Œå®‰è£…ç¨‹åºå¹¶æŒ‰ç…§æç¤ºæ“ä½œ
 ```
 
 #### Linux (Ubuntu/Debian)
@@ -99,96 +99,96 @@ curl -fsSL https://rpm.nodesource.com/setup_20.x | sudo bash -
 sudo dnf install -y nodejs
 ```
 
-### 步骤 2: 安装 Qwen Code CLI
+### æ­¥éª¤ 2: å®‰è£… Qwen Code CLI
 
 ```bash
-# 全局安装
+# å…¨å±€å®‰è£…
 npm install -g @anthropic/qwen-code
 
-# 验证安装
+# éªŒè¯å®‰è£…
 qwen-code --version
 ```
 
-### 步骤 3: 配置 Qwen Code API 密钥
+### æ­¥éª¤ 3: é…ç½® Qwen Code API å¯†é’¥
 
 ```bash
-# 运行 Qwen Code 设置
+# è¿è¡Œ Qwen Code è®¾ç½®
 qwen-code login
 
-# 或设置环境变量
+# æˆ–è®¾ç½®çŽ¯å¢ƒå˜é‡
 export QWEN_API_KEY="your-api-key-here"
 
-# 永久设置，添加到 ~/.bashrc 或 ~/.zshrc
+# æ°¸ä¹…è®¾ç½®ï¼Œæ·»åŠ åˆ° ~/.bashrc æˆ– ~/.zshrc
 echo 'export QWEN_API_KEY="your-api-key-here"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-### 步骤 4: 安装 oh-my-qwen
+### æ­¥éª¤ 4: å®‰è£… oh-my-qwen
 
 ```bash
-# 全局安装
+# å…¨å±€å®‰è£…
 npm install -g oh-my-qwen
 
-# 验证安装
+# éªŒè¯å®‰è£…
 omq --version
 ```
 
-### 步骤 5: 设置 Skills 和 Workflows
+### æ­¥éª¤ 5: è®¾ç½® Skills å’Œ Workflows
 
 ```bash
-# 在项目中初始化 oh-my-qwen
+# åœ¨é¡¹ç›®ä¸­åˆå§‹åŒ– oh-my-qwen
 omq setup
 
-# 这将：
-# - 创建带有配置的 .qwen-code/ 目录
-# - 安装 skills 和 prompts
-# - 设置 AGENTS.md
-# - 配置 MCP servers
+# è¿™å°†ï¼š
+# - åˆ›å»ºå¸¦æœ‰é…ç½®çš„ .qwen-code/ ç›®å½•
+# - å®‰è£… skills å’Œ prompts
+# - è®¾ç½® AGENTS.md
+# - é…ç½® MCP servers
 ```
 
-### 步骤 6: 验证安装
+### æ­¥éª¤ 6: éªŒè¯å®‰è£…
 
 ```bash
-# 运行 doctor 命令
+# è¿è¡Œ doctor å‘½ä»¤
 omq doctor
 
-# 预期输出：
-# ✅ oh-my-qwen 已安装
-# ✅ Qwen Code CLI 已安装
-# ✅ skills 已安装
-# ✅ 配置有效
+# é¢„æœŸè¾“å‡ºï¼š
+# âœ… oh-my-qwen å·²å®‰è£…
+# âœ… Qwen Code CLI å·²å®‰è£…
+# âœ… skills å·²å®‰è£…
+# âœ… é…ç½®æœ‰æ•ˆ
 ```
 
 ---
 
-## ⚙️ 配置
+## âš™ï¸ é…ç½®
 
-### 基本配置
+### åŸºæœ¬é…ç½®
 
-创建或编辑 `~/.qwen-code/config.toml`：
+åˆ›å»ºæˆ–ç¼–è¾‘ `~/.qwen-code/config.toml`ï¼š
 
 ```toml
-# 模型配置
+# æ¨¡åž‹é…ç½®
 model = "qwen-max"
 
-# 推理努力程度 (low, medium, high, xhigh)
+# æŽ¨ç†åŠªåŠ›ç¨‹åº¦ (low, medium, high, xhigh)
 model_reasoning_effort = "high"
 
-# TUI 配置
+# TUI é…ç½®
 [tui]
 theme = "dark"
 ```
 
-### oh-my-qwen 配置
+### oh-my-qwen é…ç½®
 
-在项目根目录创建 `.omx-config.json`：
+åœ¨é¡¹ç›®æ ¹ç›®å½•åˆ›å»º `.QMX-config.json`ï¼š
 
 ```json
 {
   "env": {
-    "OMX_DEFAULT_FRONTIER_MODEL": "qwen-max",
-    "OMX_DEFAULT_STANDARD_MODEL": "qwen-plus",
-    "OMX_DEFAULT_SPARK_MODEL": "qwen-turbo"
+    "QMX_DEFAULT_FRONTIER_MODEL": "qwen-max",
+    "QMX_DEFAULT_STANDARD_MODEL": "qwen-plus",
+    "QMX_DEFAULT_SPARK_MODEL": "qwen-turbo"
   },
   "models": {
     "default": "qwen-max",
@@ -197,365 +197,366 @@ theme = "dark"
 }
 ```
 
-### 环境变量
+### çŽ¯å¢ƒå˜é‡
 
-添加到 `~/.bashrc`、`~/.zshrc` 或 `~/.profile`：
+æ·»åŠ åˆ° `~/.bashrc`ã€`~/.zshrc` æˆ– `~/.profile`ï¼š
 
 ```bash
-# Qwen Code API 密钥
+# Qwen Code API å¯†é’¥
 export QWEN_API_KEY="your-api-key"
 
-# oh-my-qwen 主目录（可选）
+# oh-my-qwen ä¸»ç›®å½•ï¼ˆå¯é€‰ï¼‰
 export QWEN_CODE_HOME="$HOME/.qwen-code"
 
-# 启用详细日志（可选）
-export OMX_VERBOSE="1"
+# å¯ç”¨è¯¦ç»†æ—¥å¿—ï¼ˆå¯é€‰ï¼‰
+export QMX_VERBOSE="1"
 
-# 在 tmux 中启用鼠标滚动（可选）
-export OMX_MOUSE="1"
+# åœ¨ tmux ä¸­å¯ç”¨é¼ æ ‡æ»šåŠ¨ï¼ˆå¯é€‰ï¼‰
+export QMX_MOUSE="1"
 ```
 
 ---
 
-## ✅ 验证安装
+## âœ… éªŒè¯å®‰è£…
 
-### 运行 Doctor 命令
+### è¿è¡Œ Doctor å‘½ä»¤
 
 ```bash
 omq doctor
 ```
 
-### 测试基本功能
+### æµ‹è¯•åŸºæœ¬åŠŸèƒ½
 
 ```bash
-# 启动 oh-my-qwen
+# å¯åŠ¨ oh-my-qwen
 omq --high
 
-# 在会话中尝试：
+# åœ¨ä¼šè¯ä¸­å°è¯•ï¼š
 $architect "analyze the current directory"
 ```
 
-### 检查 Skills 安装
+### æ£€æŸ¥ Skills å®‰è£…
 
 ```bash
-# 列出已安装的 skills
+# åˆ—å‡ºå·²å®‰è£…çš„ skills
 ls -la ~/.qwen-code/skills/
 
-# 或项目级 skills
+# æˆ–é¡¹ç›®çº§ skills
 ls -la .qwen-code/skills/
 ```
 
-### 验证 MCP Servers
+### éªŒè¯ MCP Servers
 
 ```bash
-# 检查 MCP 配置
-omx doctor --team
+# æ£€æŸ¥ MCP é…ç½®
+QMX doctor --team
 ```
 
 ---
 
-## 🔧 故障排除
+## ðŸ”§ æ•…éšœæŽ’é™¤
 
-### 问题："command not found: omq"
+### é—®é¢˜ï¼š"command not found: omq"
 
-**解决方案：**
+**è§£å†³æ–¹æ¡ˆï¼š**
 ```bash
-# 将 npm 全局 bin 添加到 PATH
+# å°† npm å…¨å±€ bin æ·»åŠ åˆ° PATH
 export PATH="$HOME/.npm-global/bin:$PATH"
 
-# 或对于默认 npm 位置
+# æˆ–å¯¹äºŽé»˜è®¤ npm ä½ç½®
 export PATH="$HOME/.npm/bin:$PATH"
 
-# 永久添加到 ~/.bashrc 或 ~/.zshrc
+# æ°¸ä¹…æ·»åŠ åˆ° ~/.bashrc æˆ– ~/.zshrc
 echo 'export PATH="$HOME/.npm-global/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-### 问题："npm ERR! code EACCES"
+### é—®é¢˜ï¼š"npm ERR! code EACCES"
 
-**解决方案 (macOS/Linux)：**
+**è§£å†³æ–¹æ¡ˆ (macOS/Linux)ï¼š**
 ```bash
-# 修复 npm 权限
+# ä¿®å¤ npm æƒé™
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
 echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-**解决方案 (Windows)：**
+**è§£å†³æ–¹æ¡ˆ (Windows)ï¼š**
 ```bash
-# 以管理员身份运行命令提示符或 PowerShell
+# ä»¥ç®¡ç†å‘˜èº«ä»½è¿è¡Œå‘½ä»¤æç¤ºç¬¦æˆ– PowerShell
 npm install -g oh-my-qwen
 ```
 
-### 问题："Qwen Code CLI not found"
+### é—®é¢˜ï¼š"Qwen Code CLI not found"
 
-**解决方案：**
+**è§£å†³æ–¹æ¡ˆï¼š**
 ```bash
-# 重新安装 Qwen Code CLI
+# é‡æ–°å®‰è£… Qwen Code CLI
 npm uninstall -g @anthropic/qwen-code
 npm install -g @anthropic/qwen-code
 
-# 验证
+# éªŒè¯
 qwen-code --version
 ```
 
-### 问题："Node.js version too old"
+### é—®é¢˜ï¼š"Node.js version too old"
 
-**解决方案：**
+**è§£å†³æ–¹æ¡ˆï¼š**
 ```bash
-# 安装 nvm (Node Version Manager)
+# å®‰è£… nvm (Node Version Manager)
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
-# 安装 Node.js 20
+# å®‰è£… Node.js 20
 nvm install 20
 nvm use 20
 nvm alias default 20
 
-# 验证
-node --version  # 应该显示 v20.x.x
+# éªŒè¯
+node --version  # åº”è¯¥æ˜¾ç¤º v20.x.x
 ```
 
-### 问题：tmux not found (团队模式)
+### é—®é¢˜ï¼štmux not found (å›¢é˜Ÿæ¨¡å¼)
 
-**macOS：**
+**macOSï¼š**
 ```bash
 brew install tmux
 ```
 
-**Ubuntu/Debian：**
+**Ubuntu/Debianï¼š**
 ```bash
 sudo apt install tmux
 ```
 
-**Fedora：**
+**Fedoraï¼š**
 ```bash
 sudo dnf install tmux
 ```
 
-**Windows：**
+**Windowsï¼š**
 ```bash
 winget install psmux
 ```
 
 ---
 
-## 🖥️ 平台特定指南
+## ðŸ–¥ï¸ å¹³å°ç‰¹å®šæŒ‡å—
 
 ### macOS
 
 ```bash
-# 安装先决条件
+# å®‰è£…å…ˆå†³æ¡ä»¶
 brew install node@20 git tmux
 
-# 安装 Qwen Code 和 oh-my-qwen
+# å®‰è£… Qwen Code å’Œ oh-my-qwen
 npm install -g @anthropic/qwen-code oh-my-qwen
 
-# 设置
+# è®¾ç½®
 omq setup
 
-# 测试
+# æµ‹è¯•
 omq --high
 ```
 
 ### Windows
 
 ```bash
-# 从 https://nodejs.org 安装 Node.js
-# 从 https://git-scm.com 安装 Git
+# ä»Ž https://nodejs.org å®‰è£… Node.js
+# ä»Ž https://git-scm.com å®‰è£… Git
 
-# 为团队模式安装 psmux
+# ä¸ºå›¢é˜Ÿæ¨¡å¼å®‰è£… psmux
 winget install psmux
 
-# 以管理员身份安装 Qwen Code 和 oh-my-qwen
+# ä»¥ç®¡ç†å‘˜èº«ä»½å®‰è£… Qwen Code å’Œ oh-my-qwen
 npm install -g @anthropic/qwen-code oh-my-qwen
 
-# 设置
+# è®¾ç½®
 omq setup
 
-# 测试
+# æµ‹è¯•
 omq --high
 ```
 
-### WSL2 (Windows Linux 子系统)
+### WSL2 (Windows Linux å­ç³»ç»Ÿ)
 
 ```bash
-# 在 WSL2 终端中
+# åœ¨ WSL2 ç»ˆç«¯ä¸­
 curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt-get install -y nodejs git tmux
 
-# 全局安装
+# å…¨å±€å®‰è£…
 npm install -g @anthropic/qwen-code oh-my-qwen
 
-# 设置
+# è®¾ç½®
 omq setup
 
-# 测试
+# æµ‹è¯•
 omq --high
 ```
 
 ### Linux (Ubuntu/Debian)
 
 ```bash
-# 安装先决条件
+# å®‰è£…å…ˆå†³æ¡ä»¶
 sudo apt update
 sudo apt install -y nodejs npm git tmux
 
-# 安装 Qwen Code 和 oh-my-qwen
+# å®‰è£… Qwen Code å’Œ oh-my-qwen
 npm install -g @anthropic/qwen-code oh-my-qwen
 
-# 设置
+# è®¾ç½®
 omq setup
 
-# 测试
+# æµ‹è¯•
 omq --high
 ```
 
 ### Linux (Fedora/RHEL)
 
 ```bash
-# 安装先决条件
+# å®‰è£…å…ˆå†³æ¡ä»¶
 sudo dnf install -y nodejs git tmux
 
-# 安装 Qwen Code 和 oh-my-qwen
+# å®‰è£… Qwen Code å’Œ oh-my-qwen
 npm install -g @anthropic/qwen-code oh-my-qwen
 
-# 设置
+# è®¾ç½®
 omq setup
 
-# 测试
+# æµ‹è¯•
 omq --high
 ```
 
 ---
 
-## 🎯 安装后设置
+## ðŸŽ¯ å®‰è£…åŽè®¾ç½®
 
-### 1. 创建第一个项目
+### 1. åˆ›å»ºç¬¬ä¸€ä¸ªé¡¹ç›®
 
 ```bash
-# 创建新项目目录
+# åˆ›å»ºæ–°é¡¹ç›®ç›®å½•
 mkdir my-qwen-project
 cd my-qwen-project
 
-# 初始化 oh-my-qwen
+# åˆå§‹åŒ– oh-my-qwen
 omq setup
 
-# 创建 AGENTS.md
+# åˆ›å»º AGENTS.md
 cat > AGENTS.md << 'EOF'
 # Project Agents
 
-本项目使用 oh-my-qwen 进行工作流编排。
+æœ¬é¡¹ç›®ä½¿ç”¨ oh-my-qwen è¿›è¡Œå·¥ä½œæµç¼–æŽ’ã€‚
 
-## 可用 Skills
-- `$architect` - 架构分析
-- `$executor` - 代码实现
-- `$plan` - 规划
-- `$ralph` - 持续执行
+## å¯ç”¨ Skills
+- `$architect` - æž¶æž„åˆ†æž
+- `$executor` - ä»£ç å®žçŽ°
+- `$plan` - è§„åˆ’
+- `$ralph` - æŒç»­æ‰§è¡Œ
 
-## State 目录
-- `.omx/` - 运行时 state、plans、logs
+## State ç›®å½•
+- `.QMX/` - è¿è¡Œæ—¶ stateã€plansã€logs
 EOF
 ```
 
-### 2. 测试 Workflows
+### 2. æµ‹è¯• Workflows
 
 ```bash
-# 启动 oh-my-qwen
+# å¯åŠ¨ oh-my-qwen
 omq --high
 
-# 在会话中尝试 workflows：
+# åœ¨ä¼šè¯ä¸­å°è¯• workflowsï¼š
 $architect "analyze this project structure"
 $plan "create a REST API with user authentication"
 ```
 
-### 3. 配置编辑器
+### 3. é…ç½®ç¼–è¾‘å™¨
 
 #### VS Code
 
-安装扩展：
-- Qwen Code (如有)
+å®‰è£…æ‰©å±•ï¼š
+- Qwen Code (å¦‚æœ‰)
 - Markdown All in One
 - GitLens
 
 #### JetBrains IDEs
 
-安装插件：
+å®‰è£…æ’ä»¶ï¼š
 - Qwen Code Assistant
 - Markdown support
 
 ---
 
-## 📚 其他资源
+## ðŸ“š å…¶ä»–èµ„æº
 
-### 文档
+### æ–‡æ¡£
 
-- [入门指南](./docs/getting-started.html)
-- [Skills 参考](./docs/skills.html)
-- [Agent 目录](./docs/agents.html)
-- [OpenCode & Cline 集成](./INSTALL-OPENCODE-CLINE.md)
+- [å…¥é—¨æŒ‡å—](./docs/getting-started.html)
+- [Skills å‚è€ƒ](./docs/skills.html)
+- [Agent ç›®å½•](./docs/agents.html)
+- [OpenCode & Cline é›†æˆ](./INSTALL-OPENCODE-CLINE.md)
 
-### 社区
+### ç¤¾åŒº
 
 - [GitHub Issues](https://github.com/your-username/oh-my-qwen/issues)
-- [Discord 社区](https://discord.gg/your-invite)
+- [Discord ç¤¾åŒº](https://discord.gg/your-invite)
 - [Discussions](https://github.com/your-username/oh-my-qwen/discussions)
 
-### 教程
+### æ•™ç¨‹
 
-- [快速入门指南](./DEMO.md)
-- [从 oh-my-codex 迁移](./MIGRATION_TO_QWEN.md)
-- [团队模式指南](./docs/team-mode.html)
+- [å¿«é€Ÿå…¥é—¨æŒ‡å—](./DEMO.md)
+- [ä»Ž oh-my-codex è¿ç§»](./MIGRATION_TO_QWEN.md)
+- [å›¢é˜Ÿæ¨¡å¼æŒ‡å—](./docs/team-mode.html)
 
 ---
 
-## 🆘 获取帮助
+## ðŸ†˜ èŽ·å–å¸®åŠ©
 
-### 常用命令
+### å¸¸ç”¨å‘½ä»¤
 
 ```bash
-# 显示帮助
+# æ˜¾ç¤ºå¸®åŠ©
 omq --help
 
-# 显示版本
+# æ˜¾ç¤ºç‰ˆæœ¬
 omq version
 
-# 检查安装
+# æ£€æŸ¥å®‰è£…
 omq doctor
 
-# 设置 skills
+# è®¾ç½® skills
 omq setup
 
-# 使用高推理启动
+# ä½¿ç”¨é«˜æŽ¨ç†å¯åŠ¨
 omq --high
 
-# 使用 madmax 模式启动
+# ä½¿ç”¨ madmax æ¨¡å¼å¯åŠ¨
 omq --madmax
 
-# 显示活动 modes
+# æ˜¾ç¤ºæ´»åŠ¨ modes
 omq status
 
-# 取消活动 modes
+# å–æ¶ˆæ´»åŠ¨ modes
 omq cancel
 ```
 
-### 支持渠道
+### æ”¯æŒæ¸ é“
 
-1. **GitHub Issues**: 报告错误和功能请求
-2. **Discussions**: 提问和分享想法
-3. **Discord**: 与社区实时聊天
-4. **Documentation**: 先查看文档
+1. **GitHub Issues**: æŠ¥å‘Šé”™è¯¯å’ŒåŠŸèƒ½è¯·æ±‚
+2. **Discussions**: æé—®å’Œåˆ†äº«æƒ³æ³•
+3. **Discord**: ä¸Žç¤¾åŒºå®žæ—¶èŠå¤©
+4. **Documentation**: å…ˆæŸ¥çœ‹æ–‡æ¡£
 
 ---
 
-## 🎉 后续步骤
+## ðŸŽ‰ åŽç»­æ­¥éª¤
 
-安装成功后：
+å®‰è£…æˆåŠŸåŽï¼š
 
-1. ✅ 阅读 [入门指南](./docs/getting-started.html)
-2. ✅ 尝试第一个工作流：`$plan "..."`
-3. ✅ 探索可用 skills：`/skills`
-4. ✅ 加入 Discord 社区
-5. ✅ 在 GitHub 上 star 仓库 ⭐
+1. âœ… é˜…è¯» [å…¥é—¨æŒ‡å—](./docs/getting-started.html)
+2. âœ… å°è¯•ç¬¬ä¸€ä¸ªå·¥ä½œæµï¼š`$plan "..."`
+3. âœ… æŽ¢ç´¢å¯ç”¨ skillsï¼š`/skills`
+4. âœ… åŠ å…¥ Discord ç¤¾åŒº
+5. âœ… åœ¨ GitHub ä¸Š star ä»“åº“ â­
 
-**使用 oh-my-qwen 快乐编码！🚀**
+**ä½¿ç”¨ oh-my-qwen å¿«ä¹ç¼–ç ï¼ðŸš€**
+

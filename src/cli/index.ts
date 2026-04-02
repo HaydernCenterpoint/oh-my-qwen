@@ -1,4 +1,4 @@
-/**
+﻿/**
  * oh-my-qwen CLI
  * Multi-agent orchestration for Qwen Code CLI
  */
@@ -88,7 +88,7 @@ import {
   ensureWorktree,
 } from "../team/worktree.js";
 import {
-  OMX_NOTIFY_TEMP_CONTRACT_ENV,
+  QMX_NOTIFY_TEMP_CONTRACT_ENV,
   parseNotifyTempContractFromArgs,
   serializeNotifyTempContract,
   type NotifyTempContract,
@@ -166,29 +166,29 @@ Options:
   --force       Force reinstall (overwrite existing files)
   --dry-run     Show what would be done without doing it
   --keep-config Skip config.toml cleanup during uninstall
-  --purge       Remove .omx/ cache directory during uninstall
+  --purge       Remove .QMX/ cache directory during uninstall
   --verbose     Show detailed output
-  --scope       Setup scope for "omx setup" only:
+  --scope       Setup scope for "QMX setup" only:
                 user | project
   --skill-target
-                User-scope skills target for "omx setup" only:
+                User-scope skills target for "QMX setup" only:
                 codex-home
 `;
 
 const REASONING_KEY = "model_reasoning_effort";
 const MODEL_INSTRUCTIONS_FILE_KEY = "model_instructions_file";
-const TEAM_WORKER_LAUNCH_ARGS_ENV = "OMX_TEAM_WORKER_LAUNCH_ARGS";
-const TEAM_INHERIT_LEADER_FLAGS_ENV = "OMX_TEAM_INHERIT_LEADER_FLAGS";
-const OMX_BYPASS_DEFAULT_SYSTEM_PROMPT_ENV = "OMX_BYPASS_DEFAULT_SYSTEM_PROMPT";
-const OMX_MODEL_INSTRUCTIONS_FILE_ENV = "OMX_MODEL_INSTRUCTIONS_FILE";
-const OMX_RALPH_APPEND_INSTRUCTIONS_FILE_ENV =
-  "OMX_RALPH_APPEND_INSTRUCTIONS_FILE";
-const OMX_AUTORESEARCH_APPEND_INSTRUCTIONS_FILE_ENV =
-  "OMX_AUTORESEARCH_APPEND_INSTRUCTIONS_FILE";
+const TEAM_WORKER_LAUNCH_ARGS_ENV = "QMX_TEAM_WORKER_LAUNCH_ARGS";
+const TEAM_INHERIT_LEADER_FLAGS_ENV = "QMX_TEAM_INHERIT_LEADER_FLAGS";
+const QMX_BYPASS_DEFAULT_SYSTEM_PROMPT_ENV = "QMX_BYPASS_DEFAULT_SYSTEM_PROMPT";
+const QMX_MODEL_INSTRUCTIONS_FILE_ENV = "QMX_MODEL_INSTRUCTIONS_FILE";
+const QMX_RALPH_APPEND_INSTRUCTIONS_FILE_ENV =
+  "QMX_RALPH_APPEND_INSTRUCTIONS_FILE";
+const QMX_AUTORESEARCH_APPEND_INSTRUCTIONS_FILE_ENV =
+  "QMX_AUTORESEARCH_APPEND_INSTRUCTIONS_FILE";
 const REASONING_MODES = ["low", "medium", "high", "xhigh"] as const;
 type ReasoningMode = (typeof REASONING_MODES)[number];
 const REASONING_MODE_SET = new Set<string>(REASONING_MODES);
-const REASONING_USAGE = "Usage: omx reasoning <low|medium|high|xhigh>";
+const REASONING_USAGE = "Usage: QMX reasoning <low|medium|high|xhigh>";
 const ALLOWED_SHELLS = new Set([
   "/bin/sh",
   "/bin/bash",
@@ -272,7 +272,7 @@ export function readPersistedSetupScope(cwd: string): SetupScope | undefined {
 export function readPersistedSetupPreferences(
   cwd: string,
 ): Partial<{ scope: SetupScope }> | undefined {
-  const scopePath = join(cwd, ".omx", "setup-scope.json");
+  const scopePath = join(cwd, ".QMX", "setup-scope.json");
   if (!existsSync(scopePath)) return undefined;
   try {
     const parsed = JSON.parse(readFileSync(scopePath, "utf-8")) as Partial<{
@@ -528,7 +528,7 @@ export function isHudWatchPane(pane: TmuxPaneSnapshot): boolean {
   return (
     /\bhud\b/.test(command) &&
     /--watch\b/.test(command) &&
-    (/\bomx(?:\.js)?\b/.test(command) || /\bnode\b/.test(command))
+    (/\bQMX(?:\.js)?\b/.test(command) || /\bnode\b/.test(command))
   );
 }
 
@@ -800,20 +800,20 @@ export async function launchWithHud(args: string[]): Promise<void> {
       const kind = classifySpawnError(errno);
       if (kind === "missing") {
         console.warn(
-          "[omx] warning: tmux was not found on native Windows. Continuing without tmux/HUD.\n" +
-            "[omx] To enable tmux-backed features, install psmux:\n" +
-            "[omx]   winget install psmux\n" +
-            "[omx] See: https://github.com/marlocarlo/psmux",
+          "[QMX] warning: tmux was not found on native Windows. Continuing without tmux/HUD.\n" +
+            "[QMX] To enable tmux-backed features, install psmux:\n" +
+            "[QMX]   winget install psmux\n" +
+            "[QMX] See: https://github.com/marlocarlo/psmux",
         );
       } else {
         console.warn(
-          `[omx] warning: tmux probe failed on native Windows (${errno.code || errno.message}). Continuing without tmux/HUD.`,
+          `[QMX] warning: tmux probe failed on native Windows (${errno.code || errno.message}). Continuing without tmux/HUD.`,
         );
       }
     } else if (result.status !== 0 && !isTmuxAvailable()) {
       const stderr = (result.stderr || "").trim();
       console.warn(
-        `[omx] warning: tmux reported an error on native Windows${stderr ? ` (${stderr})` : ""}. Continuing without tmux/HUD.`,
+        `[QMX] warning: tmux reported an error on native Windows${stderr ? ` (${stderr})` : ""}. Continuing without tmux/HUD.`,
       );
     }
   }
@@ -851,7 +851,7 @@ export async function launchWithHud(args: string[]): Promise<void> {
       cwd = ensured.worktreePath;
     }
   }
-  const sessionId = `omx-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+  const sessionId = `QMX-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 
   try {
     await maybeCheckAndPromptUpdate(cwd);
@@ -867,7 +867,7 @@ export async function launchWithHud(args: string[]): Promise<void> {
     // Non-fatal: star prompt must never block launch
   }
 
-  // ── Phase 0.5: config repair ────────────────────────────────────────────
+  // â”€â”€ Phase 0.5: config repair â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // After an omq version upgrade the OLD setup code (still in memory) may
   // have written a config.toml with duplicate [tui] sections.  Qwen Code CLI's
   // TOML parser rejects duplicates, so we repair before spawning the CLI.
@@ -883,7 +883,7 @@ export async function launchWithHud(args: string[]): Promise<void> {
     // Non-fatal: repair failure must not block launch
   }
 
-  // ── Phase 1: preLaunch ──────────────────────────────────────────────────
+  // â”€â”€ Phase 1: preLaunch â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   try {
     await preLaunch(cwd, sessionId, notifyTempResult.contract, qwenHomeOverride, enableNotifyFallbackAuthority);
   } catch (err) {
@@ -893,7 +893,7 @@ export async function launchWithHud(args: string[]): Promise<void> {
     );
   }
 
-  // ── Phase 2: run ────────────────────────────────────────────────────────
+  // â”€â”€ Phase 2: run â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   try {
     const notifyTempContractRaw = notifyTempResult.contract.active
       ? serializeNotifyTempContract(notifyTempResult.contract)
@@ -907,7 +907,7 @@ export async function launchWithHud(args: string[]): Promise<void> {
       notifyTempContractRaw,
     );
   } finally {
-    // ── Phase 3: postLaunch ─────────────────────────────────────────────
+    // â”€â”€ Phase 3: postLaunch â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     await postLaunch(cwd, sessionId, qwenHomeOverride, enableNotifyFallbackAuthority);
   }
 }
@@ -937,7 +937,7 @@ export async function execWithOverlay(args: string[]): Promise<void> {
     }
   }
 
-  const sessionId = `omx-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+  const sessionId = `QMX-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 
   try {
     await maybeCheckAndPromptUpdate(cwd);
@@ -987,7 +987,7 @@ export async function execWithOverlay(args: string[]): Promise<void> {
     const qwenEnv = notifyTempContractRaw
       ? {
           ...qwenEnvBase,
-          [OMX_NOTIFY_TEMP_CONTRACT_ENV]: notifyTempContractRaw,
+          [QMX_NOTIFY_TEMP_CONTRACT_ENV]: notifyTempContractRaw,
         }
       : qwenEnvBase;
     runQwenBlocking(cwd, qwenArgs, qwenEnv);
@@ -1003,7 +1003,7 @@ export async function execWithOverlay(args: string[]): Promise<void> {
     await preLaunch(cwd, sessionId, notifyTempResult.contract, codexHomeOverride, true);
   } catch (err) {
     console.error(
-      `[omx] preLaunch warning: ${err instanceof Error ? err.message : err}`,
+      `[QMX] preLaunch warning: ${err instanceof Error ? err.message : err}`,
     );
   }
 
@@ -1023,7 +1023,7 @@ export async function execWithOverlay(args: string[]): Promise<void> {
     const codexEnv = notifyTempContractRaw
       ? {
           ...codexEnvBase,
-          [OMX_NOTIFY_TEMP_CONTRACT_ENV]: notifyTempContractRaw,
+          [QMX_NOTIFY_TEMP_CONTRACT_ENV]: notifyTempContractRaw,
         }
       : qwenEnvBase;
     runQwenBlocking(cwd, codexArgs, qwenEnv);
@@ -1133,7 +1133,7 @@ function hasModelInstructionsOverride(args: string[]): boolean {
 }
 
 function shouldBypassDefaultSystemPrompt(env: NodeJS.ProcessEnv): boolean {
-  return env[OMX_BYPASS_DEFAULT_SYSTEM_PROMPT_ENV] !== "0";
+  return env[QMX_BYPASS_DEFAULT_SYSTEM_PROMPT_ENV] !== "0";
 }
 
 function buildModelInstructionsOverride(
@@ -1142,7 +1142,7 @@ function buildModelInstructionsOverride(
   defaultFilePath?: string,
 ): string {
   const filePath =
-    env[OMX_MODEL_INSTRUCTIONS_FILE_ENV] ||
+    env[QMX_MODEL_INSTRUCTIONS_FILE_ENV] ||
     defaultFilePath ||
     join(cwd, "AGENTS.md");
   return `${MODEL_INSTRUCTIONS_FILE_KEY}="${escapeTomlString(filePath)}"`;
@@ -1352,9 +1352,9 @@ export function buildTmuxSessionName(cwd: string, sessionId: string): string {
   const dirName = basename(cwd);
   const grandparentPath = dirname(parentPath);
   const grandparentDir = basename(grandparentPath);
-  const repoDir = parentDir.endsWith(".omx-worktrees")
-    ? parentDir.slice(0, -".omx-worktrees".length)
-    : parentDir === "worktrees" && grandparentDir === ".omx"
+  const repoDir = parentDir.endsWith(".QMX-worktrees")
+    ? parentDir.slice(0, -".QMX-worktrees".length)
+    : parentDir === "worktrees" && grandparentDir === ".QMX"
       ? basename(dirname(grandparentPath))
       : null;
   const dirToken = repoDir
@@ -1363,8 +1363,8 @@ export function buildTmuxSessionName(cwd: string, sessionId: string): string {
   let branchToken = "detached";
   const branch = tryReadGitValue(cwd, ["rev-parse", "--abbrev-ref", "HEAD"]);
   if (branch) branchToken = sanitizeTmuxToken(branch);
-  const sessionToken = sanitizeTmuxToken(sessionId.replace(/^omx-/, ""));
-  const name = `omx-${dirToken}-${branchToken}-${sessionToken}`;
+  const sessionToken = sanitizeTmuxToken(sessionId.replace(/^QMX-/, ""));
+  const name = `QMX-${dirToken}-${branchToken}-${sessionToken}`;
   return name.length > 120 ? name.slice(0, 120) : name;
 }
 
@@ -1438,7 +1438,7 @@ export function buildDetachedSessionBootstrapSteps(
       : []),
     ...(codexHomeOverride ? ["-e", `CODEX_HOME=${codexHomeOverride}`] : []),
     ...(notifyTempContractRaw
-      ? ["-e", `${OMX_NOTIFY_TEMP_CONTRACT_ENV}=${notifyTempContractRaw}`]
+      ? ["-e", `${QMX_NOTIFY_TEMP_CONTRACT_ENV}=${notifyTempContractRaw}`]
       : []),
     detachedLeaderCmd,
   ];
@@ -1465,8 +1465,8 @@ export function buildDetachedSessionBootstrapSteps(
 
 async function readLaunchAppendInstructions(): Promise<string> {
   const appendixCandidates = [
-    process.env[OMX_RALPH_APPEND_INSTRUCTIONS_FILE_ENV]?.trim(),
-    process.env[OMX_AUTORESEARCH_APPEND_INSTRUCTIONS_FILE_ENV]?.trim(),
+    process.env[QMX_RALPH_APPEND_INSTRUCTIONS_FILE_ENV]?.trim(),
+    process.env[QMX_AUTORESEARCH_APPEND_INSTRUCTIONS_FILE_ENV]?.trim(),
   ].filter(
     (value): value is string => typeof value === "string" && value.length > 0,
   );
@@ -1608,7 +1608,7 @@ export function buildNotifyFallbackWatcherEnv(
   return {
     ...nextEnv,
     ...(options.qwenHomeOverride ? { QWEN_CODE_HOME: options.qwenHomeOverride } : {}),
-    OMX_HUD_AUTHORITY: options.enableAuthority ? "1" : "0",
+    QMX_HUD_AUTHORITY: options.enableAuthority ? "1" : "0",
   };
 }
 
@@ -1666,7 +1666,7 @@ ${launchAppendix}`
   // 5. Emit temp notification startup summary + warnings, then send session-start lifecycle notification (best effort)
   try {
     if (notifyTempContract?.active) {
-      process.env[OMX_NOTIFY_TEMP_CONTRACT_ENV] =
+      process.env[QMX_NOTIFY_TEMP_CONTRACT_ENV] =
         serializeNotifyTempContract(notifyTempContract);
       const { getNotificationConfig } =
         await import("../notifications/config.js");
@@ -1682,7 +1682,7 @@ ${launchAppendix}`
         console.warn(`[omq] ${warning}`);
       }
     } else {
-      delete process.env[OMX_NOTIFY_TEMP_CONTRACT_ENV];
+      delete process.env[QMX_NOTIFY_TEMP_CONTRACT_ENV];
     }
     const { notifyLifecycle } = await import("../notifications/index.js");
     await notifyLifecycle("session-start", {
@@ -1748,7 +1748,7 @@ function runQwen(
     ? { ...qwenBaseEnv, [TEAM_WORKER_LAUNCH_ARGS_ENV]: workerLaunchArgs }
     : qwenBaseEnv;
   const qwenEnvWithNotify = notifyTempContractRaw
-    ? { ...qwenEnv, [OMX_NOTIFY_TEMP_CONTRACT_ENV]: notifyTempContractRaw }
+    ? { ...qwenEnv, [QMX_NOTIFY_TEMP_CONTRACT_ENV]: notifyTempContractRaw }
     : qwenEnv;
 
   const launchPolicy = resolveCodexLaunchPolicy(
@@ -1781,8 +1781,8 @@ function runQwen(
 
     // Enable mouse scrolling at session start so scroll works before team
     // expansion. Previously this was only called from createTeamSession().
-    // Opt-out: set OMX_MOUSE=0. (closes #128)
-    if (process.env.OMX_MOUSE !== "0") {
+    // Opt-out: set QMX_MOUSE=0. (closes #128)
+    if (process.env.QMX_MOUSE !== "0") {
       try {
         const tmuxPaneTarget = process.env.TMUX_PANE;
         const displayArgs = tmuxPaneTarget
@@ -1886,7 +1886,7 @@ function runQwen(
             sessionName,
             hudPaneId,
             hookWindowIndex,
-            process.env.OMX_MOUSE !== "0",
+            process.env.QMX_MOUSE !== "0",
             nativeWindows,
           );
           if (nativeWindows && detachedWindowsQwenCmd) {
@@ -2328,11 +2328,11 @@ async function emitNativeHookEvent(
 }
 
 function notifyFallbackPidPath(cwd: string): string {
-  return join(cwd, ".omx", "state", "notify-fallback.pid");
+  return join(cwd, ".QMX", "state", "notify-fallback.pid");
 }
 
 function hookDerivedWatcherPidPath(cwd: string): string {
-  return join(cwd, ".omx", "state", "hook-derived-watcher.pid");
+  return join(cwd, ".QMX", "state", "hook-derived-watcher.pid");
 }
 
 function parseWatcherPidFile(content: string): number | null {
@@ -2366,7 +2366,7 @@ async function startNotifyFallbackWatcher(
   cwd: string,
   options: { qwenHomeOverride?: string; enableAuthority?: boolean } = {},
 ): Promise<void> {
-  if (process.env.OMX_NOTIFY_FALLBACK === "0") return;
+  if (process.env.QMX_NOTIFY_FALLBACK === "0") return;
 
   const { mkdir, writeFile, readFile } = await import("fs/promises");
   const pidPath = notifyFallbackPidPath(cwd);
@@ -2395,7 +2395,7 @@ async function startNotifyFallbackWatcher(
     }
   }
 
-  await mkdir(join(cwd, ".omx", "state"), { recursive: true }).catch(
+  await mkdir(join(cwd, ".QMX", "state"), { recursive: true }).catch(
     (error: unknown) => {
       console.warn(
         "[omq] warning: failed to create notify fallback watcher state directory",
@@ -2418,8 +2418,8 @@ async function startNotifyFallbackWatcher(
       pidPath,
       "--parent-pid",
       String(process.pid),
-      ...(process.env.OMX_NOTIFY_FALLBACK_MAX_LIFETIME_MS
-        ? ["--max-lifetime-ms", process.env.OMX_NOTIFY_FALLBACK_MAX_LIFETIME_MS]
+      ...(process.env.QMX_NOTIFY_FALLBACK_MAX_LIFETIME_MS
+        ? ["--max-lifetime-ms", process.env.QMX_NOTIFY_FALLBACK_MAX_LIFETIME_MS]
         : []),
     ],
     {
@@ -2453,7 +2453,7 @@ async function startNotifyFallbackWatcher(
 }
 
 async function startHookDerivedWatcher(cwd: string): Promise<void> {
-  if (process.env.OMX_HOOK_DERIVED_SIGNALS !== "1") return;
+  if (process.env.QMX_HOOK_DERIVED_SIGNALS !== "1") return;
 
   const { mkdir, writeFile, readFile } = await import("fs/promises");
   const pidPath = hookDerivedWatcherPidPath(cwd);
@@ -2470,17 +2470,17 @@ async function startHookDerivedWatcher(cwd: string): Promise<void> {
         process.kill(prev.pid, "SIGTERM");
       }
     } catch (error: unknown) {
-      console.warn("[omx] warning: failed to stop stale hook-derived watcher", {
+      console.warn("[QMX] warning: failed to stop stale hook-derived watcher", {
         path: pidPath,
         error: error instanceof Error ? error.message : String(error),
       });
     }
   }
 
-  await mkdir(join(cwd, ".omx", "state"), { recursive: true }).catch(
+  await mkdir(join(cwd, ".QMX", "state"), { recursive: true }).catch(
     (error: unknown) => {
       console.warn(
-        "[omx] warning: failed to create hook-derived watcher state directory",
+        "[QMX] warning: failed to create hook-derived watcher state directory",
         {
           cwd,
           error: error instanceof Error ? error.message : String(error),
@@ -2505,7 +2505,7 @@ async function startHookDerivedWatcher(cwd: string): Promise<void> {
     ),
   ).catch((error: unknown) => {
     console.warn(
-      "[omx] warning: failed to write hook-derived watcher pid file",
+      "[QMX] warning: failed to write hook-derived watcher pid file",
       {
         path: pidPath,
         error: error instanceof Error ? error.message : String(error),
@@ -2602,7 +2602,7 @@ async function flushNotifyFallbackOnce(
 }
 
 async function flushHookDerivedWatcherOnce(cwd: string): Promise<void> {
-  if (process.env.OMX_HOOK_DERIVED_SIGNALS !== "1") return;
+  if (process.env.QMX_HOOK_DERIVED_SIGNALS !== "1") return;
   const { spawnSync } = await import("child_process");
   const pkgRoot = getPackageRoot();
   const watcherScript = resolveHookDerivedWatcherScript(pkgRoot);
@@ -2613,7 +2613,7 @@ async function flushHookDerivedWatcherOnce(cwd: string): Promise<void> {
     timeout: 3000,
     env: {
       ...process.env,
-      OMX_HOOK_DERIVED_SIGNALS: "1",
+      QMX_HOOK_DERIVED_SIGNALS: "1",
     },
   });
 }
@@ -2708,3 +2708,4 @@ async function cancelModes(): Promise<void> {
     console.log("No active modes to cancel.");
   }
 }
+
