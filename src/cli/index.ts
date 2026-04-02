@@ -1,6 +1,6 @@
 /**
- * oh-my-codex CLI
- * Multi-agent orchestration for OpenAI Codex CLI
+ * oh-my-qwen CLI
+ * Multi-agent orchestration for Qwen Code CLI
  */
 
 import { execFileSync, spawn } from "child_process";
@@ -25,7 +25,7 @@ import { sessionCommand } from "./session-search.js";
 import { autoresearchCommand } from "./autoresearch.js";
 import {
   MADMAX_FLAG,
-  CODEX_BYPASS_FLAG,
+  QWEN_CODE_BYPASS_FLAG,
   HIGH_REASONING_FLAG,
   XHIGH_REASONING_FLAG,
   SPARK_FLAG,
@@ -108,50 +108,50 @@ export function resolveNotifyHookScript(pkgRoot = getPackageRoot()): string {
 }
 
 const HELP = `
-oh-my-codex (omx) - Multi-agent orchestration for Codex CLI
+oh-my-qwen (omq) - Multi-agent orchestration for Qwen Code CLI
 
 Usage:
-  omx           Launch Codex CLI (HUD auto-attaches only when already inside tmux)
-  omx exec      Run codex exec non-interactively with OMX AGENTS/overlay injection
-  omx setup     Install skills, prompts, MCP servers, and scope-specific AGENTS.md
-  omx uninstall Remove OMX configuration and clean up installed artifacts
-  omx doctor    Check installation health
-  omx cleanup   Kill orphaned OMX MCP server processes and remove stale OMX /tmp directories
-  omx doctor --team  Check team/swarm runtime health diagnostics
-  omx ask       Ask local provider CLI (claude|gemini) and write artifact output
-  omx resume    Resume a previous interactive Codex session
-  omx explore   Default read-only exploration entrypoint (may adaptively use sparkshell backend)
-  omx session   Search prior local session transcripts and history artifacts
-  omx agents-init [path]
+  omq           Launch Qwen Code CLI (HUD auto-attaches only when already inside tmux)
+  omq exec      Run qwen-code exec non-interactively with OMQ AGENTS/overlay injection
+  omq setup     Install skills, prompts, MCP servers, and scope-specific AGENTS.md
+  omq uninstall Remove OMQ configuration and clean up installed artifacts
+  omq doctor    Check installation health
+  omq cleanup   Kill orphaned OMQ MCP server processes and remove stale OMQ /tmp directories
+  omq doctor --team  Check team/swarm runtime health diagnostics
+  omq ask       Ask local provider CLI (claude|gemini) and write artifact output
+  omq resume    Resume a previous interactive Qwen Code session
+  omq explore   Default read-only exploration entrypoint (may adaptively use sparkshell backend)
+  omq session   Search prior local session transcripts and history artifacts
+  omq agents-init [path]
                 Bootstrap lightweight AGENTS.md files for a repo/subtree
-  omx agents    Manage Codex native agent TOML files
-  omx deepinit [path]
+  omq agents    Manage Qwen Code native agent TOML files
+  omq deepinit [path]
                 Alias for agents-init (lightweight AGENTS bootstrap only)
-  omx team      Spawn parallel worker panes in tmux and bootstrap inbox/task state
-  omx ralph     Launch Codex with ralph persistence mode active
-  omx autoresearch Launch thin-supervisor autoresearch with keep/discard/reset parity
-  omx version   Show version information
-  omx tmux-hook Manage tmux prompt injection workaround (init|status|validate|test)
-  omx hooks     Manage hook plugins (init|status|validate|test)
-  omx hud       Show HUD statusline (--watch, --json, --preset=NAME)
-  omx sparkshell <command> [args...]
-  omx sparkshell --tmux-pane <pane-id> [--tail-lines <100-1000>]
+  omq team      Spawn parallel worker panes in tmux and bootstrap inbox/task state
+  omq ralph     Launch Qwen Code with ralph persistence mode active
+  omq autoresearch Launch thin-supervisor autoresearch with keep/discard/reset parity
+  omq version   Show version information
+  omq tmux-hook Manage tmux prompt injection workaround (init|status|validate|test)
+  omq hooks     Manage hook plugins (init|status|validate|test)
+  omq hud       Show HUD statusline (--watch, --json, --preset=NAME)
+  omq sparkshell <command> [args...]
+  omq sparkshell --tmux-pane <pane-id> [--tail-lines <100-1000>]
                 Run native sparkshell sidecar for direct command execution or explicit tmux-pane summarization
                 (also used as an adaptive backend for qualifying read-only explore tasks)
-  omx help      Show this help message
-  omx status    Show active modes and state
-  omx cancel    Cancel active execution modes
-  omx reasoning Show or set model reasoning effort (low|medium|high|xhigh)
+  omq help      Show this help message
+  omq status    Show active modes and state
+  omq cancel    Cancel active execution modes
+  omq reasoning Show or set model reasoning effort (low|medium|high|xhigh)
 
 Options:
-  --yolo        Launch Codex in yolo mode (shorthand for: omx launch --yolo)
-  --high        Launch Codex with high reasoning effort
+  --yolo        Launch Qwen Code in yolo mode (shorthand for: omq launch --yolo)
+  --high        Launch Qwen Code with high reasoning effort
                 (shorthand for: -c model_reasoning_effort="high")
-  --xhigh       Launch Codex with xhigh reasoning effort
+  --xhigh       Launch Qwen Code with xhigh reasoning effort
                 (shorthand for: -c model_reasoning_effort="xhigh")
-  --madmax      DANGEROUS: bypass Codex approvals and sandbox
+  --madmax      DANGEROUS: bypass Qwen Code approvals and sandbox
                 (alias for --dangerously-bypass-approvals-and-sandbox)
-  --spark       Use the Codex spark model (~1.3x faster) for team workers only
+  --spark       Use the Qwen Code spark model (~1.3x faster) for team workers only
                 Workers get the configured low-complexity team model; leader model unchanged
   --madmax-spark  spark model for workers + bypass approvals for leader and workers
                 (shorthand for: --spark --madmax)
@@ -162,7 +162,7 @@ Options:
   --custom <name>
                 Select custom/OpenClaw gateway name for temporary notification mode
   -w, --worktree[=<name>]
-                Launch Codex in a git worktree (detached when no name is given)
+                Launch Qwen Code in a git worktree (detached when no name is given)
   --force       Force reinstall (overwrite existing files)
   --dry-run     Show what would be done without doing it
   --keep-config Skip config.toml cleanup during uninstall
@@ -455,15 +455,15 @@ export function classifyCodexExecFailure(
   };
 }
 
-function runCodexBlocking(
+function runQwenBlocking(
   cwd: string,
   launchArgs: string[],
-  codexEnv: NodeJS.ProcessEnv,
+  qwenEnv: NodeJS.ProcessEnv,
 ): void {
-  const { result } = spawnPlatformCommandSync("codex", launchArgs, {
+  const { result } = spawnPlatformCommandSync("qwen-code", launchArgs, {
     cwd,
     stdio: "inherit",
-    env: codexEnv,
+    env: qwenEnv,
     encoding: "utf-8",
   });
 
@@ -472,14 +472,14 @@ function runCodexBlocking(
     const kind = classifySpawnError(errno);
     if (kind === "missing") {
       console.error(
-        "[omx] failed to launch codex: executable not found in PATH",
+        "[omq] failed to launch qwen-code: executable not found in PATH",
       );
     } else if (kind === "blocked") {
       console.error(
-        `[omx] failed to launch codex: executable is present but blocked in the current environment (${errno.code || "blocked"})`,
+        `[omq] failed to launch qwen-code: executable is present but blocked in the current environment (${errno.code || "blocked"})`,
       );
     } else {
-      console.error(`[omx] failed to launch codex: ${errno.message}`);
+      console.error(`[omq] failed to launch qwen-code: ${errno.message}`);
     }
     throw result.error;
   }
@@ -490,7 +490,7 @@ function runCodexBlocking(
         ? result.status
         : resolveSignalExitCode(result.signal);
     if (result.signal) {
-      console.error(`[omx] codex exited due to signal ${result.signal}`);
+      console.error(`[omq] qwen-code exited due to signal ${result.signal}`);
     }
   }
 }
@@ -824,7 +824,7 @@ export async function launchWithHud(args: string[]): Promise<void> {
     parsedWorktree.remainingArgs,
     process.env,
   );
-  const codexHomeOverride = resolveCodexHomeForLaunch(launchCwd, process.env);
+  const qwenHomeOverride = resolveCodexHomeForLaunch(launchCwd, process.env);
   const launchPolicy = resolveCodexLaunchPolicy(
     process.env,
     process.platform,
@@ -834,7 +834,7 @@ export async function launchWithHud(args: string[]): Promise<void> {
   const enableNotifyFallbackAuthority = launchPolicy === "direct";
   const workerSparkModel = resolveWorkerSparkModel(
     notifyTempResult.passthroughArgs,
-    codexHomeOverride,
+    qwenHomeOverride,
   );
   const normalizedArgs = normalizeCodexLaunchArgs(
     notifyTempResult.passthroughArgs,
@@ -868,8 +868,8 @@ export async function launchWithHud(args: string[]): Promise<void> {
   }
 
   // ── Phase 0.5: config repair ────────────────────────────────────────────
-  // After an omx version upgrade the OLD setup code (still in memory) may
-  // have written a config.toml with duplicate [tui] sections.  Codex CLI's
+  // After an omq version upgrade the OLD setup code (still in memory) may
+  // have written a config.toml with duplicate [tui] sections.  Qwen Code CLI's
   // TOML parser rejects duplicates, so we repair before spawning the CLI.
   try {
     const repaired = await repairConfigIfNeeded(
@@ -877,7 +877,7 @@ export async function launchWithHud(args: string[]): Promise<void> {
       getPackageRoot(),
     );
     if (repaired) {
-      console.log("[omx] Repaired duplicate [tui] section in config.toml.");
+      console.log("[omq] Repaired duplicate [tui] section in config.toml.");
     }
   } catch {
     // Non-fatal: repair failure must not block launch
@@ -885,11 +885,11 @@ export async function launchWithHud(args: string[]): Promise<void> {
 
   // ── Phase 1: preLaunch ──────────────────────────────────────────────────
   try {
-    await preLaunch(cwd, sessionId, notifyTempResult.contract, codexHomeOverride, enableNotifyFallbackAuthority);
+    await preLaunch(cwd, sessionId, notifyTempResult.contract, qwenHomeOverride, enableNotifyFallbackAuthority);
   } catch (err) {
     // preLaunch errors must NOT prevent Codex from starting
     console.error(
-      `[omx] preLaunch warning: ${err instanceof Error ? err.message : err}`,
+      `[omq] preLaunch warning: ${err instanceof Error ? err.message : err}`,
     );
   }
 
@@ -898,17 +898,17 @@ export async function launchWithHud(args: string[]): Promise<void> {
     const notifyTempContractRaw = notifyTempResult.contract.active
       ? serializeNotifyTempContract(notifyTempResult.contract)
       : null;
-    runCodex(
+    runQwen(
       cwd,
       normalizedArgs,
       sessionId,
       workerSparkModel,
-      codexHomeOverride,
+      qwenHomeOverride,
       notifyTempContractRaw,
     );
   } finally {
     // ── Phase 3: postLaunch ─────────────────────────────────────────────
-    await postLaunch(cwd, sessionId, codexHomeOverride, enableNotifyFallbackAuthority);
+    await postLaunch(cwd, sessionId, qwenHomeOverride, enableNotifyFallbackAuthority);
   }
 }
 
@@ -919,7 +919,7 @@ export async function execWithOverlay(args: string[]): Promise<void> {
     parsedWorktree.remainingArgs,
     process.env,
   );
-  const codexHomeOverride = resolveCodexHomeForLaunch(launchCwd, process.env);
+  const qwenHomeOverride = resolveCodexHomeForLaunch(launchCwd, process.env);
   const normalizedArgs = normalizeCodexLaunchArgs(
     notifyTempResult.passthroughArgs,
   );
@@ -957,8 +957,44 @@ export async function execWithOverlay(args: string[]): Promise<void> {
       getPackageRoot(),
     );
     if (repaired) {
-      console.log("[omx] Repaired duplicate [tui] section in config.toml.");
+      console.log("[omq] Repaired duplicate [tui] section in config.toml.");
     }
+  } catch {
+    // Non-fatal
+  }
+
+  try {
+    await preLaunch(cwd, sessionId, notifyTempResult.contract, qwenHomeOverride, true);
+  } catch (err) {
+    console.error(
+      `[omq] preLaunch warning: ${err instanceof Error ? err.message : err}`,
+    );
+  }
+
+  try {
+    const notifyTempContractRaw = notifyTempResult.contract.active
+      ? serializeNotifyTempContract(notifyTempResult.contract)
+      : null;
+    const qwenArgs = injectModelInstructionsBypassArgs(
+      cwd,
+      ["exec", ...normalizedArgs],
+      process.env,
+      sessionModelInstructionsPath(cwd, sessionId),
+    );
+    const qwenEnvBase = qwenHomeOverride
+      ? { ...process.env, QWEN_CODE_HOME: qwenHomeOverride }
+      : process.env;
+    const qwenEnv = notifyTempContractRaw
+      ? {
+          ...qwenEnvBase,
+          [OMX_NOTIFY_TEMP_CONTRACT_ENV]: notifyTempContractRaw,
+        }
+      : qwenEnvBase;
+    runQwenBlocking(cwd, qwenArgs, qwenEnv);
+  } finally {
+    await postLaunch(cwd, sessionId, qwenHomeOverride, true);
+  }
+}
   } catch {
     // Non-fatal
   }
@@ -989,8 +1025,8 @@ export async function execWithOverlay(args: string[]): Promise<void> {
           ...codexEnvBase,
           [OMX_NOTIFY_TEMP_CONTRACT_ENV]: notifyTempContractRaw,
         }
-      : codexEnvBase;
-    runCodexBlocking(cwd, codexArgs, codexEnv);
+      : qwenEnvBase;
+    runQwenBlocking(cwd, codexArgs, qwenEnv);
   } finally {
     await postLaunch(cwd, sessionId, codexHomeOverride, true);
   }
@@ -1009,7 +1045,7 @@ export function normalizeCodexLaunchArgs(args: string[]): string[] {
       continue;
     }
 
-    if (arg === CODEX_BYPASS_FLAG) {
+    if (arg === QWEN_CODE_BYPASS_FLAG) {
       wantsBypass = true;
       if (!hasBypass) {
         normalized.push(arg);
@@ -1043,7 +1079,7 @@ export function normalizeCodexLaunchArgs(args: string[]): string[] {
   }
 
   if (wantsBypass && !hasBypass) {
-    normalized.push(CODEX_BYPASS_FLAG);
+    normalized.push(QWEN_CODE_BYPASS_FLAG);
   }
 
   if (reasoningMode) {
@@ -1562,7 +1598,7 @@ export function buildNotifyTempStartupMessages(
 export function buildNotifyFallbackWatcherEnv(
   env: NodeJS.ProcessEnv = process.env,
   options: {
-    codexHomeOverride?: string;
+    qwenHomeOverride?: string;
     enableAuthority?: boolean;
   } = {},
 ): NodeJS.ProcessEnv {
@@ -1571,25 +1607,25 @@ export function buildNotifyFallbackWatcherEnv(
   delete nextEnv.TMUX_PANE;
   return {
     ...nextEnv,
-    ...(options.codexHomeOverride ? { CODEX_HOME: options.codexHomeOverride } : {}),
+    ...(options.qwenHomeOverride ? { QWEN_CODE_HOME: options.qwenHomeOverride } : {}),
     OMX_HUD_AUTHORITY: options.enableAuthority ? "1" : "0",
   };
 }
 
 /**
- * preLaunch: Prepare environment before Codex starts.
+ * preLaunch: Prepare environment before Qwen Code starts.
  * 1. Generate runtime overlay + write session-scoped model instructions file
  * 2. Write session.json
  *
  * Automatic stale-session cleanup is intentionally disabled here. Destructive
- * cleanup must be explicit via `omx cleanup` so normal launches never reap
- * files or processes from other OMX sessions.
+ * cleanup must be explicit via `omq cleanup` so normal launches never reap
+ * files or processes from other OMQ sessions.
  */
 async function preLaunch(
   cwd: string,
   sessionId: string,
   notifyTempContract?: NotifyTempContract,
-  codexHomeOverride?: string,
+  qwenHomeOverride?: string,
   enableNotifyFallbackAuthority: boolean = false,
 ): Promise<void> {
   // 1. Generate runtime overlay + write session-scoped model instructions file
@@ -1613,7 +1649,7 @@ ${launchAppendix}`
 
   // 3. Start notify fallback watcher (best effort)
   try {
-    await startNotifyFallbackWatcher(cwd, { codexHomeOverride, enableAuthority: enableNotifyFallbackAuthority });
+    await startNotifyFallbackWatcher(cwd, { qwenHomeOverride, enableAuthority: enableNotifyFallbackAuthority });
   } catch (err) {
     process.stderr.write(`[cli/index] operation failed: ${err}\n`);
     // Non-fatal
@@ -1640,10 +1676,10 @@ ${launchAppendix}`
         Boolean(resolved?.enabled),
       );
       for (const info of startup.infoLines) {
-        console.log(`[omx] ${info}`);
+        console.log(`[omq] ${info}`);
       }
       for (const warning of startup.warningLines) {
-        console.warn(`[omx] ${warning}`);
+        console.warn(`[omq] ${warning}`);
       }
     } else {
       delete process.env[OMX_NOTIFY_TEMP_CONTRACT_ENV];
@@ -1676,15 +1712,15 @@ ${launchAppendix}`
 }
 
 /**
- * runCodex: Launch Codex CLI (blocks until exit).
+ * runQwen: Launch Qwen Code CLI (blocks until exit).
  * All 3 paths (new tmux, existing tmux, no tmux) block via execSync/execFileSync.
  */
-function runCodex(
+function runQwen(
   cwd: string,
   args: string[],
   sessionId: string,
   workerDefaultModel?: string,
-  codexHomeOverride?: string,
+  qwenHomeOverride?: string,
   notifyTempContractRaw?: string | null,
 ): void {
   const launchArgs = injectModelInstructionsBypassArgs(
@@ -1694,10 +1730,10 @@ function runCodex(
     sessionModelInstructionsPath(cwd, sessionId),
   );
   const nativeWindows = isNativeWindows();
-  const omxBin = process.argv[1];
+  const omqBin = process.argv[1];
   const hudCmd = nativeWindows
-    ? buildWindowsPromptCommand("node", [omxBin, "hud", "--watch"])
-    : buildTmuxPaneCommand("node", [omxBin, "hud", "--watch"]);
+    ? buildWindowsPromptCommand("node", [omqBin, "hud", "--watch"])
+    : buildTmuxPaneCommand("node", [omqBin, "hud", "--watch"]);
   const inheritLeaderFlags = process.env[TEAM_INHERIT_LEADER_FLAGS_ENV] !== "0";
   const workerLaunchArgs = resolveTeamWorkerLaunchArgsEnv(
     process.env[TEAM_WORKER_LAUNCH_ARGS_ENV],
@@ -1705,15 +1741,15 @@ function runCodex(
     inheritLeaderFlags,
     workerDefaultModel,
   );
-  const codexBaseEnv = codexHomeOverride
-    ? { ...process.env, CODEX_HOME: codexHomeOverride }
+  const qwenBaseEnv = qwenHomeOverride
+    ? { ...process.env, QWEN_CODE_HOME: qwenHomeOverride }
     : process.env;
-  const codexEnv = workerLaunchArgs
-    ? { ...codexBaseEnv, [TEAM_WORKER_LAUNCH_ARGS_ENV]: workerLaunchArgs }
-    : codexBaseEnv;
-  const codexEnvWithNotify = notifyTempContractRaw
-    ? { ...codexEnv, [OMX_NOTIFY_TEMP_CONTRACT_ENV]: notifyTempContractRaw }
-    : codexEnv;
+  const qwenEnv = workerLaunchArgs
+    ? { ...qwenBaseEnv, [TEAM_WORKER_LAUNCH_ARGS_ENV]: workerLaunchArgs }
+    : qwenBaseEnv;
+  const qwenEnvWithNotify = notifyTempContractRaw
+    ? { ...qwenEnv, [OMX_NOTIFY_TEMP_CONTRACT_ENV]: notifyTempContractRaw }
+    : qwenEnv;
 
   const launchPolicy = resolveCodexLaunchPolicy(
     process.env,
@@ -1723,7 +1759,7 @@ function runCodex(
   );
 
   if (isCodexVersionRequest(launchArgs)) {
-    runCodexBlocking(cwd, launchArgs, codexEnvWithNotify);
+    runQwenBlocking(cwd, launchArgs, qwenEnvWithNotify);
     return;
   }
 
@@ -1772,7 +1808,7 @@ function runCodex(
     }
 
     try {
-      runCodexBlocking(cwd, launchArgs, codexEnvWithNotify);
+      runQwenBlocking(cwd, launchArgs, qwenEnvWithNotify);
     } finally {
       const cleanupPaneIds = buildHudPaneCleanupTargets(
         listHudWatchPaneIdsInCurrentWindow(currentPaneId),
@@ -1786,14 +1822,14 @@ function runCodex(
   } else if (launchPolicy === "direct") {
     // Detached HUD sessions require tmux. Skip the bootstrap entirely when the
     // binary is unavailable so direct launches do not emit noisy ENOENT logs.
-    runCodexBlocking(cwd, launchArgs, codexEnvWithNotify);
+    runQwenBlocking(cwd, launchArgs, qwenEnvWithNotify);
   } else {
-    // Not in tmux: create a new tmux session with codex + HUD pane
-    const codexCmd = buildTmuxPaneCommand("codex", launchArgs);
-    const detachedWindowsCodexCmd = nativeWindows
-      ? buildWindowsPromptCommand("codex", launchArgs)
+    // Not in tmux: create a new tmux session with qwen-code + HUD pane
+    const qwenCmd = buildTmuxPaneCommand("qwen-code", launchArgs);
+    const detachedWindowsQwenCmd = nativeWindows
+      ? buildWindowsPromptCommand("qwen-code", launchArgs)
       : null;
-    const tmuxSessionId = `omx-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+    const tmuxSessionId = `omq-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
     const sessionName = buildTmuxSessionName(cwd, tmuxSessionId);
     let createdDetachedSession = false;
     let registeredHookTarget: string | null = null;
@@ -1803,10 +1839,10 @@ function runCodex(
       const bootstrapSteps = buildDetachedSessionBootstrapSteps(
         sessionName,
         cwd,
-        codexCmd,
+        qwenCmd,
         hudCmd,
         workerLaunchArgs,
-        codexHomeOverride,
+        qwenHomeOverride,
         notifyTempContractRaw,
         nativeWindows,
       );
@@ -1853,10 +1889,10 @@ function runCodex(
             process.env.OMX_MOUSE !== "0",
             nativeWindows,
           );
-          if (nativeWindows && detachedWindowsCodexCmd) {
-            scheduleDetachedWindowsCodexLaunch(
+          if (nativeWindows && detachedWindowsQwenCmd) {
+            scheduleDetachedWindowsQwenLaunch(
               sessionName,
-              detachedWindowsCodexCmd,
+              detachedWindowsQwenCmd,
             );
           }
           for (const finalizeStep of finalizeSteps) {
@@ -1905,8 +1941,8 @@ function runCodex(
           }
         }
       }
-      // tmux not available or failed, just run codex directly
-      runCodexBlocking(cwd, launchArgs, codexEnvWithNotify);
+      // tmux not available or failed, just run qwen-code directly
+      runQwenBlocking(cwd, launchArgs, qwenEnvWithNotify);
     }
   }
 }
@@ -2041,7 +2077,7 @@ function buildDetachedWindowsBootstrapScript(
   ].join("");
 }
 
-function scheduleDetachedWindowsCodexLaunch(
+function scheduleDetachedWindowsQwenLaunch(
   sessionName: string,
   commandText: string,
 ): void {
@@ -2058,13 +2094,13 @@ function scheduleDetachedWindowsCodexLaunch(
 }
 
 /**
- * postLaunch: Clean up after Codex exits.
+ * postLaunch: Clean up after Qwen Code exits.
  * Each step is independently fault-tolerant (try/catch per step).
  */
 async function postLaunch(
   cwd: string,
   sessionId: string,
-  codexHomeOverride?: string,
+  qwenHomeOverride?: string,
   enableNotifyFallbackAuthority: boolean = false,
 ): Promise<void> {
   // Capture session start time before cleanup (writeSessionEnd deletes session.json)
@@ -2077,12 +2113,78 @@ async function postLaunch(
     // Non-fatal
   }
 
-  // 0. Flush fallback watcher once to reduce race with fast codex exit.
+  // 0. Flush fallback watcher once to reduce race with fast qwen-code exit.
   try {
-    await flushNotifyFallbackOnce(cwd, { codexHomeOverride, enableAuthority: enableNotifyFallbackAuthority });
+    await flushNotifyFallbackOnce(cwd, { qwenHomeOverride, enableAuthority: enableNotifyFallbackAuthority });
   } catch (err) {
     process.stderr.write(`[cli/index] operation failed: ${err}\n`);
     // Non-fatal
+  }
+
+  // 0. Stop notify fallback watcher first.
+  try {
+    await stopNotifyFallbackWatcher(cwd);
+  } catch (err) {
+    process.stderr.write(`[cli/index] operation failed: ${err}\n`);
+    // Non-fatal
+  }
+
+  // 0. Flush derived watcher once on shutdown (opt-in, best effort).
+  try {
+    await flushHookDerivedWatcherOnce(cwd);
+  } catch (err) {
+    process.stderr.write(`[cli/index] operation failed: ${err}\n`);
+    // Non-fatal
+  }
+
+  // 0. Stop derived watcher first (opt-in, best effort).
+  try {
+    await stopHookDerivedWatcher(cwd);
+  } catch (err) {
+    process.stderr.write(`[cli/index] operation failed: ${err}\n`);
+    // Non-fatal
+  }
+
+  // 1. Remove session-scoped model instructions file
+  try {
+    await removeSessionModelInstructionsFile(cwd, sessionId);
+  } catch (err) {
+    console.error(
+      `[omq] postLaunch: model instructions cleanup failed: ${err instanceof Error ? err.message : err}`,
+    );
+  }
+
+  // 2. Archive session (write history, delete session.json)
+  try {
+    await writeSessionEnd(cwd, sessionId);
+  } catch (err) {
+    console.error(
+      `[omq] postLaunch: session archive failed: ${err instanceof Error ? err.message : err}`,
+    );
+  }
+
+  // 3. Cancel any still-active modes
+  try {
+    const { readdir, writeFile, readFile } = await import("fs/promises");
+    const scopedDirs = [getBaseStateDir(cwd), getStateDir(cwd, sessionId)];
+    for (const stateDir of scopedDirs) {
+      const files = await readdir(stateDir).catch(() => [] as string[]);
+      for (const file of files) {
+        if (!file.endsWith("-state.json") || file === "session.json") continue;
+        const path = join(stateDir, file);
+        const content = await readFile(path, "utf-8");
+        const state = JSON.parse(content);
+        if (state.active) {
+          state.active = false;
+          state.completed_at = new Date().toISOString();
+          await writeFile(path, JSON.stringify(state, null, 2));
+        }
+      }
+    }
+  } catch (err) {
+    console.error(
+      `[omq] postLaunch: mode cleanup failed: ${err instanceof Error ? err.message : err}`,
+    );
   }
 
   // 0. Stop notify fallback watcher first.
@@ -2114,7 +2216,7 @@ async function postLaunch(
     await removeSessionModelInstructionsFile(cwd, sessionId);
   } catch (err) {
     console.error(
-      `[omx] postLaunch: model instructions cleanup failed: ${err instanceof Error ? err.message : err}`,
+      `[omq] postLaunch: model instructions cleanup failed: ${err instanceof Error ? err.message : err}`,
     );
   }
 
@@ -2123,7 +2225,7 @@ async function postLaunch(
     await writeSessionEnd(cwd, sessionId);
   } catch (err) {
     console.error(
-      `[omx] postLaunch: session archive failed: ${err instanceof Error ? err.message : err}`,
+      `[omq] postLaunch: session archive failed: ${err instanceof Error ? err.message : err}`,
     );
   }
 
@@ -2147,7 +2249,7 @@ async function postLaunch(
     }
   } catch (err) {
     console.error(
-      `[omx] postLaunch: mode cleanup failed: ${err instanceof Error ? err.message : err}`,
+      `[omq] postLaunch: mode cleanup failed: ${err instanceof Error ? err.message : err}`,
     );
   }
 
@@ -2262,7 +2364,7 @@ function tryKillPid(pid: number, signal: NodeJS.Signals = "SIGTERM"): boolean {
 
 async function startNotifyFallbackWatcher(
   cwd: string,
-  options: { codexHomeOverride?: string; enableAuthority?: boolean } = {},
+  options: { qwenHomeOverride?: string; enableAuthority?: boolean } = {},
 ): Promise<void> {
   if (process.env.OMX_NOTIFY_FALLBACK === "0") return;
 
@@ -2283,7 +2385,7 @@ async function startNotifyFallbackWatcher(
     } catch (error: unknown) {
       if (!hasErrnoCode(error, "ESRCH")) {
         console.warn(
-          "[omx] warning: failed to stop stale notify fallback watcher",
+          "[omq] warning: failed to stop notify fallback watcher",
           {
             path: pidPath,
             error: error instanceof Error ? error.message : String(error),
@@ -2296,7 +2398,7 @@ async function startNotifyFallbackWatcher(
   await mkdir(join(cwd, ".omx", "state"), { recursive: true }).catch(
     (error: unknown) => {
       console.warn(
-        "[omx] warning: failed to create notify fallback watcher state directory",
+        "[omq] warning: failed to create notify fallback watcher state directory",
         {
           cwd,
           error: error instanceof Error ? error.message : String(error),
@@ -2325,7 +2427,7 @@ async function startNotifyFallbackWatcher(
       detached: true,
       stdio: "ignore",
       env: buildNotifyFallbackWatcherEnv(process.env, {
-        codexHomeOverride: options.codexHomeOverride,
+        qwenHomeOverride: options.qwenHomeOverride,
         enableAuthority: options.enableAuthority === true,
       }),
     },
@@ -2341,7 +2443,7 @@ async function startNotifyFallbackWatcher(
     ),
   ).catch((error: unknown) => {
     console.warn(
-      "[omx] warning: failed to write notify fallback watcher pid file",
+      "[omq] warning: failed to write notify fallback watcher pid file",
       {
         path: pidPath,
         error: error instanceof Error ? error.message : String(error),
@@ -2424,8 +2526,8 @@ async function stopNotifyFallbackWatcher(cwd: string): Promise<void> {
     }
   } catch (error: unknown) {
     if (!hasErrnoCode(error, "ESRCH")) {
-      console.warn(
-        "[omx] warning: failed to stop notify fallback watcher process",
+    console.warn(
+      "[omq] warning: failed to stop notify fallback watcher process",
         {
           path: pidPath,
           error: error instanceof Error ? error.message : String(error),
@@ -2436,7 +2538,7 @@ async function stopNotifyFallbackWatcher(cwd: string): Promise<void> {
 
   await unlink(pidPath).catch((error: unknown) => {
     console.warn(
-      "[omx] warning: failed to remove notify fallback watcher pid file",
+      "[omq] warning: failed to remove notify fallback watcher pid file",
       {
         path: pidPath,
         error: error instanceof Error ? error.message : String(error),
@@ -2458,7 +2560,7 @@ async function stopHookDerivedWatcher(cwd: string): Promise<void> {
       process.kill(parsed.pid, "SIGTERM");
     }
   } catch (error: unknown) {
-    console.warn("[omx] warning: failed to stop hook-derived watcher process", {
+    console.warn("[omq] warning: failed to stop hook-derived watcher process", {
       path: pidPath,
       error: error instanceof Error ? error.message : String(error),
     });
@@ -2466,7 +2568,7 @@ async function stopHookDerivedWatcher(cwd: string): Promise<void> {
 
   await unlink(pidPath).catch((error: unknown) => {
     console.warn(
-      "[omx] warning: failed to remove hook-derived watcher pid file",
+      "[omq] warning: failed to remove hook-derived watcher pid file",
       {
         path: pidPath,
         error: error instanceof Error ? error.message : String(error),
@@ -2477,7 +2579,7 @@ async function stopHookDerivedWatcher(cwd: string): Promise<void> {
 
 async function flushNotifyFallbackOnce(
   cwd: string,
-  options: { codexHomeOverride?: string; enableAuthority?: boolean } = {},
+  options: { qwenHomeOverride?: string; enableAuthority?: boolean } = {},
 ): Promise<void> {
   const { spawnSync } = await import("child_process");
   const pkgRoot = getPackageRoot();
@@ -2492,7 +2594,7 @@ async function flushNotifyFallbackOnce(
       stdio: "ignore",
       timeout: 3000,
       env: buildNotifyFallbackWatcherEnv(process.env, {
-        codexHomeOverride: options.codexHomeOverride,
+        qwenHomeOverride: options.qwenHomeOverride,
         enableAuthority: options.enableAuthority === true,
       }),
     },

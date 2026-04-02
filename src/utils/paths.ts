@@ -1,6 +1,6 @@
 /**
- * Path utilities for oh-my-codex
- * Resolves Codex CLI config, skills, prompts, and state directories
+ * Path utilities for oh-my-qwen
+ * Resolves Qwen Code CLI config, skills, prompts, and state directories
  */
 
 import { createHash } from "crypto";
@@ -10,39 +10,44 @@ import { dirname, join } from "path";
 import { homedir } from "os";
 import { fileURLToPath } from "url";
 
-/** Codex CLI home directory (~/.codex/) */
+/** Qwen Code CLI home directory (~/.qwen-code/) */
+export function qwenHome(): string {
+  return process.env.QWEN_CODE_HOME || join(homedir(), ".qwen-code");
+}
+
+/** Alias for backward compatibility */
 export function codexHome(): string {
-  return process.env.CODEX_HOME || join(homedir(), ".codex");
+  return qwenHome();
 }
 
-/** Codex config file path (~/.codex/config.toml) */
+/** Qwen Code config file path (~/.qwen-code/config.toml) */
 export function codexConfigPath(): string {
-  return join(codexHome(), "config.toml");
+  return join(qwenHome(), "config.toml");
 }
 
-/** Codex prompts directory (~/.codex/prompts/) */
+/** Qwen Code prompts directory (~/.qwen-code/prompts/) */
 export function codexPromptsDir(): string {
-  return join(codexHome(), "prompts");
+  return join(qwenHome(), "prompts");
 }
 
-/** Codex native agents directory (~/.codex/agents/) */
+/** Qwen Code native agents directory (~/.qwen-code/agents/) */
 export function codexAgentsDir(codexHomeDir?: string): string {
-  return join(codexHomeDir || codexHome(), "agents");
+  return join(codexHomeDir || qwenHome(), "agents");
 }
 
-/** Project-level Codex native agents directory (.codex/agents/) */
+/** Project-level Qwen Code native agents directory (.qwen-code/agents/) */
 export function projectCodexAgentsDir(projectRoot?: string): string {
-  return join(projectRoot || process.cwd(), ".codex", "agents");
+  return join(projectRoot || process.cwd(), ".qwen-code", "agents");
 }
 
-/** User-level skills directory ($CODEX_HOME/skills, defaults to ~/.codex/skills/) */
+/** User-level skills directory ($QWEN_CODE_HOME/skills, defaults to ~/.qwen-code/skills/) */
 export function userSkillsDir(): string {
-  return join(codexHome(), "skills");
+  return join(qwenHome(), "skills");
 }
 
-/** Project-level skills directory (.codex/skills/) */
+/** Project-level skills directory (.qwen-code/skills/) */
 export function projectSkillsDir(projectRoot?: string): string {
-  return join(projectRoot || process.cwd(), ".codex", "skills");
+  return join(projectRoot || process.cwd(), ".qwen-code", "skills");
 }
 
 /** Historical legacy user-level skills directory (~/.agents/skills/) */

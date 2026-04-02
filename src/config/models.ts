@@ -62,9 +62,9 @@ function readModelsBlock(codexHomeOverride?: string): ModelsConfig | null {
   return null;
 }
 
-export const DEFAULT_FRONTIER_MODEL = 'gpt-5.4';
-export const DEFAULT_STANDARD_MODEL = 'gpt-5.4-mini';
-export const DEFAULT_SPARK_MODEL = 'gpt-5.3-codex-spark';
+export const DEFAULT_FRONTIER_MODEL = 'qwen-max';
+export const DEFAULT_STANDARD_MODEL = 'qwen-plus';
+export const DEFAULT_SPARK_MODEL = 'qwen-turbo';
 
 function normalizeConfiguredValue(value: unknown): string | undefined {
   if (typeof value !== 'string') return undefined;

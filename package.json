@@ -1,14 +1,14 @@
 {
-  "name": "oh-my-codex",
-  "version": "0.11.11",
-  "description": "Multi-agent orchestration layer for OpenAI Codex CLI",
+  "name": "oh-my-qwen",
+  "version": "1.0.0",
+  "description": "Multi-agent orchestration layer for Qwen Code CLI",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "omx": "dist/cli/omx.js"
+    "omq": "dist/cli/omq.js"
   },
   "scripts": {
-    "build": "node -e \"const fs=require('fs'); fs.rmSync('dist',{recursive:true,force:true});\" && tsc && node -e \"require('fs').chmodSync('dist/cli/omx.js', 0o755)\"",
+    "build": "node -e \"const fs=require('fs'); fs.rmSync('dist',{recursive:true,force:true});\" && tsc && node -e \"require('fs').chmodSync('dist/cli/omq.js', 0o755)\"",
     "build:explore": "cargo build -p omx-explore-harness",
     "build:full": "npm run build && npm run build:explore:release && npm run build:sparkshell",
     "build:explore:release": "node dist/scripts/build-explore-harness.js",
@@ -17,8 +17,8 @@
     "dev": "tsc --watch",
     "lint": "biome lint .",
     "prepack": "npm run build && npm run clean:native-package-assets",
-    "setup": "node dist/cli/omx.js setup",
-    "doctor": "node dist/cli/omx.js doctor",
+    "setup": "node dist/cli/omq.js setup",
+    "doctor": "node dist/cli/omq.js doctor",
     "ask:claude": "./src/scripts/ask-claude.sh",
     "ask:gemini": "./src/scripts/ask-gemini.sh",
     "test:explore": "cargo test -p omx-explore-harness && node --test dist/cli/__tests__/explore.test.js dist/hooks/__tests__/explore-routing.test.js dist/hooks/__tests__/explore-sparkshell-guidance-contract.test.js",
@@ -50,21 +50,21 @@
     "src/scripts/"
   ],
   "keywords": [
-    "codex",
-    "openai",
+    "qwen",
+    "alibaba",
     "cli",
     "agents",
     "orchestration",
     "multi-agent"
   ],
-  "author": "Yeachan Heo",
+  "author": "Your Name",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Yeachan-Heo/oh-my-codex.git"
+    "url": "git+https://github.com/your-username/oh-my-qwen.git"
   },
-  "homepage": "https://yeachan-heo.github.io/oh-my-codex",
+  "homepage": "https://github.com/your-username/oh-my-qwen",
   "bugs": {
-    "url": "https://github.com/Yeachan-Heo/oh-my-codex/issues"
+    "url": "https://github.com/your-username/oh-my-qwen/issues"
   },
   "license": "MIT",
   "dependencies": {
